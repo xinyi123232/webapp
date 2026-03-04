@@ -1,6 +1,6 @@
 import streamlit as st
 import json
-import folium
+
 from streamlit_folium import st_folium
 
 
@@ -153,3 +153,4 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
