@@ -78,7 +78,7 @@ with left:
 
     st.markdown("---")
 
-    st.subheader("Network Metrics")
+    st.subheader("Metrics")
 
     if mode == "Current Network":
         st.metric("Existing Stations", metrics["existing_stations"])
@@ -228,6 +228,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
