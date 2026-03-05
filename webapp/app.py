@@ -9,17 +9,17 @@ script_dir = Path(__file__).parent
 
 @st.cache_data
 def load_hex():
-    with open(script_dir/"data/baseline/hex.geojson") as f:
+    with open(script_dir/data/baseline/"hex.geojson") as f:
         return json.load(f)
 
 @st.cache_data
 def load_stations():
-    with open(script_dir / "data/baseline/stations.geojson") as f:
+    with open(script_dir/data/baseline/"stations.geojson") as f:
         return json.load(f)
 
 @st.cache_data
 def load_metrics():
-    with open(script_dir / "data/baseline/metrics.json") as f:
+    with open(script_dir/data/baseline/"metrics.json") as f:
         return json.load(f)
 
 hex_data = load_hex()
@@ -155,6 +155,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
