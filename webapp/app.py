@@ -1,5 +1,3 @@
-pip install folium streamlit-folium
-
 import streamlit as st
 import json
 import folium
@@ -155,4 +153,5 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
