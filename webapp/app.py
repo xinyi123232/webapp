@@ -7,10 +7,10 @@ from streamlit_folium import st_folium
 script_dir = Path(__file__).parent
 
 
-# @st.cache_data
-# def load_hex():
-#     with open(script_dir/"data"/"baseline"/"hex.geojson") as f:
-#         return json.load(f)
+@st.cache_data
+def load_city_boundaries():
+    with open(script_dir/"data"/"city_boundaries.geojson") as f:
+        return json.load(f)
 
 # @st.cache_data
 # def load_stations():
@@ -22,7 +22,7 @@ script_dir = Path(__file__).parent
 #     with open(script_dir/"data"/"baseline"/"metrics.json") as f:
 #         return json.load(f)
 
-# hex_data = load_hex()
+city_boundaries = load_city_boundaries()
 # station_data = load_stations()
 # metrics = load_metrics()
 
@@ -146,6 +146,19 @@ with right:
         m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
 
         folium.GeoJson(
+        city_boundaries,
+        name="City Boundaries",
+        style_function=lambda feature: {
+            "fillColor": "none",
+            "color": "black",
+            "weight": 3,
+            "fillOpacity": 0,
+        },
+        tooltip=folium.GeoJsonTooltip(fields=["ADM3_EN"])
+    ).add_to(m)
+
+        
+        folium.GeoJson(
             hex_data,
             style_function=style_hex
         ).add_to(m)
@@ -219,6 +232,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
