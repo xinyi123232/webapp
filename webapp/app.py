@@ -83,7 +83,8 @@ with left:
             scenario_path = "data/universal_1000"
         else:
             scenario_path = "data/universal_2000"
-    
+
+    @st.cache_data
     hex_data, station_data, metrics = load_scenario(scenario_path)
 
     st.markdown("---")
@@ -229,6 +230,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
