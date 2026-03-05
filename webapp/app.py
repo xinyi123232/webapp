@@ -7,24 +7,39 @@ from streamlit_folium import st_folium
 script_dir = Path(__file__).parent
 
 
-@st.cache_data
-def load_hex():
-    with open(script_dir/"data"/"baseline"/"hex.geojson") as f:
-        return json.load(f)
+# @st.cache_data
+# def load_hex():
+#     with open(script_dir/"data"/"baseline"/"hex.geojson") as f:
+#         return json.load(f)
+
+# @st.cache_data
+# def load_stations():
+#     with open(script_dir/"data"/"baseline"/"stations.geojson") as f:
+#         return json.load(f)
+
+# @st.cache_data
+# def load_metrics():
+#     with open(script_dir/"data"/"baseline"/"metrics.json") as f:
+#         return json.load(f)
+
+# hex_data = load_hex()
+# station_data = load_stations()
+# metrics = load_metrics()
 
 @st.cache_data
-def load_stations():
-    with open(script_dir/"data"/"baseline"/"stations.geojson") as f:
-        return json.load(f)
+def load_scenario(scenario_path):
+    import json
 
-@st.cache_data
-def load_metrics():
-    with open(script_dir/"data"/"baseline"/"metrics.json") as f:
-        return json.load(f)
+    with open(f"{scenario_path}/hex.geojson") as f:
+        hex_data = json.load(f)
 
-hex_data = load_hex()
-station_data = load_stations()
-metrics = load_metrics()
+    with open(f"{scenario_path}/stations.geojson") as f:
+        station_data = json.load(f)
+
+    with open(f"{scenario_path}/metrics.json") as f:
+        metrics = json.load(f)
+
+    return hex_data, station_data, metrics
 
 
 st.set_page_config(layout="wide")
@@ -38,19 +53,68 @@ with left:
     st.title("EV Charging Station Location Optimization")
 
     mode = st.radio(
-        "Planning Mode",
-        ["Current Network"]
+    "Planning Mode",
+    ["Current Network", "Add 50 Stations", "Universal Coverage"]
     )
+    scenario_path = "data/baseline"
+
+    if mode == "Add 50 Stations":
+
+        demand_focus = st.selectbox(
+            "Demand Focus",
+            ["Balanced", "Traffic Priority", "Activity Priority"]
+        )
+
+        if demand_focus == "Balanced":
+            scenario_path = "data/add50_balanced"
+        elif demand_focus == "Traffic Priority":
+            scenario_path = "data/add50_traffic"
+        else:
+            scenario_path = "data/add50_activity"
+
+    elif mode == "Universal Coverage":
+
+        service_standard = st.selectbox(
+            "Service Standard",
+            ["500 meters (Very Strict)",
+            "1000 meters (Standard)",
+            "2000 meters (Relaxed)"]
+        )
+
+        if "500" in service_standard:
+            scenario_path = "data/universal_500"
+        elif "1000" in service_standard:
+            scenario_path = "data/universal_1000"
+        else:
+            scenario_path = "data/universal_2000"
+
+    hex_data, station_data, metrics = load_scenario(scenario_path)
 
     st.markdown("---")
 
     st.subheader("Network Metrics")
 
+    if mode == "Current Network":
+        st.metric("Existing Stations", metrics["existing_stations"])
+        st.metric("Area Covered", f"{metrics['area_covered']}%")
+        st.metric("Demand Covered", f"{metrics['demand_covered']}%")
 
+    elif mode == "Add 50 Stations":
+        st.metric("New Stations Added", 50)
+        st.metric("Total Stations", metrics["total_stations"])
+        st.metric("Area Covered", f"{metrics['area_covered']}%")
+        st.metric("Demand Covered", f"{metrics['demand_covered']}%")
+        st.metric("Improvement Over Current", f"+{metrics['improvement']}%")
 
-    st.metric("Existing Stations", metrics["existing_stations"])
-    st.metric("Area Covered", f"{metrics['area_covered']}%")
-    st.metric("Demand Covered", f"{metrics['demand_covered']}%")
+    elif mode == "Universal Coverage":
+        st.metric("New Stations Required", metrics["new_stations"])
+        st.metric("Total Stations", metrics["total_stations"])
+        st.metric("Area Covered", "100%")
+
+        if metrics["uncovered"] == 0:
+            st.success("All serviceable areas covered.")
+        else:
+            st.metric("Uncovered Areas", metrics["uncovered"])
 
     st.markdown("---")
 
@@ -155,6 +219,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
