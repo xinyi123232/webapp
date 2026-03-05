@@ -129,6 +129,23 @@ with right:
             "weight": 0.4,
             "fillOpacity": 0.6,
         }
+    
+    def style_station(feature):
+        status = feature["properties"]["status"]
+    
+        if status == "Existing":
+            color = "blue"
+        else:
+            color = "green"
+    
+        return {
+            "radius": 5,
+            "fillColor": color,
+            "color": color,
+            "fillOpacity": 1
+        }
+
+    
 
     def build_map(hex_data, station_data):
         m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
@@ -136,8 +153,6 @@ with right:
         Service_Coverage_and_Hex = folium.FeatureGroup(name="1KM Service Coverage and Colored Hex")
         
         folium.GeoJson(
-            
-            
             city_boundaries,
             name="City Boundaries",
             style_function=lambda feature: {
@@ -228,6 +243,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
