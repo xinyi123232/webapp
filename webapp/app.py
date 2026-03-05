@@ -19,7 +19,7 @@ def load_stations():
 
 @st.cache_data
 def load_metrics():
-    with open(script_dir / "hex.geojson") as f:
+    with open(script_dir / "metrics.json") as f:
         return json.load(f)
 
 hex_data = load_hex()
@@ -157,6 +157,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
