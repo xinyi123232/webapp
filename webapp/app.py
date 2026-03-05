@@ -175,7 +175,7 @@ with right:
         ).add_to(Service_Coverage_and_Hex)
         EVCS.add_to(m)
         Service_Coverage_and_Hex.add_to(m)
-        folium.LayerControl(collapsed=False).add_to(m)
+        folium.LayerControl(position='topleft',collapsed=False).add_to(m)
         st.cache_data.clear()
         return m
 
@@ -228,6 +228,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
