@@ -82,7 +82,9 @@ with left:
     if mode == "Current Network":
         st.metric("Existing Stations", metrics["existing_stations"])
         st.metric("Area Covered", f"{metrics['area_covered']}%")
-        st.metric("Demand Covered", f"{metrics['demand_covered']}%")
+        st.metric("Demand Covered Balanced", f"{metrics['demand_covered_balanced']}%")
+        st.metric("Demand Covered Traffic", f"{metrics['demand_covered_traffic']}%")
+        st.metric("Demand Covered Activity", f"{metrics['demand_covered_activity']}%")
 
     elif mode == "Add 50 Stations":
         st.metric("New Stations Added", 50)
@@ -217,6 +219,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
