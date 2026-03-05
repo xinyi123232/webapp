@@ -6,6 +6,17 @@ from streamlit_folium import st_folium
 
 script_dir = Path(__file__).parent
 
+@st.cache_data
+def load_scenario(scenario_path):
+    base_path = script_dir / scenario_path
+    with open(base_path / "hex.geojson") as f:
+        hex_data = json.load(f)
+    with open(base_path / "stations.geojson") as f:
+        station_data = json.load(f)
+    with open(base_path / "metrics.json") as f:
+        metrics = json.load(f)
+
+    return hex_data, station_data, metrics
 
 @st.cache_data
 def load_city_boundaries():
@@ -25,21 +36,6 @@ def load_city_boundaries():
 city_boundaries = load_city_boundaries()
 # station_data = load_stations()
 # metrics = load_metrics()
-
-@st.cache_data
-def load_scenario(scenario_path):
-    import json
-
-    with open(script_dir/f"{scenario_path}/hex.geojson") as f:
-        hex_data = json.load(f)
-
-    with open(script_dir/f"{scenario_path}/stations.geojson") as f:
-        station_data = json.load(f)
-
-    with open(script_dir/f"{scenario_path}/metrics.json") as f:
-        metrics = json.load(f)
-
-    return hex_data, station_data, metrics
 
 
 st.set_page_config(layout="wide")
@@ -233,6 +229,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
