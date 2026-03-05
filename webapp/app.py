@@ -3,10 +3,10 @@ import json
 import folium
 from pathlib import Path
 from streamlit_folium import st_folium
-st.cache_data.clear()
+
 script_dir = Path(__file__).parent
 
-# @st.cache_data
+@st.cache_data
 def load_scenario(scenario_path):
     
     base_path = script_dir / scenario_path
@@ -19,7 +19,7 @@ def load_scenario(scenario_path):
 
     return hex_data, station_data, metrics
 
-# @st.cache_data
+@st.cache_data
 def load_city_boundaries():
     with open(script_dir/"data"/"city_boundaries.geojson") as f:
         return json.load(f)
