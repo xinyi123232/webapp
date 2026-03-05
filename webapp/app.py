@@ -116,15 +116,18 @@ with left:
 # ---- RIGHT PANEL ----
 with right:
     # Hex styling
+
+    status_colors = {
+    "uncovered": "red",
+    "existing": "#38AADD",
+    "new_coverage": "orange",
+    "new_coverage_SCLP": "green"
+}
+    
     def style_hex(feature):
-        covered = feature["properties"]["covered"]
-        # demand = feature["properties"]["demand_level"]
-        if covered:
-            fill_color = "#38AADD"
-        else:
-            fill_color = "red"
+        status = feature["properties"].get("color_status")
         return {
-            "fillColor": fill_color,
+            "fillColor": status_colors.get(status),
             "color": "black",
             "weight": 0.4,
             "fillOpacity": 0.6,
@@ -243,6 +246,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
