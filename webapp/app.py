@@ -22,20 +22,9 @@ def load_scenario(scenario_path):
 def load_city_boundaries():
     with open(script_dir/"data"/"city_boundaries.geojson") as f:
         return json.load(f)
-
-# @st.cache_data
-# def load_stations():
-#     with open(script_dir/"data"/"baseline"/"stations.geojson") as f:
-#         return json.load(f)
-
-# @st.cache_data
-# def load_metrics():
-#     with open(script_dir/"data"/"baseline"/"metrics.json") as f:
-#         return json.load(f)
-
+        
 city_boundaries = load_city_boundaries()
-# station_data = load_stations()
-# metrics = load_metrics()
+
 
 
 st.set_page_config(layout="wide")
@@ -228,6 +217,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
