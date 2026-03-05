@@ -30,13 +30,13 @@ script_dir = Path(__file__).parent
 def load_scenario(scenario_path):
     import json
 
-    with open(f"{scenario_path}/hex.geojson") as f:
+    with open(script_dir/f"{scenario_path}/hex.geojson") as f:
         hex_data = json.load(f)
 
-    with open(f"{scenario_path}/stations.geojson") as f:
+    with open(script_dir/f"{scenario_path}/stations.geojson") as f:
         station_data = json.load(f)
 
-    with open(f"{scenario_path}/metrics.json") as f:
+    with open(script_dir/f"{scenario_path}/metrics.json") as f:
         metrics = json.load(f)
 
     return hex_data, station_data, metrics
@@ -219,6 +219,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
