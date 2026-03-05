@@ -131,26 +131,29 @@ with right:
         }
 
     def build_map(hex_data, station_data):
-
         m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
-
+        EVCS = folium.FeatureGroup(name='Electric Vehicle Charging Stations')
+        Service_Coverage_and_Hex = folium.FeatureGroup(name="1KM Service Coverage and Colored Hex")
+        
         folium.GeoJson(
-        city_boundaries,
-        name="City Boundaries",
-        style_function=lambda feature: {
-            "fillColor": "none",
-            "color": "black",
-            "weight": 3,
-            "fillOpacity": 0,
-        },
-        tooltip=folium.GeoJsonTooltip(fields=["ADM3_EN"])
-    ).add_to(m)
+            
+            
+            city_boundaries,
+            name="City Boundaries",
+            style_function=lambda feature: {
+                "fillColor": "none",
+                "color": "black",
+                "weight": 3,
+                "fillOpacity": 0,
+            },
+            tooltip=folium.GeoJsonTooltip(fields=["ADM3_EN"])
+            ).add_to(m)
 
         
         folium.GeoJson(
             hex_data,
             style_function=style_hex
-        ).add_to(m)
+        ).add_to(Service_Coverage_and_Hex)
 
         folium.GeoJson(
             station_data,
@@ -158,7 +161,7 @@ with right:
                 #popup=folium.Popup(html_popup, max_width=250),
                 #tooltip=f"Existing: {row['EVCS Name']}",
                 icon=folium.Icon(color='blue', icon='bolt', prefix='fa'))
-        ).add_to(m)
+        ).add_to(EVCS)
 
         folium.GeoJson(
             station_data,
@@ -169,7 +172,10 @@ with right:
                 fill_opacity=.1,
                 weight=1
             )
-        ).add_to(m)
+        ).add_to(Service_Coverage_and_Hex)
+        EVCS.add_to(m)
+        Service_Coverage_and_Hex.add_to(m)
+        folium.LayerControl(collapsed=False).add_to(m)
         st.cache_data.clear()
         return m
 
@@ -222,6 +228,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
