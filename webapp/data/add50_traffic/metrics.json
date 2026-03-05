@@ -1,7 +1,8 @@
 {
   "new_stations_added": 50,
   "total_stations": 255,
-  "area_covered": 52.44,
-  "demand_covered": 75.16,
-  "improvement": 29.43
+  "area_covered": 52.07,
+  "area_improvement": 19.00
+  "demand_covered": 86.78,
+  "demand_improvement": 27.86
 }
