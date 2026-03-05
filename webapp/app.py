@@ -127,7 +127,7 @@ with right:
             "fillColor": fill_color,
             "color": "black",
             "weight": 0.4,
-            "fillOpacity": 0.7,
+            "fillOpacity": 0.4,
         }
 
     def build_map(hex_data, station_data):
@@ -228,6 +228,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
