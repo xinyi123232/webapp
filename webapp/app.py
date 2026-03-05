@@ -3,7 +3,24 @@ import json
 import folium
 from streamlit_folium import st_folium
 
+@st.cache_data
+def load_hex():
+    with open("hex.geojson") as f:
+        return json.load(f)
 
+@st.cache_data
+def load_stations():
+    with open("stations.geojson") as f:
+        return json.load(f)
+
+@st.cache_data
+def load_metrics():
+    with open("metrics.json") as f:
+        return json.load(f)
+
+hex_data = load_hex()
+station_data = load_stations()
+metrics = load_metrics()
 
 
 st.set_page_config(layout="wide")
@@ -55,24 +72,7 @@ with right:
             "weight": 0.4,
             "fillOpacity": 0.7,
         }
-    @st.cache_data
-    def load_hex():
-        with open("hex.geojson") as f:
-            return json.load(f)
 
-    @st.cache_data
-    def load_stations():
-        with open("stations.geojson") as f:
-            return json.load(f)
-
-    @st.cache_data
-    def load_metrics():
-        with open("metrics.json") as f:
-            return json.load(f)
-
-    hex_data = load_hex()
-    station_data = load_stations()
-    metrics = load_metrics()
 
     @st.cache_resource
     def build_map(hex_data, station_data):
@@ -153,5 +153,6 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
