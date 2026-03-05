@@ -171,13 +171,11 @@ with right:
                 weight=1
             )
         ).add_to(m)
-        st.cache_data.clear()
+        # st.cache_data.clear()
         return m
 
 
     m = build_map(hex_data, station_data)
-
-    
     st_folium(m, width=1000, height=700)
     # m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
     
@@ -225,6 +223,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
