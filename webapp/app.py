@@ -1,21 +1,25 @@
 import streamlit as st
 import json
 import folium
+from pathlib import Path
 from streamlit_folium import st_folium
+
+script_dir = Path(__file__).parent
+
 
 @st.cache_data
 def load_hex():
-    with open("hex.geojson") as f:
+    with open(script_dir / "hex.geojson") as f:
         return json.load(f)
 
 @st.cache_data
 def load_stations():
-    with open("stations.geojson") as f:
+    with open(script_dir / "stations.geojson") as f:
         return json.load(f)
 
 @st.cache_data
 def load_metrics():
-    with open("metrics.json") as f:
+    with open(script_dir / "hex.geojson") as f:
         return json.load(f)
 
 hex_data = load_hex()
@@ -153,6 +157,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
