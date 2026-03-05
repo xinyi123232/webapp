@@ -172,7 +172,7 @@ with right:
                 weight=1
             )
         ).add_to(m)
-        # st.cache_data.clear()
+        st.cache_data.clear()
         return m
 
 
@@ -224,6 +224,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
