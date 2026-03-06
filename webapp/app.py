@@ -140,9 +140,10 @@ with right:
     "SCLP": "green"
 }
     def style_station(feature):
-        a = feature["properties"].get("status")
+        a = feature["properties"][0].get("status")
         return status_colors.get(a)
-    
+        
+    color = style_station(station_data)
 
     def build_map(hex_data, station_data):
         m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
@@ -172,14 +173,14 @@ with right:
             marker=folium.Marker(
                 #popup=folium.Popup(html_popup, max_width=250),
                 #tooltip=f"Existing: {row['EVCS Name']}",
-                icon=folium.Icon(color=style_station, icon='bolt', prefix='fa'))
+                icon=folium.Icon(color=color, icon='bolt', prefix='fa'))
         ).add_to(EVCS)
 
         folium.GeoJson(
             station_data,
             marker=folium.Circle(
                 radius=1000,   # 1KM in meters
-                color=style_station,
+                color=color,
                 fill=True,
                 fill_opacity=.1,
                 weight=1
@@ -240,6 +241,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
