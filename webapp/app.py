@@ -157,7 +157,6 @@ with right:
             return "orange", "orange"
         return "gray", "gray"
 
-    color1, color2 = style_station_color(station_data)    
 
     def build_map(hex_data, station_data):
         m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
@@ -256,5 +255,6 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
