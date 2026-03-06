@@ -133,21 +133,48 @@ with right:
             "fillOpacity": 0.6,
         }
     
-    def style_station(feature):
+    # def style_station(feature):
+    #     status = feature["properties"]["status"]
+    
+    #     if status == "Existing":
+    #         color = "blue"
+    #     else:
+    #         color = "green"
+    
+    #     return {
+    #         "radius": 5,
+    #         "fillColor": color,
+    #         "color": color,
+    #         "fillOpacity": 1
+    #     }
+
+    def style_station_color(feature):
         status = feature["properties"]["status"]
     
         if status == "Existing":
-            color = "blue"
-        else:
-            color = "green"
-    
+            color1="blue"
+            color2="#38AADD"
+            return color1,color2
+        if status == "SCLP":
+            # text = "folium.Icon(color='green', icon='hourglass', prefix='fa')"
+            color1="green"
+            color2="green"
+            return color1,color2
+            # return text.replace('"', '')
+        if status == "MCLP":
+            # text = "folium.Icon(color='orange', icon='hourglass', prefix='fa')"
+            color1="orange"
+            color2="orange"
+            return color1
+            # return text.replace('"', '')
+            
         return {
             "radius": 5,
             "fillColor": color,
             "color": color,
             "fillOpacity": 1
         }
-
+    
     
 
     def build_map(hex_data, station_data):
@@ -175,17 +202,18 @@ with right:
 
         folium.GeoJson(
             station_data,
+            color1, color2 = style_station_color(feature)
             marker=folium.Marker(
                 #popup=folium.Popup(html_popup, max_width=250),
                 #tooltip=f"Existing: {row['EVCS Name']}",
-                icon=folium.Icon(color='blue', icon='bolt', prefix='fa'))
+                icon=folium.Icon(color=color1, icon='bolt', prefix='fa'))
         ).add_to(EVCS)
 
         folium.GeoJson(
             station_data,
             marker=folium.Circle(
                 radius=1000,   # 1KM in meters
-                color="#38AADD",
+                color=color2,
                 fill=True,
                 fill_opacity=.1,
                 weight=1
@@ -246,6 +274,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
