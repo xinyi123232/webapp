@@ -140,7 +140,7 @@ with right:
     "SCLP": "green"
 }
     def style_station(feature):
-        a = feature["properties"][0].get("status")
+        a = feature.get('properties', {}).get('status')
         return status_colors.get(a)
         
     color = style_station(station_data)
@@ -167,25 +167,26 @@ with right:
             hex_data,
             style_function=style_hex
         ).add_to(Service_Coverage_and_Hex)
-
-        folium.GeoJson(
-            station_data,
-            marker=folium.Marker(
-                #popup=folium.Popup(html_popup, max_width=250),
-                #tooltip=f"Existing: {row['EVCS Name']}",
-                icon=folium.Icon(color=color, icon='bolt', prefix='fa'))
-        ).add_to(EVCS)
-
-        folium.GeoJson(
-            station_data,
-            marker=folium.Circle(
-                radius=1000,   # 1KM in meters
-                color=color,
-                fill=True,
-                fill_opacity=.1,
-                weight=1
-            )
-        ).add_to(Service_Coverage_and_Hex)
+        for feature in station_data['features']:
+            color = style_station(feature)
+            folium.GeoJson(
+                station_data,
+                marker=folium.Marker(
+                    #popup=folium.Popup(html_popup, max_width=250),
+                    #tooltip=f"Existing: {row['EVCS Name']}",
+                    icon=folium.Icon(color=color, icon='bolt', prefix='fa'))
+            ).add_to(EVCS)
+    
+            folium.GeoJson(
+                station_data,
+                marker=folium.Circle(
+                    radius=1000,   # 1KM in meters
+                    color=color,
+                    fill=True,
+                    fill_opacity=.1,
+                    weight=1
+                )
+            ).add_to(Service_Coverage_and_Hex)
         EVCS.add_to(m)
         Service_Coverage_and_Hex.add_to(m)
         folium.LayerControl(position='topleft',collapsed=False).add_to(m)
@@ -241,6 +242,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
