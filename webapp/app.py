@@ -147,7 +147,7 @@ with right:
     #         "color": color,
     #         "fillOpacity": 1
     #     }
-
+    @st.cache_data
     def style_station_color(feature):
         status = feature["properties"]["status"]
     
@@ -175,7 +175,8 @@ with right:
             "fillOpacity": 1
         }
     
-    
+    @st.cache_data
+    color1, color2 = style_station_color(station_data)    
 
     def build_map(hex_data, station_data):
         m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
@@ -202,7 +203,7 @@ with right:
 
         folium.GeoJson(
             station_data,
-            color1, color2 = style_station_color(feature)
+
             marker=folium.Marker(
                 #popup=folium.Popup(html_popup, max_width=250),
                 #tooltip=f"Existing: {row['EVCS Name']}",
@@ -274,6 +275,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
