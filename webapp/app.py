@@ -148,34 +148,14 @@ with right:
     #         "fillOpacity": 1
     #     }
     @st.cache_data
-    def style_station_color(feature):
-        # status = feature["properties"]["status"]
-        status = feature["status"]
-        status = feature["status"][0]
+    def get_colors(status):
         if status == "Existing":
-            color1="blue"
-            color2="#38AADD"
-            return color1,color2
-        if status == "SCLP":
-            # text = "folium.Icon(color='green', icon='hourglass', prefix='fa')"
-            color1="green"
-            color2="green"
-            return color1,color2
-            # return text.replace('"', '')
-        if status == "MCLP":
-            # text = "folium.Icon(color='orange', icon='hourglass', prefix='fa')"
-            color1="orange"
-            color2="orange"
-            return color1
-            # return text.replace('"', '')
-
-        return {
-            "radius": 5,
-            "fillColor": color,
-            "color": color,
-            "fillOpacity": 1
-        }
-
+            return "blue", "#38AADD"
+        elif status == "SCLP":
+            return "green", "green"
+        elif status == "MCLP":
+            return "orange", "orange"
+        return "gray", "gray"
 
     color1, color2 = style_station_color(station_data)    
 
@@ -208,14 +188,14 @@ with right:
             marker=folium.Marker(
                 #popup=folium.Popup(html_popup, max_width=250),
                 #tooltip=f"Existing: {row['EVCS Name']}",
-                icon=folium.Icon(color=color1, icon='bolt', prefix='fa'))
+                icon=folium.Icon(color=get_colors(feature["properties"].get("status"))[0], icon='bolt', prefix='fa'))
         ).add_to(EVCS)
 
         folium.GeoJson(
             station_data,
             marker=folium.Circle(
                 radius=1000,   # 1KM in meters
-                color=color2,
+                color=color=get_colors(feature["properties"].get("status"))[1],
                 fill=True,
                 fill_opacity=.1,
                 weight=1
@@ -276,3 +256,4 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
