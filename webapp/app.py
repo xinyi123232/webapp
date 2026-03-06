@@ -182,7 +182,7 @@ with right:
         folium.GeoJson(
             station_data,
             marker=folium.Circle(
-                radius=500,   # 1KM in meters
+                radius=2000,   # 1KM in meters
                 color=color_icon_radius,
                 fill=True,
                 fill_opacity=.1,
@@ -244,6 +244,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
