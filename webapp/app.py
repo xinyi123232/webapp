@@ -130,18 +130,24 @@ with right:
         return {
             "fillColor": status_colors.get(status),
             "color": "black",
-            "weight": 0.2,
-            "fillOpacity": 0.3,
+            "weight": 0.4,
+            "fillOpacity": 0.6,
         }
     
-    def get_colors(status):
+    def style_station(feature):
+        status = feature["properties"]["status"]
+    
         if status == "Existing":
-            return "blue", "#38AADD"
-        elif status == "SCLP":
-            return "green", "green"
-        elif status == "MCLP":
-            return "orange", "orange"
-        return "gray", "gray"
+            color = "blue"
+        else:
+            color = "green"
+    
+        return {
+            "radius": 5,
+            "fillColor": color,
+            "color": color,
+            "fillOpacity": 1
+        }
 
     
 
@@ -168,35 +174,29 @@ with right:
             style_function=style_hex
         ).add_to(Service_Coverage_and_Hex)
 
-        for feature in station_data['features']:
-            lon, lat = feature['geometry']['coordinates']
-            status = feature['properties'].get('status', 'Unknown')
-            name = feature['properties'].get('EVCS Name', 'Station')
-            
-            # Get your dynamic colors
-            color1, color2 = get_colors(status)
-    
-            # Create the Marker (The Bolt)
-            folium.Marker(
-                location=[lat, lon],
-                icon=folium.Icon(color=color1, icon='bolt', prefix='fa'),
-                tooltip=f"{name} ({status})"
-            ).add_to(EVCS)
-    
-            # Create the Coverage Circle (1KM)
-            folium.Circle(
-                location=[lat, lon],
-                radius=1000,
-                color=color2,
+        folium.GeoJson(
+            station_data,
+            marker=folium.Marker(
+                #popup=folium.Popup(html_popup, max_width=250),
+                #tooltip=f"Existing: {row['EVCS Name']}",
+                icon=folium.Icon(color='blue', icon='bolt', prefix='fa'))
+        ).add_to(EVCS)
+
+        folium.GeoJson(
+            station_data,
+            marker=folium.Circle(
+                radius=1000,   # 1KM in meters
+                color="#38AADD",
                 fill=True,
-                fill_opacity=0.1,
+                fill_opacity=.1,
                 weight=1
-            ).add_to(Service_Coverage_and_Hex)
-            EVCS.add_to(m)
-            Service_Coverage_and_Hex.add_to(m)
-            folium.LayerControl(position='topleft',collapsed=False).add_to(m)
-            st.cache_data.clear()
-            return m
+            )
+        ).add_to(Service_Coverage_and_Hex)
+        EVCS.add_to(m)
+        Service_Coverage_and_Hex.add_to(m)
+        folium.LayerControl(position='topleft',collapsed=False).add_to(m)
+        st.cache_data.clear()
+        return m
 
 
     m = build_map(hex_data, station_data)
@@ -247,10 +247,6 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
-
-
-
-
 
 
 
