@@ -195,7 +195,7 @@ with right:
             station_data,
             marker=folium.Circle(
                 radius=1000,   # 1KM in meters
-                color=color=get_colors(feature["properties"].get("status"))[1],
+                color=get_colors(feature["properties"].get("status"))[1],
                 fill=True,
                 fill_opacity=.1,
                 weight=1
@@ -256,4 +256,5 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
