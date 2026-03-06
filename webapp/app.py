@@ -118,7 +118,7 @@ with left:
 with right:
     # Hex styling
 
-    status_colors = {
+    status_colors_hex = {
     "uncovered": "red",
     "existing": "#38AADD",
     "new_coverage": "orange",
@@ -128,20 +128,20 @@ with right:
     def style_hex(feature):
         status = feature["properties"].get("color_status")
         return {
-            "fillColor": status_colors.get(status),
+            "fillColor": status_colors_hex.get(status),
             "color": "black",
             "weight": 0.4,
             "fillOpacity": 0.7,
         }
 
-    status_colors = {
+    status_colors_stations = {
     "existing": "blue",
     "MCLP": "orange",
     "SCLP": "green"
 }
     def style_station(feature):
         a = feature.get('properties', {}).get('status')
-        return status_colors.get(a)
+        return status_colors_stations.get(a)
         
     # color = style_station(station_data)
 
@@ -244,6 +244,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
