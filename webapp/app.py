@@ -149,8 +149,8 @@ with right:
     #     }
     @st.cache_data
     def style_station_color(feature):
-        status = feature["properties"]["status"]
-    
+        # status = feature["properties"]["status"]
+        status = feature["status"]
         if status == "Existing":
             color1="blue"
             color2="#38AADD"
