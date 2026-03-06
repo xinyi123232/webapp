@@ -8,7 +8,7 @@ script_dir = Path(__file__).parent
 
 @st.cache_data
 def load_scenario(scenario_path):
-    
+
     base_path = script_dir / scenario_path
     with open(base_path / "hex.geojson") as f:
         hex_data = json.load(f)
@@ -23,7 +23,7 @@ def load_scenario(scenario_path):
 def load_city_boundaries():
     with open(script_dir/"data"/"city_boundaries.geojson") as f:
         return json.load(f)
-        
+
 city_boundaries = load_city_boundaries()
 
 
@@ -123,7 +123,7 @@ with right:
     "new_coverage": "orange",
     "new_coverage_SCLP": "green"
 }
-    
+
     def style_hex(feature):
         status = feature["properties"].get("color_status")
         return {
@@ -132,89 +132,106 @@ with right:
             "weight": 0.4,
             "fillOpacity": 0.6,
         }
-    
+
     # def style_station(feature):
     #     status = feature["properties"]["status"]
-    
+
     #     if status == "Existing":
     #         color = "blue"
     #     else:
     #         color = "green"
-    
+
     #     return {
     #         "radius": 5,
     #         "fillColor": color,
     #         "color": color,
     #         "fillOpacity": 1
     #     }
-    def get_colors(status):
+    @st.cache_data
+    def style_station_color(feature):
+        # status = feature["properties"]["status"]
+        status = feature["status"]
+        status = feature["status"][0]
         if status == "Existing":
-            return "blue", "#38AADD"
-        elif status == "SCLP":
-            return "green", "green"
-        elif status == "MCLP":
-            return "orange", "orange"
-        return "gray", "gray"
-    
-    def build_map(hex_data, station_data, city_boundaries):
+            color1="blue"
+            color2="#38AADD"
+            return color1,color2
+        if status == "SCLP":
+            # text = "folium.Icon(color='green', icon='hourglass', prefix='fa')"
+            color1="green"
+            color2="green"
+            return color1,color2
+            # return text.replace('"', '')
+        if status == "MCLP":
+            # text = "folium.Icon(color='orange', icon='hourglass', prefix='fa')"
+            color1="orange"
+            color2="orange"
+            return color1
+            # return text.replace('"', '')
+
+        return {
+            "radius": 5,
+            "fillColor": color,
+            "color": color,
+            "fillOpacity": 1
+        }
+
+
+    color1, color2 = style_station_color(station_data)    
+
+    def build_map(hex_data, station_data):
         m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
-        
         EVCS = folium.FeatureGroup(name='Electric Vehicle Charging Stations')
-        Service_Coverage = folium.FeatureGroup(name="1KM Service Coverage")
-        Hex_Layer = folium.FeatureGroup(name="Colored Hex")
-    
-        # --- City Boundaries ---
+        Service_Coverage_and_Hex = folium.FeatureGroup(name="1KM Service Coverage and Colored Hex")
+
         folium.GeoJson(
             city_boundaries,
             name="City Boundaries",
             style_function=lambda feature: {
-                "fillColor": "none", "color": "black", "weight": 2, "fillOpacity": 0
+                "fillColor": "none",
+                "color": "black",
+                "weight": 3,
+                "fillOpacity": 0,
             },
             tooltip=folium.GeoJsonTooltip(fields=["ADM3_EN"])
-        ).add_to(m)
-    
-        # --- Hexagons ---
-        folium.GeoJson(hex_data, style_function=style_hex).add_to(Hex_Layer)
-    
-        # --- Station Markers (Dynamic Color) ---
+            ).add_to(m)
+
+
+        folium.GeoJson(
+            hex_data,
+            style_function=style_hex
+        ).add_to(Service_Coverage_and_Hex)
+
         folium.GeoJson(
             station_data,
-            # The lambda feature: ... is the secret to dynamic markers
-            marker=lambda feature: folium.Marker(
-                icon=folium.Icon(
-                    color=get_colors(feature["properties"].get("status"))[0], 
-                    icon='bolt', 
-                    prefix='fa'
-                )
-            ),
-            tooltip=folium.GeoJsonTooltip(fields=["EVCS Name", "status"])
+
+            marker=folium.Marker(
+                #popup=folium.Popup(html_popup, max_width=250),
+                #tooltip=f"Existing: {row['EVCS Name']}",
+                icon=folium.Icon(color=color1, icon='bolt', prefix='fa'))
         ).add_to(EVCS)
-    
-        # --- Service Coverage Circles (Dynamic Color) ---
+
         folium.GeoJson(
             station_data,
-            marker=lambda feature: folium.Circle(
-                radius=1000,
-                color=get_colors(feature["properties"].get("status"))[1],
+            marker=folium.Circle(
+                radius=1000,   # 1KM in meters
+                color=color2,
                 fill=True,
-                fill_opacity=0.15,
+                fill_opacity=.1,
                 weight=1
             )
-        ).add_to(Service_Coverage)
-    
-        # Add groups to map
-        Hex_Layer.add_to(m)
-        Service_Coverage.add_to(m)
+        ).add_to(Service_Coverage_and_Hex)
         EVCS.add_to(m)
-    
-        folium.LayerControl(position='topleft', collapsed=False).add_to(m)
+        Service_Coverage_and_Hex.add_to(m)
+        folium.LayerControl(position='topleft',collapsed=False).add_to(m)
+        st.cache_data.clear()
         return m
 
 
     m = build_map(hex_data, station_data)
     st_folium(m, width=1000, height=700)
     # m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
-    
+
 
 
     # folium.GeoJson(
@@ -226,7 +243,7 @@ with right:
     #     # )
     # ).add_to(m)
 
-        
+
 
     #     # folium.Circle(
     #     #     location=[row['Latitude'], row['Longitude']],
@@ -259,49 +276,3 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
