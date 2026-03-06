@@ -104,7 +104,7 @@ with left:
         if metrics["uncovered"] == 0:
             st.success("All serviceable areas covered.")
         else:
-            st.metric("Uncovered Areas", metrics["uncovered"])
+            st.metric("Uncovered Areas",f"{metrics['uncovered']}%")
 
     st.markdown("---")
 
@@ -247,4 +247,5 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
