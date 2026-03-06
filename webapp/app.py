@@ -136,19 +136,13 @@ with right:
     
     def style_station(feature):
         status = feature["properties"]["status"]
-    
         if status == "Existing":
-            color = "blue"
-        else:
-            color = "green"
-    
-        return {
-            "radius": 5,
-            "fillColor": color,
-            "color": color,
-            "fillOpacity": 1
-        }
-
+            return "blue"
+        if status == "MCLP":
+            return "organge"
+        if status == "SCLP":
+            return "green"
+        
     
 
     def build_map(hex_data, station_data):
@@ -186,7 +180,7 @@ with right:
             station_data,
             marker=folium.Circle(
                 radius=1000,   # 1KM in meters
-                color="#38AADD",
+                color=style_station(feature),
                 fill=True,
                 fill_opacity=.1,
                 weight=1
@@ -247,6 +241,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
