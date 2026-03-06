@@ -191,7 +191,7 @@ with right:
                 fill=True,
                 fill_opacity=0.1,
                 weight=1
-            ).add_to(Service_Coverage)
+            ).add_to(Service_Coverage_and_Hex)
             EVCS.add_to(m)
             Service_Coverage_and_Hex.add_to(m)
             folium.LayerControl(position='topleft',collapsed=False).add_to(m)
@@ -247,6 +247,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
