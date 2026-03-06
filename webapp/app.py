@@ -147,68 +147,68 @@ with right:
     #         "color": color,
     #         "fillOpacity": 1
     #     }
-   def get_colors(status):
-    if status == "Existing":
-        return "blue", "#38AADD"
-    elif status == "SCLP":
-        return "green", "green"
-    elif status == "MCLP":
-        return "orange", "orange"
-    return "gray", "gray"
-
-def build_map(hex_data, station_data, city_boundaries):
-    m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
+    def get_colors(status):
+        if status == "Existing":
+            return "blue", "#38AADD"
+        elif status == "SCLP":
+            return "green", "green"
+        elif status == "MCLP":
+            return "orange", "orange"
+        return "gray", "gray"
     
-    EVCS = folium.FeatureGroup(name='Electric Vehicle Charging Stations')
-    Service_Coverage = folium.FeatureGroup(name="1KM Service Coverage")
-    Hex_Layer = folium.FeatureGroup(name="Colored Hex")
-
-    # --- City Boundaries ---
-    folium.GeoJson(
-        city_boundaries,
-        name="City Boundaries",
-        style_function=lambda feature: {
-            "fillColor": "none", "color": "black", "weight": 2, "fillOpacity": 0
-        },
-        tooltip=folium.GeoJsonTooltip(fields=["ADM3_EN"])
-    ).add_to(m)
-
-    # --- Hexagons ---
-    folium.GeoJson(hex_data, style_function=style_hex).add_to(Hex_Layer)
-
-    # --- Station Markers (Dynamic Color) ---
-    folium.GeoJson(
-        station_data,
-        # The lambda feature: ... is the secret to dynamic markers
-        marker=lambda feature: folium.Marker(
-            icon=folium.Icon(
-                color=get_colors(feature["properties"].get("status"))[0], 
-                icon='bolt', 
-                prefix='fa'
+    def build_map(hex_data, station_data, city_boundaries):
+        m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
+        
+        EVCS = folium.FeatureGroup(name='Electric Vehicle Charging Stations')
+        Service_Coverage = folium.FeatureGroup(name="1KM Service Coverage")
+        Hex_Layer = folium.FeatureGroup(name="Colored Hex")
+    
+        # --- City Boundaries ---
+        folium.GeoJson(
+            city_boundaries,
+            name="City Boundaries",
+            style_function=lambda feature: {
+                "fillColor": "none", "color": "black", "weight": 2, "fillOpacity": 0
+            },
+            tooltip=folium.GeoJsonTooltip(fields=["ADM3_EN"])
+        ).add_to(m)
+    
+        # --- Hexagons ---
+        folium.GeoJson(hex_data, style_function=style_hex).add_to(Hex_Layer)
+    
+        # --- Station Markers (Dynamic Color) ---
+        folium.GeoJson(
+            station_data,
+            # The lambda feature: ... is the secret to dynamic markers
+            marker=lambda feature: folium.Marker(
+                icon=folium.Icon(
+                    color=get_colors(feature["properties"].get("status"))[0], 
+                    icon='bolt', 
+                    prefix='fa'
+                )
+            ),
+            tooltip=folium.GeoJsonTooltip(fields=["EVCS Name", "status"])
+        ).add_to(EVCS)
+    
+        # --- Service Coverage Circles (Dynamic Color) ---
+        folium.GeoJson(
+            station_data,
+            marker=lambda feature: folium.Circle(
+                radius=1000,
+                color=get_colors(feature["properties"].get("status"))[1],
+                fill=True,
+                fill_opacity=0.15,
+                weight=1
             )
-        ),
-        tooltip=folium.GeoJsonTooltip(fields=["EVCS Name", "status"])
-    ).add_to(EVCS)
-
-    # --- Service Coverage Circles (Dynamic Color) ---
-    folium.GeoJson(
-        station_data,
-        marker=lambda feature: folium.Circle(
-            radius=1000,
-            color=get_colors(feature["properties"].get("status"))[1],
-            fill=True,
-            fill_opacity=0.15,
-            weight=1
-        )
-    ).add_to(Service_Coverage)
-
-    # Add groups to map
-    Hex_Layer.add_to(m)
-    Service_Coverage.add_to(m)
-    EVCS.add_to(m)
-
-    folium.LayerControl(position='topleft', collapsed=False).add_to(m)
-    return m
+        ).add_to(Service_Coverage)
+    
+        # Add groups to map
+        Hex_Layer.add_to(m)
+        Service_Coverage.add_to(m)
+        EVCS.add_to(m)
+    
+        folium.LayerControl(position='topleft', collapsed=False).add_to(m)
+        return m
 
 
     m = build_map(hex_data, station_data)
@@ -259,6 +259,7 @@ def build_map(hex_data, station_data, city_boundaries):
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
