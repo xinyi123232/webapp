@@ -134,46 +134,28 @@ with right:
             "fillOpacity": 0.6,
         }
     
-    def get_station_color(status):
+    def style_station(feature):
+        status = feature["properties"]["status"]
+    
         if status == "Existing":
-            return "blue"
-        elif status == "MCLP":
-            return "orange"
-        elif status == "SCLP":
-            return "green"
+            color = "blue"
+        else:
+            color = "green"
     
-    def point_to_layer(feature, latlng):
+        return {
+            "radius": 5,
+            "fillColor": color,
+            "color": color,
+            "fillOpacity": 1
+        }
 
-        status = feature["properties"]["status"]
-        color = get_station_color(status)
     
-        return folium.Marker(
-            location=latlng,
-            icon=folium.Icon(color=color, icon="bolt", prefix="fa")
-        )
-
-    def coverage_circle(feature, latlng):
-
-        status = feature["properties"]["status"]
-        color = get_station_color(status)
-    
-        return folium.Circle(
-            location=latlng,
-            radius=1000,
-            color=color,
-            fill=True,
-            fill_opacity=0.1,
-            weight=1
-        )
 
     def build_map(hex_data, station_data):
-    
         m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
-    
         EVCS = folium.FeatureGroup(name='Electric Vehicle Charging Stations')
         Service_Coverage_and_Hex = folium.FeatureGroup(name="1KM Service Coverage and Colored Hex")
-    
-        # City boundaries
+        
         folium.GeoJson(
             city_boundaries,
             name="City Boundaries",
@@ -184,83 +166,37 @@ with right:
                 "fillOpacity": 0,
             },
             tooltip=folium.GeoJsonTooltip(fields=["ADM3_EN"])
-        ).add_to(m)
-    
-        # Hex grid
+            ).add_to(m)
+
+        
         folium.GeoJson(
             hex_data,
             style_function=style_hex
         ).add_to(Service_Coverage_and_Hex)
-    
-        folium.GeoJson(
-            station_data,
-            point_to_layer=lambda feature, latlng: point_to_layer(feature, latlng)
-        ).add_to(EVCS)
-        
-        folium.GeoJson(
-            station_data,
-            point_to_layer=lambda feature, latlng: coverage_circle(feature, latlng)
-        ).add_to(Service_Coverage_and_Hex)
 
-    
+        folium.GeoJson(
+            station_data,
+            marker=folium.Marker(
+                #popup=folium.Popup(html_popup, max_width=250),
+                #tooltip=f"Existing: {row['EVCS Name']}",
+                icon=folium.Icon(color='blue', icon='bolt', prefix='fa'))
+        ).add_to(EVCS)
+
+        folium.GeoJson(
+            station_data,
+            marker=folium.Circle(
+                radius=1000,   # 1KM in meters
+                color="#38AADD",
+                fill=True,
+                fill_opacity=.1,
+                weight=1
+            )
+        ).add_to(Service_Coverage_and_Hex)
         EVCS.add_to(m)
         Service_Coverage_and_Hex.add_to(m)
-    
-        folium.LayerControl(position='topleft', collapsed=False).add_to(m)
-        
+        folium.LayerControl(position='topleft',collapsed=False).add_to(m)
+        st.cache_data.clear()
         return m
-
-
-
-        
-    
-
-    # def build_map(hex_data, station_data):
-    #     m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
-    #     EVCS = folium.FeatureGroup(name='Electric Vehicle Charging Stations')
-    #     Service_Coverage_and_Hex = folium.FeatureGroup(name="1KM Service Coverage and Colored Hex")
-        
-    #     folium.GeoJson(
-    #         city_boundaries,
-    #         name="City Boundaries",
-    #         style_function=lambda feature: {
-    #             "fillColor": "none",
-    #             "color": "black",
-    #             "weight": 3,
-    #             "fillOpacity": 0,
-    #         },
-    #         tooltip=folium.GeoJsonTooltip(fields=["ADM3_EN"])
-    #         ).add_to(m)
-
-        
-    #     folium.GeoJson(
-    #         hex_data,
-    #         style_function=style_hex
-    #     ).add_to(Service_Coverage_and_Hex)
-
-    #     folium.GeoJson(
-    #         station_data,
-    #         marker=folium.Marker(
-    #             #popup=folium.Popup(html_popup, max_width=250),
-    #             #tooltip=f"Existing: {row['EVCS Name']}",
-    #             icon=folium.Icon(color='blue', icon='bolt', prefix='fa'))
-    #     ).add_to(EVCS)
-
-    #     folium.GeoJson(
-    #         station_data,
-    #         marker=folium.Circle(
-    #             radius=1000,   # 1KM in meters
-    #             color=style_station(feature),
-    #             fill=True,
-    #             fill_opacity=.1,
-    #             weight=1
-    #         )
-    #     ).add_to(Service_Coverage_and_Hex)
-    #     EVCS.add_to(m)
-    #     Service_Coverage_and_Hex.add_to(m)
-    #     folium.LayerControl(position='topleft',collapsed=False).add_to(m)
-    #     st.cache_data.clear()
-    #     return m
 
 
     m = build_map(hex_data, station_data)
@@ -311,10 +247,6 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
-
-
-
-
 
 
 
