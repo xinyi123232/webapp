@@ -130,8 +130,8 @@ with right:
         return {
             "fillColor": status_colors.get(status),
             "color": "black",
-            "weight": 0.4,
-            "fillOpacity": 0.6,
+            "weight": 0.2,
+            "fillOpacity": 0.2,
         }
     
     def style_station(feature):
@@ -247,6 +247,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
