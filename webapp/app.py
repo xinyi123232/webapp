@@ -150,7 +150,7 @@ with right:
     @st.cache_data
     def style_station_color(feature):
         # status = feature["properties"]["status"]
-        status = feature["status"]
+        status = feature["status"][0]
         if status == "Existing":
             color1="blue"
             color2="#38AADD"
@@ -275,6 +275,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
