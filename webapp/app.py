@@ -184,21 +184,26 @@ with right:
         folium.GeoJson(
             station_data,
 
-            marker=folium.Marker(
-                #popup=folium.Popup(html_popup, max_width=250),
-                #tooltip=f"Existing: {row['EVCS Name']}",
-                icon=folium.Icon(color=get_colors(feature["properties"].get("status"))[0], icon='bolt', prefix='fa'))
+            marker=lambda feature: folium.Marker(
+                        icon=folium.Icon(
+                            # Use [0] for the icon color (color1)
+                            color=get_colors(feature["properties"].get("status"))[0], 
+                            icon='bolt', 
+                            prefix='fa'
+                        )
+                    )
         ).add_to(EVCS)
 
         folium.GeoJson(
             station_data,
-            marker=folium.Circle(
-                radius=1000,   # 1KM in meters
-                color=get_colors(feature["properties"].get("status"))[1],
-                fill=True,
-                fill_opacity=.1,
-                weight=1
-            )
+            marker=lambda feature: folium.Circle(
+                        radius=1000,
+                        # Use [1] for the circle/hex color (color2)
+                        color=get_colors(feature["properties"].get("status"))[1],
+                        fill=True,
+                        fill_opacity=.1,
+                        weight=1
+                    )
         ).add_to(Service_Coverage_and_Hex)
         EVCS.add_to(m)
         Service_Coverage_and_Hex.add_to(m)
@@ -255,6 +260,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
