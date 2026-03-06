@@ -134,20 +134,14 @@ with right:
             "fillOpacity": 0.3,
         }
     
-    def style_station(feature):
-        status = feature["properties"]["status"]
-    
+    def get_colors(status):
         if status == "Existing":
-            color = "blue"
-        else:
-            color = "green"
-    
-        return {
-            "radius": 5,
-            "fillColor": color,
-            "color": color,
-            "fillOpacity": 1
-        }
+            return "blue", "#38AADD"
+        elif status == "SCLP":
+            return "green", "green"
+        elif status == "MCLP":
+            return "orange", "orange"
+        return "gray", "gray"
 
     
 
@@ -253,6 +247,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
