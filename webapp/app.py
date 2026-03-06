@@ -133,22 +133,15 @@ with right:
             "weight": 0.2,
             "fillOpacity": 0.2,
         }
-    
-    def style_station(feature):
-        status = feature["properties"]["status"]
-    
-        if status == "Existing":
-            color = "blue"
-        else:
-            color = "green"
-    
-        return {
-            "radius": 5,
-            "fillColor": color,
-            "color": color,
-            "fillOpacity": 1
-        }
 
+    status_colors = {
+    "existing": "blue",
+    "MCLP": "orange",
+    "SCLP": "green"
+}
+    def style_station(feature):
+        a = feature["properties"].get("status")
+        return status_colors.get(a)
     
 
     def build_map(hex_data, station_data):
@@ -179,14 +172,14 @@ with right:
             marker=folium.Marker(
                 #popup=folium.Popup(html_popup, max_width=250),
                 #tooltip=f"Existing: {row['EVCS Name']}",
-                icon=folium.Icon(color='blue', icon='bolt', prefix='fa'))
+                icon=folium.Icon(color=style_station, icon='bolt', prefix='fa'))
         ).add_to(EVCS)
 
         folium.GeoJson(
             station_data,
             marker=folium.Circle(
                 radius=1000,   # 1KM in meters
-                color="#38AADD",
+                color=style_station,
                 fill=True,
                 fill_opacity=.1,
                 weight=1
@@ -247,6 +240,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
