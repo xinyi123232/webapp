@@ -175,7 +175,7 @@ with right:
             "fillOpacity": 1
         }
     
-    @st.cache_data
+   
     color1, color2 = style_station_color(station_data)    
 
     def build_map(hex_data, station_data):
@@ -275,6 +275,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700)
+
 
 
 
