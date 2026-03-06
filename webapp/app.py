@@ -140,7 +140,7 @@ with right:
     "SCLP": "green"
 }
     def style_station(feature):
-        a = feature['features']["properties"].get("status")
+        a = feature["properties"].get("status")
         return status_colors.get(a)
     
 
@@ -240,6 +240,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
