@@ -172,7 +172,7 @@ with right:
             marker=folium.Marker(
                 #popup=folium.Popup(html_popup, max_width=250),
                 #tooltip=f"Existing: {row['EVCS Name']}",
-                icon=folium.Icon(color=style_station, icon='bolt', prefix='fa'))
+                icon=folium.Icon(color=style_station(station_data), icon='bolt', prefix='fa'))
         ).add_to(EVCS)
 
         folium.GeoJson(
@@ -240,6 +240,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
