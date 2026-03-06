@@ -96,8 +96,8 @@ with left:
         st.metric("Demand Improvement Over Current", f"+{metrics['demand_improvement']}%")
 
     elif mode == "Universal Coverage":
-        st.metric("New Stations (a) ", metrics["new_stations"])
-        st.metric("Total Stations", metrics["total_stations"])
+        st.metric("New Stations Required to Maximize Coverage", metrics["new_stations"])
+        st.metric("Total Stations (current + new)", metrics["total_stations"])
         st.metric("Area Covered", f"{metrics['area_covered']}%")
         
 
@@ -247,6 +247,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
