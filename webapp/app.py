@@ -192,17 +192,16 @@ with right:
             style_function=style_hex
         ).add_to(Service_Coverage_and_Hex)
     
-        # Stations
         folium.GeoJson(
             station_data,
-            point_to_layer=point_to_layer
+            point_to_layer=lambda feature, latlng: point_to_layer(feature, latlng)
         ).add_to(EVCS)
-    
-        # Coverage circles
+        
         folium.GeoJson(
             station_data,
-            point_to_layer=coverage_circle
+            point_to_layer=lambda feature, latlng: coverage_circle(feature, latlng)
         ).add_to(Service_Coverage_and_Hex)
+
     
         EVCS.add_to(m)
         Service_Coverage_and_Hex.add_to(m)
@@ -312,6 +311,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
