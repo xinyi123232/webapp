@@ -5,6 +5,7 @@ from pathlib import Path
 from streamlit_folium import st_folium
 import branca.colormap as cm
 import numpy as np
+import mapclassify as mc
 # from branca.element import MacroElement
 # from jinja2 import Template
 
@@ -367,6 +368,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
