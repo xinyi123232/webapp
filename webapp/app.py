@@ -222,7 +222,7 @@ with right:
         mclp_demand_score_c_group = folium.FeatureGroup(name="mclp_demand_score_c")
         
         folium.GeoJson(
-            hex_coverage_mclp_demand_score_c,
+            hex_data,
             style_function=style_function_demand_score,
             tooltip=folium.GeoJsonTooltip(
                 fields=["hex_id", "w"],
