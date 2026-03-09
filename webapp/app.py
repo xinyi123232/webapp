@@ -5,9 +5,7 @@ from pathlib import Path
 from streamlit_folium import st_folium
 import branca.colormap as cm
 import numpy as np
-# import mapclassify as mc
-# from branca.element import MacroElement
-# from jinja2 import Template
+
 
 script_dir = Path(__file__).parent
 
@@ -201,6 +199,39 @@ with right:
             ).add_to(m)
         
         
+
+        
+        folium.GeoJson(
+            hex_data,
+            style_function=style_hex
+        ).add_to(Service_Coverage_and_Hex
+                )
+
+        
+        first_feature = station_data['features'][0]
+        color_icon_radius = style_station(first_feature)
+        
+        folium.GeoJson(
+            station_data,
+            marker=folium.Marker(
+                #popup=folium.Popup(html_popup, max_width=250),
+                #tooltip=f"Existing: {row['EVCS Name']}",
+                icon=folium.Icon(color=color_icon_radius[0], icon='bolt', prefix='fa'))
+        ).add_to(EVCS)
+    
+        folium.GeoJson(
+            station_data,
+            marker=folium.Circle(
+                radius=1000,   # 1KM in meters
+                color=color_icon_radius[1],
+                fill=True,
+                fill_opacity=.1,
+                weight=1
+            )
+        ).add_to(Service_Coverage_and_Hex)
+        EVCS.add_to(m)
+        Service_Coverage_and_Hex.add_to(m)
+
         if show_heatmap:
             # classifier = mc.NaturalBreaks(
             #     hex_data["properties"]["demand_score_A_Contrast"],
@@ -236,37 +267,17 @@ with right:
            
             
             Demand_Heatmap.add_to(m)
+            
+        css = """
+        <style>
+            .leaflet-control-layers-list {
+                font-size: 14px; /* Change the font size */
+                /* You can add other styles here, e.g., width, height, etc. */
+            }
+        </style>
+        """
+        m.get_root().header.add_child(Element(css))
         
-        folium.GeoJson(
-            hex_data,
-            style_function=style_hex
-        ).add_to(Service_Coverage_and_Hex
-                )
-
-        
-        first_feature = station_data['features'][0]
-        color_icon_radius = style_station(first_feature)
-        
-        folium.GeoJson(
-            station_data,
-            marker=folium.Marker(
-                #popup=folium.Popup(html_popup, max_width=250),
-                #tooltip=f"Existing: {row['EVCS Name']}",
-                icon=folium.Icon(color=color_icon_radius[0], icon='bolt', prefix='fa'))
-        ).add_to(EVCS)
-    
-        folium.GeoJson(
-            station_data,
-            marker=folium.Circle(
-                radius=1000,   # 1KM in meters
-                color=color_icon_radius[1],
-                fill=True,
-                fill_opacity=.1,
-                weight=1
-            )
-        ).add_to(Service_Coverage_and_Hex)
-        EVCS.add_to(m)
-        Service_Coverage_and_Hex.add_to(m)
         folium.LayerControl(position='topleft',collapsed=False).add_to(m)
         
         # legend_html = """
@@ -321,52 +332,8 @@ with right:
 
     m = build_map(hex_data, station_data)
     st_folium(m, width=1000, height=700)
-    # m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
-    
 
 
-    # folium.GeoJson(
-    #     hex_data,
-    #     style_function=style_hex
-    #     # tooltip=folium.GeoJsonTooltip(
-    #     #     fields=["demand_level"],
-    #     #     aliases=["Demand Level:"]
-    #     # )
-    # ).add_to(m)
-
-        
-
-    #     # folium.Circle(
-    #     #     location=[row['Latitude'], row['Longitude']],
-    #     #     radius=1000,   # 1KM in meters
-    #     #     color="#38AADD",
-    #     #     fill=True,
-    #     #     fill_opacity=.1,
-    #     #     weight=1
-    #     # ).add_to(coverage_group)
-
-
-    # # Stations
-    # folium.GeoJson(
-    #     station_data,
-    #     marker=folium.Marker(
-    #         #popup=folium.Popup(html_popup, max_width=250),
-    #         #tooltip=f"Existing: {row['EVCS Name']}",
-    #         icon=folium.Icon(color='blue', icon='bolt', prefix='fa'))
-    # ).add_to(m)
-
-    # folium.GeoJson(
-    #     station_data,
-    #     marker=folium.Circle(
-    #         radius=1000,   # 1KM in meters
-    #         color="#38AADD",
-    #         fill=True,
-    #         fill_opacity=.1,
-    #         weight=1
-    #     )
-    # ).add_to(m)
-
-    # st_folium(m, width=1000, height=700)
 
 
 
