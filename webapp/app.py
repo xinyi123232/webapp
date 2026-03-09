@@ -208,7 +208,7 @@ with right:
             #     )
             colormap = cm.StepColormap(
                 colors=cm.linear.YlOrRd_07.colors,
-                index=[0.01812406 0.04711549 0.08538441 0.13938344 0.23276964 0.38180516 0.60640651],
+                index=[0.01812406,0.04711549,0.08538441,0.13938344,0.23276964,0.38180516,0.60640651],
                 vmin=0.0,
                 vmax=0.7081203248065904
                 )
@@ -368,6 +368,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
