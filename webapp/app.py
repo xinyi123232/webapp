@@ -279,7 +279,7 @@ with right:
         # """
         # m.get_root().header.add_child(Element(css))
         
-        folium.LayerControl(position='topleft',collapsed=False).add_to(m)
+        folium.LayerControl(position='topleft').add_to(m)
 
 
         custom_css = """
@@ -344,47 +344,9 @@ with right:
         
         # m.get_root().add_child(legend)
         
-        st.cache_data.clear()
+        # st.cache_data.clear()
         return m
 
 
     m = build_map(hex_data, station_data)
     st_folium(m, width=1000, height=700)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
