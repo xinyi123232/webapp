@@ -213,30 +213,30 @@ with right:
                 vmax=0.7081203248065904
                 )
         
-        def style_function_demand_score(feature):
-          value = feature["properties"]["demand_score_A_Contrast"]
+            def style_function_demand_score(feature):
+              value = feature["properties"]["demand_score_A_Contrast"]
+            
+              return {
+                  "fillColor": colormap(value),
+                  "color": "black",
+                  "weight": 0.1,
+                  "fillOpacity": 0.4,
+            }
         
-          return {
-              "fillColor": colormap(value),
-              "color": "black",
-              "weight": 0.1,
-              "fillOpacity": 0.4,
-        }
         
+            mclp_demand_score_c_group = folium.FeatureGroup(name="mclp_demand_score_c")
         
-        mclp_demand_score_c_group = folium.FeatureGroup(name="mclp_demand_score_c")
-        
-        folium.GeoJson(
-            hex_data,
-            style_function=style_function_demand_score,
-            tooltip=folium.GeoJsonTooltip(
-                fields=["hex_id", "w"],
-                aliases=["Hex ID:", "Demand:"],
-            )
-        ).add_to(Demand_Heatmap)
-       
-        
-        Demand_Heatmap.add_to(m)
+            folium.GeoJson(
+                hex_data,
+                style_function=style_function_demand_score,
+                tooltip=folium.GeoJsonTooltip(
+                    fields=["hex_id", "w"],
+                    aliases=["Hex ID:", "Demand:"],
+                )
+            ).add_to(Demand_Heatmap)
+           
+            
+            Demand_Heatmap.add_to(m)
         
         folium.GeoJson(
             hex_data,
@@ -368,6 +368,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
