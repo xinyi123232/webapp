@@ -4,6 +4,7 @@ import folium
 from pathlib import Path
 from streamlit_folium import st_folium
 import branca.colormap as cm
+from branca.element import Element
 import numpy as np
 
 
@@ -332,6 +333,7 @@ with right:
 
     m = build_map(hex_data, station_data)
     st_folium(m, width=1000, height=700)
+
 
 
 
