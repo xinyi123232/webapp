@@ -5,7 +5,7 @@ from pathlib import Path
 from streamlit_folium import st_folium
 import branca.colormap as cm
 import numpy as np
-import mapclassify as mc
+# import mapclassify as mc
 # from branca.element import MacroElement
 # from jinja2 import Template
 
@@ -171,9 +171,9 @@ with right:
 
 
     status_colors_stations = {
-        "existing": "#38AADD",
-        "MCLP": "orange",
-        "SCLP": "green"
+        "existing": ["blue", "#38AADD"],
+        "MCLP": ["orange","orange"],
+        "SCLP": ["green","green"]  
         }
     
     def style_station(feature):
@@ -253,14 +253,14 @@ with right:
             marker=folium.Marker(
                 #popup=folium.Popup(html_popup, max_width=250),
                 #tooltip=f"Existing: {row['EVCS Name']}",
-                icon=folium.Icon(color=color_icon_radius, icon='bolt', prefix='fa'))
+                icon=folium.Icon(color=color_icon_radius[0], icon='bolt', prefix='fa'))
         ).add_to(EVCS)
     
         folium.GeoJson(
             station_data,
             marker=folium.Circle(
                 radius=1000,   # 1KM in meters
-                color=color_icon_radius,
+                color=color_icon_radius[1],
                 fill=True,
                 fill_opacity=.1,
                 weight=1
@@ -368,6 +368,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
