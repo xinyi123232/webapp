@@ -23,17 +23,19 @@ def load_scenario(scenario_path):
     return hex_data, station_data, metrics
 
 @st.cache_data
-with open(script_dir/"data"/"baseline"/"city_boundaries.geojson") as f:
-    return json.load(f)
+def load_heatmap():
+    with open(script_dir/"data"/"baseline"/"heat_data_demand_score_A.json") as f:
+        return json.load(f)
+
 
 @st.cache_data
 def load_city_boundaries():
     with open(script_dir/"data"/"city_boundaries.geojson") as f:
         return json.load(f)
         
-@st.cache_data  
+# @st.cache_data  
 city_boundaries = load_city_boundaries()
-
+heat_data_demand_score_A = load_heatmap()
 
 
 st.set_page_config(layout="wide")
@@ -341,6 +343,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
