@@ -237,7 +237,7 @@ with right:
         EVCS.add_to(m)
         Service_Coverage_and_Hex.add_to(m)
 
-        if show_heatmap:
+        if show_heatmap_demand_score_A:
             # classifier = mc.NaturalBreaks(
             #     hex_data["properties"]["demand_score_A_Contrast"],
             #     k=7
@@ -353,6 +353,7 @@ with right:
 
     m = build_map(hex_data, station_data)
     st_folium(m, width=1000, height=700)
+
 
 
 
