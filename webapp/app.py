@@ -282,20 +282,20 @@ with right:
         folium.LayerControl(position='topleft').add_to(m)
 
 
-        # custom_css = """
-        # <style>
-        #     .leaflet-control-layers-list {
-        #         width: 200px; /* Adjust width as needed */
-        #         font-size: 14px; /* Adjust font size as needed */
-        #     }
-        #     .leaflet-control-layers-label {
-        #         font-size: 14px; /* Adjust label font size as needed */
-        #     }
-        # </style>
-        # """
+        custom_css = """
+        <style>
+            .leaflet-control-layers-list {
+                width: 200px; /* Adjust width as needed */
+                font-size: 14px; /* Adjust font size as needed */
+            }
+            .leaflet-control-layers-label {
+                font-size: 14px; /* Adjust label font size as needed */
+            }
+        </style>
+        """
         
 
-        # m.get_root().header.add_child(Element(custom_css))
+        m.get_root().header.add_child(Element(custom_css))
 
         
         # legend_html = """
