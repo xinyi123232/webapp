@@ -38,183 +38,149 @@ city_boundaries = load_city_boundaries()
 st.set_page_config(layout="wide")
 st.markdown("""
 <style>
-
-/* Remove default Streamlit padding */
+/* Remove default Streamlit padding to make map edge-to-edge */
 .block-container {
-    padding-top: 0rem !important;
+    padding-top: 2rem !important;
     padding-bottom: 0rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: 100% !important;
 }
 
-/* Remove header spacing */
+/* Hide header */
 header {
     visibility: hidden;
 }
-
-/* Ensure full page height */
-html, body, [data-testid="stAppViewContainer"] {
-    height: 100%;
-}
-
-/* Column sizing */
-[data-testid="column"]:first-child {
-    flex: 0 0 30% !important;
-    max-width: 30% !important;
-}
-
-[data-testid="column"]:nth-child(2) {
-    flex: 0 0 70% !important;
-    max-width: 70% !important;
-}
-
-/* Scroll only the left panel */
-.left-panel {
-    height: 100vh;
-    overflow-y: auto;
-    padding-right: 10px;
-    font-size: 0.9rem;
-}
-
-/* Map always fills screen */
-.map-container {
-    height: 100vh;
-}
-
 </style>
 """, unsafe_allow_html=True)
 
 
-
-
-
-
-# Layout
-left, right = st.columns([0.3, 0.7], gap="small")
-
+left, right = st.columns([3, 7], gap="small")
 
 
 # ---- LEFT PANEL ----
 with left:
+    with st.container(height=800, border=False):
 
-
-    st.markdown('<div class="left-panel">', unsafe_allow_html=True)
-    st.markdown("### EV Charging Station Optimization")
+        st.markdown('<div class="left-panel">', unsafe_allow_html=True)
+        st.markdown("### EV Charging Station Optimization")
+        
+        mode = st.radio(
+        "Planning Mode",
+        ["Current Network", "Add 50 Stations", "Universal Coverage"]
+        )
+        scenario_path = "data/baseline"
     
-    mode = st.radio(
-    "Planning Mode",
-    ["Current Network", "Add 50 Stations", "Universal Coverage"]
-    )
-    scenario_path = "data/baseline"
-
-    if mode == "Add 50 Stations":
-
-        demand_focus = st.selectbox(
-            "Demand Focus",
-            ["Activity Priority", "Mobility Priority", "Resident Priority"]
-        )
-        
-        if demand_focus == "Activity Priority":
-            scenario_path = "data/add50_balanced"
-        elif demand_focus == "Mobility Priority":
-            scenario_path = "data/add50_traffic"
-        else:
-            scenario_path = "data/add50_activity"
-
-    elif mode == "Universal Coverage":
-
-        service_standard = st.selectbox(
-            "Service Standard",
-            ["500 meters (Very Strict)",
-            "1000 meters (Standard)",
-            "2000 meters (Relaxed)"]
-        )
-
-        if "500" in service_standard:
-            scenario_path = "data/universal_500"
-        elif "1000" in service_standard:
-            scenario_path = "data/universal_1000"
-        else:
-            scenario_path = "data/universal_2000"
-
-    hex_data, station_data, metrics = load_scenario(scenario_path)
-
-    st.markdown("---")
-
-    st.subheader("Metrics")
-
-    if mode == "Current Network":
-        st.metric("Existing Stations", metrics["existing_stations"])
-        st.metric("Area Covered", f"{metrics['area_covered']}%")
-        st.metric("Demand Covered Balanced", f"{metrics['demand_covered_balanced']}%")
-        st.metric("Demand Covered Traffic", f"{metrics['demand_covered_traffic']}%")
-        st.metric("Demand Covered Activity", f"{metrics['demand_covered_activity']}%")
-
-    elif mode == "Add 50 Stations":
-        st.metric("New Stations Added", metrics["new_stations_added"])
-        st.metric("Total Stations", metrics["total_stations"])
-        st.metric("Area Covered", f"{metrics['area_covered']}%")
-        st.metric("Area Improvement Over Current", f"+{metrics['area_improvement']}%")
-        st.metric("Demand Covered", f"{metrics['demand_covered']}%")
-        st.metric("Demand Improvement Over Current", f"+{metrics['demand_improvement']}%")
-
-    elif mode == "Universal Coverage":
-        st.metric("New Stations Required to Maximize Coverage", metrics["new_stations"])
-        st.metric("Total Stations (current + new)", metrics["total_stations"])
-        st.metric("Area Covered", f"{metrics['area_covered']}%")
-        
-
-        if metrics["uncovered"] == 0:
-            st.success("All serviceable areas covered.")
-        else:
-            st.metric("Uncovered Areas",f"{metrics['uncovered']}%")
+        if mode == "Add 50 Stations":
+    
+            demand_focus = st.selectbox(
+                "Demand Focus",
+                ["Activity Priority", "Mobility Priority", "Resident Priority"]
+            )
             
-    st.markdown("---")
-
-    if mode == "Current Network":
-        emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
-
-        show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
-        show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
-        show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap")
-    elif mode == "Add 50 Stations":
-        if demand_focus == "Activity Priority":
+            if demand_focus == "Activity Priority":
+                scenario_path = "data/add50_balanced"
+            elif demand_focus == "Mobility Priority":
+                scenario_path = "data/add50_traffic"
+            else:
+                scenario_path = "data/add50_activity"
+    
+        elif mode == "Universal Coverage":
+    
+            service_standard = st.selectbox(
+                "Service Standard",
+                ["500 meters (Very Strict)",
+                "1000 meters (Standard)",
+                "2000 meters (Relaxed)"]
+            )
+    
+            if "500" in service_standard:
+                scenario_path = "data/universal_500"
+            elif "1000" in service_standard:
+                scenario_path = "data/universal_1000"
+            else:
+                scenario_path = "data/universal_2000"
+    
+        hex_data, station_data, metrics = load_scenario(scenario_path)
+    
+        st.markdown("---")
+    
+        st.subheader("Metrics")
+    
+        if mode == "Current Network":
+            st.metric("Existing Stations", metrics["existing_stations"])
+            st.metric("Area Covered", f"{metrics['area_covered']}%")
+            st.metric("Demand Covered Balanced", f"{metrics['demand_covered_balanced']}%")
+            st.metric("Demand Covered Traffic", f"{metrics['demand_covered_traffic']}%")
+            st.metric("Demand Covered Activity", f"{metrics['demand_covered_activity']}%")
+    
+        elif mode == "Add 50 Stations":
+            st.metric("New Stations Added", metrics["new_stations_added"])
+            st.metric("Total Stations", metrics["total_stations"])
+            st.metric("Area Covered", f"{metrics['area_covered']}%")
+            st.metric("Area Improvement Over Current", f"+{metrics['area_improvement']}%")
+            st.metric("Demand Covered", f"{metrics['demand_covered']}%")
+            st.metric("Demand Improvement Over Current", f"+{metrics['demand_improvement']}%")
+    
+        elif mode == "Universal Coverage":
+            st.metric("New Stations Required to Maximize Coverage", metrics["new_stations"])
+            st.metric("Total Stations (current + new)", metrics["total_stations"])
+            st.metric("Area Covered", f"{metrics['area_covered']}%")
+            
+    
+            if metrics["uncovered"] == 0:
+                st.success("All serviceable areas covered.")
+            else:
+                st.metric("Uncovered Areas",f"{metrics['uncovered']}%")
+                
+        st.markdown("---")
+    
+        if mode == "Current Network":
             emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
+    
             show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
-            show_heatmap_demand_score_B = False
-            show_heatmap_demand_score_C = False
-            
-        elif demand_focus == "Mobility Priority":
-            emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
-            show_heatmap_demand_score_A = False
             show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
-            show_heatmap_demand_score_C = False
-        else:
+            show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap")
+        elif mode == "Add 50 Stations":
+            if demand_focus == "Activity Priority":
+                emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
+                show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
+                show_heatmap_demand_score_B = False
+                show_heatmap_demand_score_C = False
+                
+            elif demand_focus == "Mobility Priority":
+                emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
+                show_heatmap_demand_score_A = False
+                show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
+                show_heatmap_demand_score_C = False
+            else:
+                emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
+                show_heatmap_demand_score_A = False
+                show_heatmap_demand_score_B = False
+                show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap") 
+    
+        elif mode == "Universal Coverage":
             emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
             show_heatmap_demand_score_A = False
             show_heatmap_demand_score_B = False
-            show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap") 
-
-    elif mode == "Universal Coverage":
-        emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
-        show_heatmap_demand_score_A = False
-        show_heatmap_demand_score_B = False
-        show_heatmap_demand_score_C = False
-
-    st.markdown("</div>", unsafe_allow_html=True)
-
-        
-    # emphasize_gaps = st.checkbox("Highlight Coverage Gaps") 
-    # show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
-    # show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
-    # show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap")
-
-
-    # st.markdown("---")
-
-    # with st.expander("Assumptions"):
-    #     st.write("Distances are straight-line, not travel time.")
-    #     st.write("Locations are based on public map data.")
-    #     st.write("Results show eligible locations, not confirmed projects.")
-    #     st.write("Implementation feasibility depends on land, power supply, and cost.")
+            show_heatmap_demand_score_C = False
+    
+        st.markdown("</div>", unsafe_allow_html=True)
+    
+            
+        # emphasize_gaps = st.checkbox("Highlight Coverage Gaps") 
+        # show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
+        # show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
+        # show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap")
+    
+    
+        # st.markdown("---")
+    
+        # with st.expander("Assumptions"):
+        #     st.write("Distances are straight-line, not travel time.")
+        #     st.write("Locations are based on public map data.")
+        #     st.write("Results show eligible locations, not confirmed projects.")
+        #     st.write("Implementation feasibility depends on land, power supply, and cost.")
 
 # ---- RIGHT PANEL ----
 with right:
@@ -518,6 +484,7 @@ with right:
     
     st_folium(m, width=None, height=750)
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
