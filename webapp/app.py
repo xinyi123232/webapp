@@ -224,13 +224,12 @@ with right:
             }
         
         
-            mclp_demand_score_c_group = folium.FeatureGroup(name="mclp_demand_score_c")
         
             folium.GeoJson(
                 hex_data,
                 style_function=style_function_demand_score,
                 tooltip=folium.GeoJsonTooltip(
-                    fields=["hex_id", "w"],
+                    fields=["hex_id", "demand_score_A"],
                     aliases=["Hex ID:", "Demand:"],
                 )
             ).add_to(Demand_Heatmap)
@@ -367,7 +366,8 @@ with right:
     #     )
     # ).add_to(m)
 
-    # st_folium(m, width=1000, height=700
+    # st_folium(m, width=1000, height=700)
+
 
 
 
