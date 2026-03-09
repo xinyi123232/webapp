@@ -190,7 +190,12 @@ with right:
         
         EVCS = folium.FeatureGroup(name='Electric Vehicle Charging Stations')
         Service_Coverage_and_Hex = folium.FeatureGroup(name="1KM Service Coverage and Colored Hex")
-        Demand_Heatmap = folium.FeatureGroup(name="Demand Heatmap")
+        
+        Demand_Heatmap_Activity_Priority= folium.FeatureGroup(name="Activity Priority Demand Heatmap")
+        Demand_Heatmap_Mobility_Priority= folium.FeatureGroup(name="Mobility Priority Demand Heatmap")
+        Demand_Heatmap_Resident_Priority= folium.FeatureGroup(name="Resident Priority Demand Heatmap")
+
+        
         folium.GeoJson(
             city_boundaries,
             name="City Boundaries",
@@ -237,6 +242,9 @@ with right:
         EVCS.add_to(m)
         Service_Coverage_and_Hex.add_to(m)
 
+
+        
+        ### show_heatmap_demand_score_A
         if show_heatmap_demand_score_A:
             # classifier = mc.NaturalBreaks(
             #     hex_data["properties"]["demand_score_A_Contrast"],
@@ -268,10 +276,45 @@ with right:
                     fields=["hex_id", "demand_score_A"],
                     aliases=["Hex ID:", "Demand:"],
                 )
-            ).add_to(Demand_Heatmap)
-           
+            ).add_to(Demand_Heatmap_Activity_Priority)
+            Demand_Heatmap_Activity_Priority.add_to(m)
+
+
+
+        
+        # ### show_heatmap_demand_score_B
+        # if show_heatmap_demand_score_B:
+        #     colormap = cm.StepColormap(
+        #         colors=cm.linear.YlOrRd_07.colors,
+        #         index=[0.01812406,0.04711549,0.08538441,0.13938344,0.23276964,0.38180516,0.60640651],
+        #         vmin=0.0,
+        #         vmax=0.7081203248065904
+        #         )
+        
+        #     def style_function_demand_score(feature):
+        #       value = feature["properties"]["demand_score_A_Contrast"]
             
-            Demand_Heatmap.add_to(m)
+        #       return {
+        #           "fillColor": colormap(value),
+        #           "color": "black",
+        #           "weight": 0.3,
+        #           "fillOpacity": 0.6,
+        #     }
+        
+        
+        
+        #     folium.GeoJson(
+        #         hex_data,
+        #         style_function=style_function_demand_score,
+        #         tooltip=folium.GeoJsonTooltip(
+        #             fields=["hex_id", "demand_score_A"],
+        #             aliases=["Hex ID:", "Demand:"],
+        #         )
+        #     ).add_to(Demand_Heatmap)
+        #     Demand_Heatmap.add_to(m)
+
+
+        ### show_heatmap_demand_score_C
             
         # css = """
         # <style>
@@ -353,6 +396,7 @@ with right:
 
     m = build_map(hex_data, station_data)
     st_folium(m, width=1000, height=700)
+
 
 
 
