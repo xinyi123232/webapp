@@ -114,11 +114,30 @@ with left:
         else:
             st.metric("Uncovered Areas",f"{metrics['uncovered']}%")
             
-    st.markdown("---")        
+    st.markdown("---")
+
+    if mode == "Current Network":
+        emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
+
+        show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
+        show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
+        show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap")
+    elif mode == "Add 50 Stations":
+        if demand_focus == "Activity Priority":
+            show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
+        elif demand_focus == "Mobility Priority":
+            show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
+        else:
+            show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap") 
+    elif mode == "Universal Coverage":
+        pass
+    
     emphasize_gaps = st.checkbox("Highlight Coverage Gaps") 
     show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
     show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
     show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap")
+
+
     # st.markdown("---")
 
     # with st.expander("Assumptions"):
@@ -426,6 +445,7 @@ with right:
 
     m = build_map(hex_data, station_data)
     st_folium(m, width=1000, height=700)
+
 
 
 
