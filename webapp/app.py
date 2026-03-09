@@ -40,8 +40,8 @@ st.markdown("""
 <style>
 /* Remove default Streamlit padding to make map edge-to-edge */
 .block-container {
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
+    padding-top: 2rem !important;
+    padding-bottom: 0rem !important;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
     max-width: 100% !important;
@@ -484,6 +484,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
