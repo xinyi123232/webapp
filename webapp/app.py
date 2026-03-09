@@ -39,6 +39,44 @@ st.set_page_config(layout="wide")
 st.markdown("""
 <style>
 
+.main > div {
+    padding-top: 1rem;
+}
+
+/* Two-column layout sizing */
+[data-testid="column"]:first-child {
+    width: 30% !important;
+    max-width: 30% !important;
+}
+
+[data-testid="column"]:nth-child(2) {
+    width: 70% !important;
+    max-width: 70% !important;
+}
+
+/* Scroll only the left panel */
+.left-panel {
+    height: 90vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Slightly smaller font for dense content */
+.left-panel {
+    font-size: 0.9rem;
+}
+
+/* Make map container fill height */
+.map-container {
+    height: 90vh;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+
 /* Remove Streamlit default top padding */
 .block-container {
     padding-top: 0rem !important;
@@ -57,43 +95,7 @@ html, body, [data-testid="stAppViewContainer"] {
 </style>
 """, unsafe_allow_html=True)
 
-# st.markdown("""
-# <style>
 
-# .main > div {
-#     padding-top: 1rem;
-# }
-
-# /* Two-column layout sizing */
-# [data-testid="column"]:first-child {
-#     width: 30% !important;
-#     max-width: 30% !important;
-# }
-
-# [data-testid="column"]:nth-child(2) {
-#     width: 70% !important;
-#     max-width: 70% !important;
-# }
-
-# /* Scroll only the left panel */
-# .left-panel {
-#     height: 90vh;
-#     overflow-y: auto;
-#     padding-right: 10px;
-# }
-
-# /* Slightly smaller font for dense content */
-# .left-panel {
-#     font-size: 0.9rem;
-# }
-
-# /* Make map container fill height */
-# .map-container {
-#     height: 90vh;
-# }
-
-# </style>
-# """, unsafe_allow_html=True)
 
 
 
@@ -538,6 +540,7 @@ with right:
     
     st_folium(m, width=None, height=750)
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
