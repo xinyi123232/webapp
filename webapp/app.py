@@ -203,7 +203,7 @@ with right:
         
         if show_heatmap:
             classifier = mc.NaturalBreaks(
-                hex_data["demand_score_A_Contrast"],
+                hex_data["properties"]["demand_score_A_Contrast"],
                 k=7
                 )
             colormap = cm.StepColormap(
@@ -368,6 +368,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
