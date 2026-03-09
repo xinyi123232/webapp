@@ -55,7 +55,7 @@ header {
 """, unsafe_allow_html=True)
 
 
-left, right = st.columns([3, 7], gap="small")
+left, right = st.columns([2, 8], gap="small")
 
 
 # ---- LEFT PANEL ----
@@ -484,6 +484,7 @@ with right:
     
     st_folium(m, width=None, height=600)
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
