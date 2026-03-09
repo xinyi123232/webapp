@@ -42,15 +42,15 @@ st.markdown("""
 .block-container {
     padding-top: 2rem !important;
     padding-bottom: 0rem !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
     max-width: 100% !important;
 }
 
 /* Hide header */
-header {
-    visibility: hidden;
-}
+# header {
+#     visibility: hidden;
+# }
 </style>
 """, unsafe_allow_html=True)
 
@@ -484,6 +484,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
