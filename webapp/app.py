@@ -204,7 +204,7 @@ with right:
         
         if show_heatmap:
             HeatMap(
-                heat_data,
+                heat_data_demand_score_A,
                 radius=18,
                 blur=22,
                 max_zoom=13,
@@ -291,7 +291,7 @@ with right:
         
         # m.get_root().add_child(legend)
         
-        # st.cache_data.clear()
+        st.cache_data.clear()
         return m
 
 
@@ -343,6 +343,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
