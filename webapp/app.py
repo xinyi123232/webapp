@@ -412,8 +412,8 @@ with right:
         # """
         # m.get_root().header.add_child(Element(css))
         
-        folium.LayerControl(position='topleft').add_to(m)
-
+        folium.LayerControl().add_to(m)
+        # position='topleft'
         custom_css = """
         <style>
             .leaflet-control-layers-list {
@@ -482,8 +482,9 @@ with right:
 
     m = build_map(hex_data, station_data)
     
-    st_folium(m, width=None, height=600)
+    st_folium(m, width=None, height=650)
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
