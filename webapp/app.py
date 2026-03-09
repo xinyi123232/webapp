@@ -35,17 +35,56 @@ def load_city_boundaries():
 city_boundaries = load_city_boundaries()
 
 
-
 st.set_page_config(layout="wide")
 
+st.markdown("""
+<style>
+
+.main > div {
+    padding-top: 1rem;
+}
+
+/* Two-column layout sizing */
+[data-testid="column"]:first-child {
+    width: 30% !important;
+    max-width: 30% !important;
+}
+
+[data-testid="column"]:nth-child(2) {
+    width: 70% !important;
+    max-width: 70% !important;
+}
+
+/* Scroll only the left panel */
+.left-panel {
+    height: 90vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Slightly smaller font for dense content */
+.left-panel {
+    font-size: 0.9rem;
+}
+
+/* Make map container fill height */
+.map-container {
+    height: 90vh;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+
 # Layout
-left, right = st.columns([1, 2])
+left, right = st.columns([3, 7])
 
 # ---- LEFT PANEL ----
 with left:
-
+    st.markdown('<div class="left-panel">', unsafe_allow_html=True)
+    
     st.title("EV Charging Station Location Optimization")
-
+    
     mode = st.radio(
     "Planning Mode",
     ["Current Network", "Add 50 Stations", "Universal Coverage"]
@@ -145,6 +184,8 @@ with left:
         show_heatmap_demand_score_A = False
         show_heatmap_demand_score_B = False
         show_heatmap_demand_score_C = False
+
+    st.markdown("</div>", unsafe_allow_html=True)
         
     # emphasize_gaps = st.checkbox("Highlight Coverage Gaps") 
     # show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
@@ -458,7 +499,10 @@ with right:
 
 
     m = build_map(hex_data, station_data)
-    st_folium(m, width=1000, height=700)
+    st.markdown('<div class="map-container">', unsafe_allow_html=True)
+    st_folium(m, width=None, height=750)
+    st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
