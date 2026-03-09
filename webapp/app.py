@@ -39,57 +39,44 @@ st.set_page_config(layout="wide")
 st.markdown("""
 <style>
 
-.main > div {
-    padding-top: 1rem;
+/* Remove default Streamlit padding */
+.block-container {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
 }
 
-/* Two-column layout sizing */
+/* Remove header spacing */
+header {
+    visibility: hidden;
+}
+
+/* Ensure full page height */
+html, body, [data-testid="stAppViewContainer"] {
+    height: 100%;
+}
+
+/* Column sizing */
 [data-testid="column"]:first-child {
-    width: 30% !important;
+    flex: 0 0 30% !important;
     max-width: 30% !important;
 }
 
 [data-testid="column"]:nth-child(2) {
-    width: 70% !important;
+    flex: 0 0 70% !important;
     max-width: 70% !important;
 }
 
 /* Scroll only the left panel */
 .left-panel {
-    height: 90vh;
+    height: 100vh;
     overflow-y: auto;
     padding-right: 10px;
-}
-
-/* Slightly smaller font for dense content */
-.left-panel {
     font-size: 0.9rem;
 }
 
-/* Make map container fill height */
+/* Map always fills screen */
 .map-container {
-    height: 90vh;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-<style>
-
-/* Remove Streamlit default top padding */
-.block-container {
-    padding-top: 0rem !important;
-}
-
-/* Remove extra margin above the app */
-.main {
-    padding-top: 0rem;
-}
-
-/* Ensure page uses full height */
-html, body, [data-testid="stAppViewContainer"] {
-    height: 100%;
+    height: 100vh;
 }
 
 </style>
@@ -101,11 +88,14 @@ html, body, [data-testid="stAppViewContainer"] {
 
 
 # Layout
-left, right = st.columns([3, 7])
+left, right = st.columns([0.3, 0.7], gap="small")
+
 
 
 # ---- LEFT PANEL ----
 with left:
+
+
     st.markdown('<div class="left-panel">', unsafe_allow_html=True)
     st.markdown("""
 <style>
@@ -119,8 +109,7 @@ with left:
 
 </style>
 """, unsafe_allow_html=True)
-
-    st.title("EV Charging Station Location Optimization")
+    st.markdown("### EV Charging Station Optimization")
     
     mode = st.radio(
     "Planning Mode",
@@ -223,6 +212,7 @@ with left:
         show_heatmap_demand_score_C = False
 
     st.markdown("</div>", unsafe_allow_html=True)
+
         
     # emphasize_gaps = st.checkbox("Highlight Coverage Gaps") 
     # show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
@@ -540,6 +530,7 @@ with right:
     
     st_folium(m, width=None, height=750)
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
