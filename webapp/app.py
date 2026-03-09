@@ -56,12 +56,12 @@ with left:
 
         demand_focus = st.selectbox(
             "Demand Focus",
-            ["Balanced", "Traffic Priority", "Activity Priority"]
+            ["Activity Priority", "Mobility Priority", "Resident Priority"]
         )
-
-        if demand_focus == "Balanced":
+        
+        if demand_focus == "Activity Priority":
             scenario_path = "data/add50_balanced"
-        elif demand_focus == "Traffic Priority":
+        elif demand_focus == "Mobility Priority":
             scenario_path = "data/add50_traffic"
         else:
             scenario_path = "data/add50_activity"
@@ -116,7 +116,9 @@ with left:
             
     st.markdown("---")        
     emphasize_gaps = st.checkbox("Highlight Coverage Gaps") 
-    show_heatmap = st.checkbox("Show Demand Heatmap")
+    show_heatmap_demand_score_A = st.checkbox("Show Demand Heatmap ")
+    show_heatmap_demand_score_B = st.checkbox("Show Demand Heatmap")
+    show_heatmap_demand_score_C = st.checkbox("Show Demand Heatmap")
     # st.markdown("---")
 
     # with st.expander("Assumptions"):
@@ -351,6 +353,7 @@ with right:
 
     m = build_map(hex_data, station_data)
     st_folium(m, width=1000, height=700)
+
 
 
 
