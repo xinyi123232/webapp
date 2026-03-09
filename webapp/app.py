@@ -166,8 +166,8 @@ with right:
         return {
             "fillColor": color,
             "color": "black",
-            "weight": 0.1,
-            "fillOpacity": 0.1
+            "weight": 0.2,
+            "fillOpacity": 0.3
         }
 
 
@@ -253,8 +253,8 @@ with right:
               return {
                   "fillColor": colormap(value),
                   "color": "black",
-                  "weight": 0.1,
-                  "fillOpacity": 0.6,
+                  "weight": 0.3,
+                  "fillOpacity": 0.5,
             }
         
         
@@ -281,8 +281,7 @@ with right:
         # """
         # m.get_root().header.add_child(Element(css))
         
-        folium.LayerControl().add_to(m)
-
+        folium.LayerControl(position='topleft').add_to(m)
 
         custom_css = """
         <style>
@@ -352,5 +351,6 @@ with right:
 
     m = build_map(hex_data, station_data)
     st_folium(m, width=1000, height=700)
+
 
 
