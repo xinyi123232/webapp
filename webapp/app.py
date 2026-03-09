@@ -269,17 +269,34 @@ with right:
             
             Demand_Heatmap.add_to(m)
             
-        css = """
+        # css = """
+        # <style>
+        #     .leaflet-control-layers-list {
+        #         font-size: 14px; /* Change the font size */
+        #         /* You can add other styles here, e.g., width, height, etc. */
+        #     }
+        # </style>
+        # """
+        # m.get_root().header.add_child(Element(css))
+        
+        folium.LayerControl(position='topleft',collapsed=False).add_to(m)
+
+
+        custom_css = """
         <style>
             .leaflet-control-layers-list {
-                font-size: 14px; /* Change the font size */
-                /* You can add other styles here, e.g., width, height, etc. */
+                width: 200px; /* Adjust width as needed */
+                font-size: 14px; /* Adjust font size as needed */
+            }
+            .leaflet-control-layers-label {
+                font-size: 14px; /* Adjust label font size as needed */
             }
         </style>
         """
-        m.get_root().header.add_child(Element(css))
         
-        folium.LayerControl(position='topleft',collapsed=False).add_to(m)
+
+        m.get_root().header.add_child(Element(custom_css))
+
         
         # legend_html = """
         # <div style="
@@ -333,6 +350,7 @@ with right:
 
     m = build_map(hex_data, station_data)
     st_folium(m, width=1000, height=700)
+
 
 
 
