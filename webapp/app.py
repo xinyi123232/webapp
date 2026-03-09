@@ -132,10 +132,10 @@ with left:
     elif mode == "Universal Coverage":
         pass
     
-    emphasize_gaps = st.checkbox("Highlight Coverage Gaps") 
-    show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
-    show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
-    show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap")
+    # emphasize_gaps = st.checkbox("Highlight Coverage Gaps") 
+    # show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
+    # show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
+    # show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap")
 
 
     # st.markdown("---")
@@ -445,6 +445,7 @@ with right:
 
     m = build_map(hex_data, station_data)
     st_folium(m, width=1000, height=700)
+
 
 
 
