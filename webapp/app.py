@@ -231,7 +231,7 @@ with right:
                 fill_opacity=0,
                 weight=1
             )
-        ).add_to(Service_Coverage_and_Hex)
+        ).add_to(EVCS)
         EVCS.add_to(m)
         Service_Coverage_and_Hex.add_to(m)
 
@@ -351,6 +351,7 @@ with right:
 
     m = build_map(hex_data, station_data)
     st_folium(m, width=1000, height=700)
+
 
 
 
