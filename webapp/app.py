@@ -60,7 +60,7 @@ left, right = st.columns([2, 8], gap="small")
 
 # ---- LEFT PANEL ----
 with left:
-    with st.container(height=650, border=False):
+    with st.container(height=600, border=False):
 
         st.markdown('<div class="left-panel">', unsafe_allow_html=True)
         st.markdown("### EV Charging Station Optimization")
@@ -484,6 +484,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
