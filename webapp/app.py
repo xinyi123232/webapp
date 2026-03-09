@@ -482,8 +482,9 @@ with right:
 
     m = build_map(hex_data, station_data)
     
-    st_folium(m, width=None, height=700)
+    st_folium(m, width=None, height=600)
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
