@@ -3,6 +3,9 @@ import json
 import folium
 from pathlib import Path
 from streamlit_folium import st_folium
+from folium.plugins import HeatMap
+# from branca.element import MacroElement
+# from jinja2 import Template
 
 script_dir = Path(__file__).parent
 
@@ -105,37 +108,64 @@ with left:
             st.success("All serviceable areas covered.")
         else:
             st.metric("Uncovered Areas",f"{metrics['uncovered']}%")
+            
+    st.markdown("---")        
+    emphasize_gaps = st.checkbox("Highlight Coverage Gaps") 
+    show_heatmap = st.checkbox("Show Demand Heatmap")
+    # st.markdown("---")
 
-    st.markdown("---")
-
-    with st.expander("Assumptions"):
-        st.write("Distances are straight-line, not travel time.")
-        st.write("Locations are based on public map data.")
-        st.write("Results show eligible locations, not confirmed projects.")
-        st.write("Implementation feasibility depends on land, power supply, and cost.")
+    # with st.expander("Assumptions"):
+    #     st.write("Distances are straight-line, not travel time.")
+    #     st.write("Locations are based on public map data.")
+    #     st.write("Results show eligible locations, not confirmed projects.")
+    #     st.write("Implementation feasibility depends on land, power supply, and cost.")
 
 # ---- RIGHT PANEL ----
 with right:
     # Hex styling
 
-    status_colors_hex = {
+status_colors = {
     "uncovered": "red",
     "existing": "#38AADD",
     "new_coverage": "orange",
     "new_coverage_SCLP": "green"
 }
-    
-    def style_hex(feature):
-        status = feature["properties"].get("color_status")
-        return {
-            "fillColor": status_colors_hex.get(status),
-            "color": "black",
-            "weight": 0.4,
-            "fillOpacity": 0.7,
-        }
+
+def style_hex(feature):
+
+    status = feature["properties"].get("color_status")
+
+    color = status_colors.get(status, "gray")
+
+    if emphasize_gaps:
+
+        if status == "uncovered":
+            return {
+                "fillColor": "red",
+                "color": "black",
+                "weight": 0.3,
+                "fillOpacity": 0.7
+            }
+
+        else:
+            return {
+                "fillColor": color,
+                "color": "black",
+                "weight": 0.2,
+                "fillOpacity": 0.15
+            }
+
+    # Normal view
+    return {
+        "fillColor": color,
+        "color": "black",
+        "weight": 0.2,
+        "fillOpacity": 0.3
+    }
+
 
     status_colors_stations = {
-    "existing": "blue",
+    "existing": "#38AADD",
     "MCLP": "orange",
     "SCLP": "green"
 }
@@ -147,9 +177,10 @@ with right:
 
     def build_map(hex_data, station_data):
         m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
+        
         EVCS = folium.FeatureGroup(name='Electric Vehicle Charging Stations')
         Service_Coverage_and_Hex = folium.FeatureGroup(name="1KM Service Coverage and Colored Hex")
-        
+        Demand_Heatmap = folium.FeatureGroup(name="Demand Heatmap")
         folium.GeoJson(
             city_boundaries,
             name="City Boundaries",
@@ -163,11 +194,24 @@ with right:
             ).add_to(m)
 
         
+        if show_heatmap:
+            HeatMap(
+                heat_data,
+                radius=18,
+                blur=22,
+                max_zoom=13,
+                min_opacity=0.3
+            ).add_to(Demand_Heatmap)
+        
+        Demand_Heatmap.add_to(m)
+        
         folium.GeoJson(
             hex_data,
             style_function=style_hex
         ).add_to(Service_Coverage_and_Hex
                 )
+
+        
         first_feature = station_data['features'][0]
         color_icon_radius = style_station(first_feature)
         
@@ -182,7 +226,7 @@ with right:
         folium.GeoJson(
             station_data,
             marker=folium.Circle(
-                radius=2000,   # 1KM in meters
+                radius=1000,   # 1KM in meters
                 color=color_icon_radius,
                 fill=True,
                 fill_opacity=.1,
@@ -192,6 +236,53 @@ with right:
         EVCS.add_to(m)
         Service_Coverage_and_Hex.add_to(m)
         folium.LayerControl(position='topleft',collapsed=False).add_to(m)
+        
+        # legend_html = """
+        # <div style="
+        # position: fixed;
+        # bottom: 50px;
+        # left: 50px;
+        # width: 220px;
+        # z-index:9999;
+        # font-size:14px;
+        # background-color:white;
+        # border:2px solid grey;
+        # border-radius:6px;
+        # padding:10px;
+        # ">
+        
+        # <b>Map Legend</b><br>
+        
+        # <br><b>Stations</b><br>
+        
+        # <i style="color:blue;" class="fa fa-bolt"></i> Existing Station<br>
+        # <i style="color:orange;" class="fa fa-bolt"></i> MCLP Station<br>
+        # <i style="color:green;" class="fa fa-bolt"></i> SCLP Station<br>
+        
+        # <br><b>Coverage Status</b><br>
+        
+        # <span style="background:#38AADD;width:12px;height:12px;display:inline-block"></span>
+        # Covered (Existing)<br>
+        
+        # <span style="background:orange;width:12px;height:12px;display:inline-block"></span>
+        # New Coverage (MCLP)<br>
+        
+        # <span style="background:green;width:12px;height:12px;display:inline-block"></span>
+        # New Coverage (SCLP)<br>
+        
+        # <span style="background:red;width:12px;height:12px;display:inline-block"></span>
+        # Uncovered Area<br>
+        
+        # </div>
+        # """
+
+
+        
+        # legend = MacroElement()
+        # legend._template = Template(legend_html)
+        
+        # m.get_root().add_child(legend)
+        
         # st.cache_data.clear()
         return m
 
@@ -244,6 +335,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
