@@ -3,7 +3,8 @@ import json
 import folium
 from pathlib import Path
 from streamlit_folium import st_folium
-from folium.plugins import HeatMap
+import branca.colormap as cm
+import numpy as np
 # from branca.element import MacroElement
 # from jinja2 import Template
 
@@ -203,13 +204,35 @@ with right:
 
         
         if show_heatmap:
-            HeatMap(
-                heat_data_demand_score_A,
-                radius=18,
-                blur=22,
-                max_zoom=13,
-                min_opacity=0.3
-            ).add_to(Demand_Heatmap)
+            colormap = cm.StepColormap(
+            colors=cm.linear.YlOrRd_07.colors,
+            index=classifier.bins,
+            vmin=0.0,
+            vmax=0.7081203248065904
+        )
+        
+        def style_function_demand_score(feature):
+          value = feature["properties"]["demand_score_A_Contrast"]
+        
+          return {
+              "fillColor": colormap(value),
+              "color": "black",
+              "weight": 0.1,
+              "fillOpacity": 0.4,
+        }
+        
+        
+        mclp_demand_score_c_group = folium.FeatureGroup(name="mclp_demand_score_c")
+        
+        folium.GeoJson(
+            hex_coverage_mclp_demand_score_c,
+            style_function=style_function_demand_score,
+            tooltip=folium.GeoJsonTooltip(
+                fields=["hex_id", "w"],
+                aliases=["Hex ID:", "Demand:"],
+            )
+        ).add_to(Demand_Heatmap)
+       
         
         Demand_Heatmap.add_to(m)
         
@@ -343,6 +366,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
