@@ -198,15 +198,19 @@ with right:
             },
             tooltip=folium.GeoJsonTooltip(fields=["ADM3_EN"])
             ).add_to(m)
-
+        
         
         if show_heatmap:
+            classifier = mc.NaturalBreaks(
+                hex_data["demand_score_A_Contrast"],
+                k=7
+                )
             colormap = cm.StepColormap(
-            colors=cm.linear.YlOrRd_07.colors,
-            index=classifier.bins,
-            vmin=0.0,
-            vmax=0.7081203248065904
-        )
+                colors=cm.linear.YlOrRd_07.colors,
+                index=classifier.bins,
+                vmin=0.0,
+                vmax=0.7081203248065904
+                )
         
         def style_function_demand_score(feature):
           value = feature["properties"]["demand_score_A_Contrast"]
@@ -363,6 +367,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
