@@ -23,10 +23,15 @@ def load_scenario(scenario_path):
     return hex_data, station_data, metrics
 
 @st.cache_data
+with open(base_path / "heat_data_demand_score_A.json") as f:
+    return json.load(f)
+
+@st.cache_data
 def load_city_boundaries():
     with open(script_dir/"data"/"city_boundaries.geojson") as f:
         return json.load(f)
         
+@st.cache_data  
 city_boundaries = load_city_boundaries()
 
 
@@ -336,6 +341,7 @@ with right:
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
