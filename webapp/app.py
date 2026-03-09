@@ -37,43 +37,43 @@ city_boundaries = load_city_boundaries()
 
 st.set_page_config(layout="wide")
 
-st.markdown("""
-<style>
+# st.markdown("""
+# <style>
 
-.main > div {
-    padding-top: 1rem;
-}
+# .main > div {
+#     padding-top: 1rem;
+# }
 
-/* Two-column layout sizing */
-[data-testid="column"]:first-child {
-    width: 30% !important;
-    max-width: 30% !important;
-}
+# /* Two-column layout sizing */
+# [data-testid="column"]:first-child {
+#     width: 30% !important;
+#     max-width: 30% !important;
+# }
 
-[data-testid="column"]:nth-child(2) {
-    width: 70% !important;
-    max-width: 70% !important;
-}
+# [data-testid="column"]:nth-child(2) {
+#     width: 70% !important;
+#     max-width: 70% !important;
+# }
 
-/* Scroll only the left panel */
-.left-panel {
-    height: 90vh;
-    overflow-y: auto;
-    padding-right: 10px;
-}
+# /* Scroll only the left panel */
+# .left-panel {
+#     height: 90vh;
+#     overflow-y: auto;
+#     padding-right: 10px;
+# }
 
-/* Slightly smaller font for dense content */
-.left-panel {
-    font-size: 0.9rem;
-}
+# /* Slightly smaller font for dense content */
+# .left-panel {
+#     font-size: 0.9rem;
+# }
 
-/* Make map container fill height */
-.map-container {
-    height: 90vh;
-}
+# /* Make map container fill height */
+# .map-container {
+#     height: 90vh;
+# }
 
-</style>
-""", unsafe_allow_html=True)
+# </style>
+# """, unsafe_allow_html=True)
 
 
 # Layout
@@ -203,6 +203,7 @@ with left:
 
 # ---- RIGHT PANEL ----
 with right:
+    st.markdown('<div class="map-container">', unsafe_allow_html=True)
     # Hex styling
 
     status_colors = {
@@ -499,9 +500,10 @@ with right:
 
 
     m = build_map(hex_data, station_data)
-    st.markdown('<div class="map-container">', unsafe_allow_html=True)
+    
     st_folium(m, width=None, height=750)
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
