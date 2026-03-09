@@ -141,7 +141,9 @@ with right:
         status = feature["properties"].get("color_status")
     
         color = status_colors.get(status, "gray")
-    
+
+
+        
         if emphasize_gaps:
     
             if status == "uncovered":
@@ -149,23 +151,23 @@ with right:
                     "fillColor": "red",
                     "color": "black",
                     "weight": 0.3,
-                    "fillOpacity": 0.7
+                    "fillOpacity": 0.9
                 }
     
             else:
                 return {
                     "fillColor": color,
                     "color": "black",
-                    "weight": 0.2,
-                    "fillOpacity": 0.15
+                    "weight": 0.1,
+                    "fillOpacity": 0.1
                 }
     
         # Normal view
         return {
             "fillColor": color,
             "color": "black",
-            "weight": 0.2,
-            "fillOpacity": 0.3
+            "weight": 0.1,
+            "fillOpacity": 0.1
         }
 
 
@@ -252,7 +254,7 @@ with right:
                   "fillColor": colormap(value),
                   "color": "black",
                   "weight": 0.1,
-                  "fillOpacity": 0.4,
+                  "fillOpacity": 0.6,
             }
         
         
