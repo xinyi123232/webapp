@@ -166,8 +166,8 @@ with right:
         return {
             "fillColor": color,
             "color": "black",
-            "weight": 0.2,
-            "fillOpacity": 0.3
+            "weight": 0.1,
+            "fillOpacity": 0.1
         }
 
 
@@ -228,7 +228,7 @@ with right:
                 radius=1000,   # 1KM in meters
                 color=color_icon_radius[1],
                 fill=True,
-                fill_opacity=.1,
+                fill_opacity=0,
                 weight=1
             )
         ).add_to(Service_Coverage_and_Hex)
@@ -254,7 +254,7 @@ with right:
                   "fillColor": colormap(value),
                   "color": "black",
                   "weight": 0.3,
-                  "fillOpacity": 0.5,
+                  "fillOpacity": 0.6,
             }
         
         
@@ -351,6 +351,7 @@ with right:
 
     m = build_map(hex_data, station_data)
     st_folium(m, width=1000, height=700)
+
 
 
 
