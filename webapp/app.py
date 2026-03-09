@@ -97,18 +97,6 @@ with left:
 
 
     st.markdown('<div class="left-panel">', unsafe_allow_html=True)
-    st.markdown("""
-<style>
-
-.left-panel {
-    height: 100vh;
-    overflow-y: auto;
-    font-size: 0.9rem;
-    padding-right: 10px;
-}
-
-</style>
-""", unsafe_allow_html=True)
     st.markdown("### EV Charging Station Optimization")
     
     mode = st.radio(
@@ -530,6 +518,7 @@ with right:
     
     st_folium(m, width=None, height=750)
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
