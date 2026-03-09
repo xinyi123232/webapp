@@ -40,17 +40,17 @@ st.markdown("""
 <style>
 /* Remove default Streamlit padding to make map edge-to-edge */
 .block-container {
-    padding-top: 2rem !important;
-    padding-bottom: 0rem !important;
-    padding-left: 5rem !important;
-    padding-right: 5rem !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
     max-width: 100% !important;
 }
 
-/* Hide header */
-# header {
-#     visibility: hidden;
-# }
+# /* Hide header */
+# # header {
+# #     visibility: hidden;
+# # }
 </style>
 """, unsafe_allow_html=True)
 
