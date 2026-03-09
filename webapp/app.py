@@ -343,8 +343,8 @@ with right:
                     fields=["hex_id", "demand_score_C"],
                     aliases=["Hex ID:", "Demand:"],
                 )
-            ).add_to(Demand_Heatmap_Mobility_Priority)
-            Demand_Heatmap_Mobility_Priority.add_to(m)
+            ).add_to(Demand_Heatmap_Resident_Priority)
+            Demand_Heatmap_Resident_Priority.add_to(m)
             
         # css = """
         # <style>
@@ -426,6 +426,7 @@ with right:
 
     m = build_map(hex_data, station_data)
     st_folium(m, width=1000, height=700)
+
 
 
 
