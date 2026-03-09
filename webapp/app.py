@@ -279,7 +279,7 @@ with right:
         # """
         # m.get_root().header.add_child(Element(css))
         
-        folium.LayerControl(position='topleft').add_to(m)
+        folium.LayerControl().add_to(m)
 
 
         custom_css = """
@@ -350,4 +350,5 @@ with right:
 
     m = build_map(hex_data, station_data)
     st_folium(m, width=1000, height=700)
+
 
