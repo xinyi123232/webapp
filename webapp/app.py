@@ -124,51 +124,52 @@ with left:
 with right:
     # Hex styling
 
-status_colors = {
-    "uncovered": "red",
-    "existing": "#38AADD",
-    "new_coverage": "orange",
-    "new_coverage_SCLP": "green"
-}
-
-def style_hex(feature):
-
-    status = feature["properties"].get("color_status")
-
-    color = status_colors.get(status, "gray")
-
-    if emphasize_gaps:
-
-        if status == "uncovered":
-            return {
-                "fillColor": "red",
-                "color": "black",
-                "weight": 0.3,
-                "fillOpacity": 0.7
-            }
-
-        else:
-            return {
-                "fillColor": color,
-                "color": "black",
-                "weight": 0.2,
-                "fillOpacity": 0.15
-            }
-
-    # Normal view
-    return {
-        "fillColor": color,
-        "color": "black",
-        "weight": 0.2,
-        "fillOpacity": 0.3
+    status_colors = {
+        "uncovered": "red",
+        "existing": "#38AADD",
+        "new_coverage": "orange",
+        "new_coverage_SCLP": "green"
     }
+
+    def style_hex(feature):
+    
+        status = feature["properties"].get("color_status")
+    
+        color = status_colors.get(status, "gray")
+    
+        if emphasize_gaps:
+    
+            if status == "uncovered":
+                return {
+                    "fillColor": "red",
+                    "color": "black",
+                    "weight": 0.3,
+                    "fillOpacity": 0.7
+                }
+    
+            else:
+                return {
+                    "fillColor": color,
+                    "color": "black",
+                    "weight": 0.2,
+                    "fillOpacity": 0.15
+                }
+    
+        # Normal view
+        return {
+            "fillColor": color,
+            "color": "black",
+            "weight": 0.2,
+            "fillOpacity": 0.3
+        }
 
 
     status_colors_stations = {
-    "existing": "#38AADD",
-    "MCLP": "orange",
-    "SCLP": "green"
-}
+        "existing": "#38AADD",
+        "MCLP": "orange",
+        "SCLP": "green"
+        }
+    
     def style_station(feature):
         a = feature.get('properties', {}).get('status')
         return status_colors_stations.get(a)
@@ -335,6 +336,7 @@ def style_hex(feature):
     # ).add_to(m)
 
     # st_folium(m, width=1000, height=700
+
 
 
 
