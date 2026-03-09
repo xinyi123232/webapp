@@ -1,2 +1,3 @@
 folium 
+mapclassify
 streamlit-folium
