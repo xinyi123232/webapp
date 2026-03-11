@@ -381,8 +381,8 @@ with right:
         fields=[
             "candidate_type",
             "status",
-            # "priority_rank",
-            # "demand_score",
+            "rank",
+            "contribution_w",
             "y_epsg4326",
             "x_epsg4326"
         ],
@@ -390,8 +390,8 @@ with right:
         aliases=[
             "Facility Type:",
             "Status:",
-            # "Priority Rank:",
-            # "Demand Contribution Score:",
+            "Priority Rank:",
+            "Demand Contribution Score:",
             "Latitude:",
             "Longitude:"
         ],
@@ -446,8 +446,8 @@ with right:
         fields=[
             "candidate_type",
             "status",
-            # "priority_rank",
-            # "demand_score",
+            "rank",
+            "contribution_w",
             "y_epsg4326",
             "x_epsg4326"
         ],
@@ -455,8 +455,8 @@ with right:
         aliases=[
             "Facility Type:",
             "Status:",
-            # "Priority Rank:",
-            # "Demand Contribution Score:",
+            "Priority Rank:",
+            "Demand Contribution Score:",
             "Latitude:",
             "Longitude:"
         ],
@@ -511,8 +511,8 @@ with right:
         fields=[
             "candidate_type",
             "status",
-            # "priority_rank",
-            # "demand_score",
+            "rank",
+            "contribution_w",
             "y_epsg4326",
             "x_epsg4326"
         ],
@@ -520,8 +520,8 @@ with right:
         aliases=[
             "Facility Type:",
             "Status:",
-            # "Priority Rank:",
-            # "Demand Contribution Score:",
+            "Priority Rank:",
+            "Demand Contribution Score:",
             "Latitude:",
             "Longitude:"
         ],
@@ -828,6 +828,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
