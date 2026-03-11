@@ -259,6 +259,7 @@ with right:
         Demand_Heatmap_Mobility_Priority= folium.FeatureGroup(name="Mobility Priority Demand Heatmap")
         Demand_Heatmap_Resident_Priority= folium.FeatureGroup(name="Resident Priority Demand Heatmap")
 
+
         
         folium.GeoJson(
             city_boundaries,
@@ -272,7 +273,10 @@ with right:
             tooltip=folium.GeoJsonTooltip(fields=["ADM3_EN"])
             ).add_to(m)
         
-        
+        first_feature = station_data['features'][0]
+        color_icon_radius = style_station(first_feature)
+
+
         if mode == "Current Network":
         #     folium.GeoJson(hex_data,
         #                    style_function=style_hex,
@@ -293,6 +297,58 @@ with right:
     aliases=["Activity Demand Level:", "Mobility Demand Level:", "Resident Demand Level:"],
     sticky=False)
 ).add_to(Service_Coverage_and_Hex)
+            folium.GeoJson(
+    station_data,
+
+    tooltip=folium.GeoJsonTooltip(
+        fields=["full_id"
+        # , "address"
+        ],
+        aliases=["Station Name:"
+        # , "Address:"
+        ],
+        sticky=False
+    ),
+
+    popup=folium.GeoJsonPopup(
+        fields=[
+            "candidate_type",
+            "status",
+            # "priority_rank",
+            # "demand_score",
+            "y_epsg4326",
+            "x_epsg4326"
+        ],
+
+        aliases=[
+            "Facility Type:",
+            "Status:",
+            # "Priority Rank:",
+            # "Demand Contribution Score:",
+            "Latitude:",
+            "Longitude:"
+        ],
+
+        localize=True,
+        labels=True,
+        style="""
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 4px;
+            padding: 5px;
+        """
+    ),
+
+    marker=folium.Marker(
+        icon=folium.Icon(
+            color=color_icon_radius[0],
+            icon="bolt",
+            prefix="fa"
+        )
+    )
+
+).add_to(EV_map)
+
 
         elif mode == "Add 50 Stations":
             
@@ -308,6 +364,57 @@ with right:
                     aliases=["Activity Demand Level:"],
                     sticky=False)
 ).add_to(Service_Coverage_and_Hex)
+                folium.GeoJson(
+    station_data,
+
+    tooltip=folium.GeoJsonTooltip(
+        fields=["full_id"
+        # , "address"
+        ],
+        aliases=["Station Name:"
+        # , "Address:"
+        ],
+        sticky=False
+    ),
+
+    popup=folium.GeoJsonPopup(
+        fields=[
+            "candidate_type",
+            "status",
+            # "priority_rank",
+            # "demand_score",
+            "y_epsg4326",
+            "x_epsg4326"
+        ],
+
+        aliases=[
+            "Facility Type:",
+            "Status:",
+            # "Priority Rank:",
+            # "Demand Contribution Score:",
+            "Latitude:",
+            "Longitude:"
+        ],
+
+        localize=True,
+        labels=True,
+        style="""
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 4px;
+            padding: 5px;
+        """
+    ),
+
+    marker=folium.Marker(
+        icon=folium.Icon(
+            color=color_icon_radius[0],
+            icon="bolt",
+            prefix="fa"
+        )
+    )
+
+).add_to(EV_map)
             
                 
             elif demand_focus == "Mobility Priority":
@@ -322,6 +429,57 @@ with right:
                     aliases=["Mobility Demand Level:"],
                     sticky=False)
 ).add_to(Service_Coverage_and_Hex)
+                folium.GeoJson(
+    station_data,
+
+    tooltip=folium.GeoJsonTooltip(
+        fields=["full_id"
+        # , "address"
+        ],
+        aliases=["Station Name:"
+        # , "Address:"
+        ],
+        sticky=False
+    ),
+
+    popup=folium.GeoJsonPopup(
+        fields=[
+            "candidate_type",
+            "status",
+            # "priority_rank",
+            # "demand_score",
+            "y_epsg4326",
+            "x_epsg4326"
+        ],
+
+        aliases=[
+            "Facility Type:",
+            "Status:",
+            # "Priority Rank:",
+            # "Demand Contribution Score:",
+            "Latitude:",
+            "Longitude:"
+        ],
+
+        localize=True,
+        labels=True,
+        style="""
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 4px;
+            padding: 5px;
+        """
+    ),
+
+    marker=folium.Marker(
+        icon=folium.Icon(
+            color=color_icon_radius[0],
+            icon="bolt",
+            prefix="fa"
+        )
+    )
+
+).add_to(EV_map)
                 
 
             else:
@@ -336,6 +494,57 @@ with right:
                     aliases=["Resident Demand Level:"],
                     sticky=False)
 ).add_to(Service_Coverage_and_Hex)
+                folium.GeoJson(
+    station_data,
+
+    tooltip=folium.GeoJsonTooltip(
+        fields=["full_id"
+        # , "address"
+        ],
+        aliases=["Station Name:"
+        # , "Address:"
+        ],
+        sticky=False
+    ),
+
+    popup=folium.GeoJsonPopup(
+        fields=[
+            "candidate_type",
+            "status",
+            # "priority_rank",
+            # "demand_score",
+            "y_epsg4326",
+            "x_epsg4326"
+        ],
+
+        aliases=[
+            "Facility Type:",
+            "Status:",
+            # "Priority Rank:",
+            # "Demand Contribution Score:",
+            "Latitude:",
+            "Longitude:"
+        ],
+
+        localize=True,
+        labels=True,
+        style="""
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 4px;
+            padding: 5px;
+        """
+    ),
+
+    marker=folium.Marker(
+        icon=folium.Icon(
+            color=color_icon_radius[0],
+            icon="bolt",
+            prefix="fa"
+        )
+    )
+
+).add_to(EV_map)
 
         elif mode == "Universal Coverage":
             folium.GeoJson(
@@ -348,6 +557,57 @@ with right:
                 #     labels=True)
             ).add_to(Service_Coverage_and_Hex
                     )
+            folium.GeoJson(
+    station_data,
+
+    tooltip=folium.GeoJsonTooltip(
+        fields=["full_id"
+        # , "address"
+        ],
+        aliases=["Station Name:"
+        # , "Address:"
+        ],
+        sticky=False
+    ),
+
+    popup=folium.GeoJsonPopup(
+        fields=[
+            "candidate_type",
+            "status",
+            # "priority_rank",
+            # "demand_score",
+            "y_epsg4326",
+            "x_epsg4326"
+        ],
+
+        aliases=[
+            "Facility Type:",
+            "Status:",
+            # "Priority Rank:",
+            # "Demand Contribution Score:",
+            "Latitude:",
+            "Longitude:"
+        ],
+
+        localize=True,
+        labels=True,
+        style="""
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 4px;
+            padding: 5px;
+        """
+    ),
+
+    marker=folium.Marker(
+        icon=folium.Icon(
+            color=color_icon_radius[0],
+            icon="bolt",
+            prefix="fa"
+        )
+    )
+
+).add_to(EV_map)
 
         
 
@@ -358,16 +618,15 @@ with right:
 
 
         
-        first_feature = station_data['features'][0]
-        color_icon_radius = style_station(first_feature)
+
         
-        folium.GeoJson(
-            station_data,
-            marker=folium.Marker(
-                #popup=folium.Popup(html_popup, max_width=250),
-                tooltip=f"Existing: {row['full_id']}",
-                icon=folium.Icon(color=color_icon_radius[0], icon='bolt', prefix='fa'))
-        ).add_to(EVCS)
+        # folium.GeoJson(
+        #     station_data,
+        #     marker=folium.Marker(
+        #         #popup=folium.Popup(html_popup, max_width=250),
+        #         tooltip=f"Existing: {row['full_id']}",
+        #         icon=folium.Icon(color=color_icon_radius[0], icon='bolt', prefix='fa'))
+        # ).add_to(EVCS)
     
         folium.GeoJson(
             station_data,
@@ -569,6 +828,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
