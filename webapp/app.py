@@ -291,7 +291,7 @@ with right:
                     labels=True),
                tooltip=folium.GeoJsonTooltip(
     fields=["demand_level_A","demand_level_B","demand_level_C"],
-    liases=["Activity Demand Level:", "Mobility Demand Level:", "Resident Demand Level:"],
+    aliases=["Activity Demand Level:", "Mobility Demand Level:", "Resident Demand Level:"],
     sticky=False)
 ).add_to(Service_Coverage_and_Hex)
 
@@ -306,7 +306,7 @@ with right:
                     labels=True),
                tooltip=folium.GeoJsonTooltip(
                     fields=["demand_level"],
-                    liases=["Activity Demand Level:"],
+                    aliases=["Activity Demand Level:"],
                     sticky=False)
 ).add_to(Service_Coverage_and_Hex)
             
@@ -320,7 +320,7 @@ with right:
                     labels=True),
                tooltip=folium.GeoJsonTooltip(
                     fields=["demand_level"],
-                    liases=["Mobility Demand Level:"],
+                    aliases=["Mobility Demand Level:"],
                     sticky=False)
 ).add_to(Service_Coverage_and_Hex)
                 
@@ -334,7 +334,7 @@ with right:
                     labels=True),
                tooltip=folium.GeoJsonTooltip(
                     fields=["demand_level"],
-                    liases=["Resident Demand Level:"],
+                    aliases=["Resident Demand Level:"],
                     sticky=False)
 ).add_to(Service_Coverage_and_Hex)
 
@@ -565,6 +565,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
