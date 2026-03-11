@@ -48,9 +48,9 @@ st.markdown("""
 }
 
 /* Hide header */
-# header {
-#     visibility: hidden;
-# }
+header {
+    visibility: hidden;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -145,8 +145,8 @@ with left:
             if demand_focus == "Activity Priority":
                 emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
                 show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
-                # show_heatmap_demand_score_B = False
-                # show_heatmap_demand_score_C = False
+                show_heatmap_demand_score_B = False
+                show_heatmap_demand_score_C = False
                 
             elif demand_focus == "Mobility Priority":
                 emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
@@ -484,6 +484,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
