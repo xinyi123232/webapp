@@ -476,7 +476,7 @@ with right:
         
         # m.get_root().add_child(legend)
         
-        # st.cache_data.clear()
+        st.cache_data.clear()
         return m
 
 
@@ -484,6 +484,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
