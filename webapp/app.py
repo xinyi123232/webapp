@@ -342,6 +342,11 @@ with right:
             folium.GeoJson(
                 hex_data,
                 style_function=style_hex
+                # ,
+                # popup=folium.GeoJsonPopup(
+                #     fields=["covered"],
+                #     aliases=["Coverage Status:"],
+                #     labels=True)
             ).add_to(Service_Coverage_and_Hex
                     )
 
@@ -409,8 +414,8 @@ with right:
                 hex_data,
                 style_function=style_function_demand_score,
                 tooltip=folium.GeoJsonTooltip(
-                    fields=["hex_id", "demand_score_A"],
-                    aliases=["Hex ID:", "Demand:"],
+                    fields=["demand_score_A"],
+                    aliases=["Demand:"],
                 )
             ).add_to(Demand_Heatmap_Activity_Priority)
             Demand_Heatmap_Activity_Priority.add_to(m)
@@ -443,8 +448,8 @@ with right:
                 hex_data,
                 style_function=style_function_demand_score,
                 tooltip=folium.GeoJsonTooltip(
-                    fields=["hex_id", "demand_score_B"],
-                    aliases=["Hex ID:", "Demand:"],
+                    fields=["demand_score_B"],
+                    aliases=["Demand:"],
                 )
             ).add_to(Demand_Heatmap_Mobility_Priority)
             Demand_Heatmap_Mobility_Priority.add_to(m)
@@ -477,8 +482,8 @@ with right:
                 hex_data,
                 style_function=style_function_demand_score,
                 tooltip=folium.GeoJsonTooltip(
-                    fields=["hex_id", "demand_score_C"],
-                    aliases=["Hex ID:", "Demand:"],
+                    fields=["demand_score_C"],
+                    aliases=["Demand:"],
                 )
             ).add_to(Demand_Heatmap_Resident_Priority)
             Demand_Heatmap_Resident_Priority.add_to(m)
@@ -565,6 +570,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
