@@ -374,7 +374,7 @@ with right:
                 )
         
             def style_function_demand_score(feature):
-              value = feature["properties"]["demand_score_C"]
+              value = feature["properties"]["demand_score_C_Contrast"]
             
               return {
                   "fillColor": colormap(value),
@@ -477,6 +477,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
