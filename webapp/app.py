@@ -184,7 +184,7 @@ with left:
 
 # ---- RIGHT PANEL ----
 with right:
-    st.markdown('<div class="map-container">', unsafe_allow_html=True)
+    # st.markdown('<div class="map-container">', unsafe_allow_html=True)
     # Hex styling
 
     status_colors = {
@@ -482,8 +482,9 @@ with right:
 
     m = build_map(hex_data, station_data)
     
-    st_folium(m, width=None, height=650)
-    st.markdown("</div>", unsafe_allow_html=True)
+    st_folium(m, width=200, height=650)
+    # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
