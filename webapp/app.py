@@ -167,13 +167,6 @@ with left:
     
         st.markdown("</div>", unsafe_allow_html=True)
     
-            
-        # emphasize_gaps = st.checkbox("Highlight Coverage Gaps") 
-        # show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
-        # show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
-        # show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap")
-    
-    
         # st.markdown("---")
     
         # with st.expander("Assumptions"):
@@ -381,7 +374,7 @@ with right:
                 )
         
             def style_function_demand_score(feature):
-              value = feature["properties"]["demand_score_C_Contrast"]
+              value = feature["properties"]["demand_score_C"]
             
               return {
                   "fillColor": colormap(value),
@@ -484,6 +477,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
