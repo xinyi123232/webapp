@@ -239,7 +239,7 @@ with right:
 
 
     status_colors_stations = {
-        "existing": ["blue", "#38AADD"],
+        "Existing": ["blue", "#38AADD"],
         "MCLP": ["orange","orange"],
         "SCLP": ["green","green"]  
         }
@@ -848,6 +848,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
