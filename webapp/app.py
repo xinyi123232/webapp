@@ -347,7 +347,7 @@ with right:
         )
     )
 
-).add_to(EV_map)
+).add_to(EVCS)
 
 
         elif mode == "Add 50 Stations":
@@ -414,7 +414,7 @@ with right:
         )
     )
 
-).add_to(EV_map)
+).add_to(EVCS)
             
                 
             elif demand_focus == "Mobility Priority":
@@ -479,7 +479,7 @@ with right:
         )
     )
 
-).add_to(EV_map)
+).add_to(EVCS)
                 
 
             else:
@@ -544,7 +544,7 @@ with right:
         )
     )
 
-).add_to(EV_map)
+).add_to(EVCS)
 
         elif mode == "Universal Coverage":
             folium.GeoJson(
@@ -607,7 +607,7 @@ with right:
         )
     )
 
-).add_to(EV_map)
+).add_to(EVCS)
 
         
 
@@ -828,6 +828,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
