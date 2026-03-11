@@ -389,6 +389,7 @@ with right:
                             "status",
                             "rank",
                             "contribution_w",
+                            "contribution_share",
                             "y_epsg4326",
                             "x_epsg4326"
                         ],
@@ -397,7 +398,8 @@ with right:
                             "Facility Type:",
                             "Status:",
                             "Priority Rank:",
-                            "Demand Contribution Score:",
+                            "Demand Contribution:",
+                            "Contribution Share:"
                             "Latitude:",
                             "Longitude:"
                         ],
@@ -457,6 +459,7 @@ with right:
                             "status",
                             "rank",
                             "contribution_w",
+                            "contribution_share",
                             "y_epsg4326",
                             "x_epsg4326"
                         ],
@@ -465,7 +468,8 @@ with right:
                             "Facility Type:",
                             "Status:",
                             "Priority Rank:",
-                            "Demand Contribution Score:",
+                            "Demand Contribution:",
+                            "Contribution Share:",
                             "Latitude:",
                             "Longitude:"
                         ],
@@ -525,6 +529,7 @@ with right:
                             "status",
                             "rank",
                             "contribution_w",
+                            "contribution_share"
                             "y_epsg4326",
                             "x_epsg4326"
                         ],
@@ -533,7 +538,8 @@ with right:
                             "Facility Type:",
                             "Status:",
                             "Priority Rank:",
-                            "Demand Contribution Score:",
+                            "Demand Contribution:",
+                            "Contribution Share:"
                             "Latitude:",
                             "Longitude:"
                         ],
@@ -842,6 +848,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
