@@ -48,9 +48,9 @@ st.markdown("""
 }
 
 /* Hide header */
-header {
-    visibility: hidden;
-}
+# header {
+#     visibility: hidden;
+# }
 </style>
 """, unsafe_allow_html=True)
 
@@ -484,6 +484,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
