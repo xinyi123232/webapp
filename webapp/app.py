@@ -297,57 +297,60 @@ with right:
     aliases=["Activity Demand Level:", "Mobility Demand Level:", "Resident Demand Level:"],
     sticky=False)
 ).add_to(Service_Coverage_and_Hex)
+
+            
             folium.GeoJson(
-    station_data,
-
-    tooltip=folium.GeoJsonTooltip(
-        fields=["full_id"
-        # , "address"
-        ],
-        aliases=["Station Name:"
-        # , "Address:"
-        ],
-        sticky=False
-    ),
-
-    popup=folium.GeoJsonPopup(
-        fields=[
-            "candidate_type",
-            "status",
-            # "priority_rank",
-            # "demand_score",
-            "y_epsg4326",
-            "x_epsg4326"
-        ],
-
-        aliases=[
-            "Facility Type:",
-            "Status:",
-            # "Priority Rank:",
-            # "Demand Contribution Score:",
-            "Latitude:",
-            "Longitude:"
-        ],
-
-        localize=True,
-        labels=True,
-        style="""
-            background-color: white;
-            border: 1px solid gray;
-            border-radius: 4px;
-            padding: 5px;
-        """
-    ),
-
-    marker=folium.Marker(
-        icon=folium.Icon(
-            color=color_icon_radius[0],
-            icon="bolt",
-            prefix="fa"
-        )
-    )
-
-).add_to(EVCS)
+                
+                station_data,
+            
+                tooltip=folium.GeoJsonTooltip(
+                    fields=["full_id"
+                    # , "address"
+                    ],
+                    aliases=["Station Name:"
+                    # , "Address:"
+                    ],
+                    sticky=False
+                ),
+            
+                popup=folium.GeoJsonPopup(
+                    fields=[
+                        "candidate_type",
+                        "status",
+                        # "priority_rank",
+                        # "demand_score",
+                        "y_epsg4326",
+                        "x_epsg4326"
+                    ],
+            
+                    aliases=[
+                        "Facility Type:",
+                        "Status:",
+                        # "Priority Rank:",
+                        # "Demand Contribution Score:",
+                        "Latitude:",
+                        "Longitude:"
+                    ],
+            
+                    localize=True,
+                    labels=True,
+                    # style="""
+                    #     background-color: white;
+                    #     border: 1px solid gray;
+                    #     border-radius: 4px;
+                    #     padding: 5px;
+                    # """
+                ),
+            
+                marker=folium.Marker(
+                    icon=folium.Icon(
+                        color=color_icon_radius[0],
+                        icon="bolt",
+                        prefix="fa"
+                    )
+                )
+            
+            ).add_to(EVCS)
 
 
         elif mode == "Add 50 Stations":
@@ -364,57 +367,60 @@ with right:
                     aliases=["Activity Demand Level:"],
                     sticky=False)
 ).add_to(Service_Coverage_and_Hex)
+
+
+                
                 folium.GeoJson(
-    station_data,
-
-    tooltip=folium.GeoJsonTooltip(
-        fields=["full_id"
-        # , "address"
-        ],
-        aliases=["Station Name:"
-        # , "Address:"
-        ],
-        sticky=False
-    ),
-
-    popup=folium.GeoJsonPopup(
-        fields=[
-            "candidate_type",
-            "status",
-            "rank",
-            "contribution_w",
-            "y_epsg4326",
-            "x_epsg4326"
-        ],
-
-        aliases=[
-            "Facility Type:",
-            "Status:",
-            "Priority Rank:",
-            "Demand Contribution Score:",
-            "Latitude:",
-            "Longitude:"
-        ],
-
-        localize=True,
-        labels=True,
-        style="""
-            background-color: white;
-            border: 1px solid gray;
-            border-radius: 4px;
-            padding: 5px;
-        """
-    ),
-
-    marker=folium.Marker(
-        icon=folium.Icon(
-            color=color_icon_radius[0],
-            icon="bolt",
-            prefix="fa"
-        )
-    )
-
-).add_to(EVCS)
+                    station_data,
+                
+                    tooltip=folium.GeoJsonTooltip(
+                        fields=["full_id"
+                        # , "address"
+                        ],
+                        aliases=["Station Name:"
+                        # , "Address:"
+                        ],
+                        sticky=False
+                    ),
+                
+                    popup=folium.GeoJsonPopup(
+                        fields=[
+                            "candidate_type",
+                            "status",
+                            "rank",
+                            "contribution_w",
+                            "y_epsg4326",
+                            "x_epsg4326"
+                        ],
+                
+                        aliases=[
+                            "Facility Type:",
+                            "Status:",
+                            "Priority Rank:",
+                            "Demand Contribution Score:",
+                            "Latitude:",
+                            "Longitude:"
+                        ],
+                
+                        localize=True,
+                        labels=True,
+                        # style="""
+                        #     background-color: white;
+                        #     border: 1px solid gray;
+                        #     border-radius: 4px;
+                        #     padding: 5px;
+                        # """
+                    ),
+                
+                    marker=folium.Marker(
+                        icon=folium.Icon(
+                            color=color_icon_radius[0],
+                            icon="bolt",
+                            prefix="fa"
+                        )
+                    )
+                
+                ).add_to(EVCS)
             
                 
             elif demand_focus == "Mobility Priority":
@@ -429,57 +435,60 @@ with right:
                     aliases=["Mobility Demand Level:"],
                     sticky=False)
 ).add_to(Service_Coverage_and_Hex)
+
+
+                
                 folium.GeoJson(
-    station_data,
-
-    tooltip=folium.GeoJsonTooltip(
-        fields=["full_id"
-        # , "address"
-        ],
-        aliases=["Station Name:"
-        # , "Address:"
-        ],
-        sticky=False
-    ),
-
-    popup=folium.GeoJsonPopup(
-        fields=[
-            "candidate_type",
-            "status",
-            "rank",
-            "contribution_w",
-            "y_epsg4326",
-            "x_epsg4326"
-        ],
-
-        aliases=[
-            "Facility Type:",
-            "Status:",
-            "Priority Rank:",
-            "Demand Contribution Score:",
-            "Latitude:",
-            "Longitude:"
-        ],
-
-        localize=True,
-        labels=True,
-        style="""
-            background-color: white;
-            border: 1px solid gray;
-            border-radius: 4px;
-            padding: 5px;
-        """
-    ),
-
-    marker=folium.Marker(
-        icon=folium.Icon(
-            color=color_icon_radius[0],
-            icon="bolt",
-            prefix="fa"
-        )
-    )
-
-).add_to(EVCS)
+                    station_data,
+                
+                    tooltip=folium.GeoJsonTooltip(
+                        fields=["full_id"
+                        # , "address"
+                        ],
+                        aliases=["Station Name:"
+                        # , "Address:"
+                        ],
+                        sticky=False
+                    ),
+                
+                    popup=folium.GeoJsonPopup(
+                        fields=[
+                            "candidate_type",
+                            "status",
+                            "rank",
+                            "contribution_w",
+                            "y_epsg4326",
+                            "x_epsg4326"
+                        ],
+                
+                        aliases=[
+                            "Facility Type:",
+                            "Status:",
+                            "Priority Rank:",
+                            "Demand Contribution Score:",
+                            "Latitude:",
+                            "Longitude:"
+                        ],
+                
+                        localize=True,
+                        labels=True,
+                        # style="""
+                        #     background-color: white;
+                        #     border: 1px solid gray;
+                        #     border-radius: 4px;
+                        #     padding: 5px;
+                        # """
+                    ),
+                
+                    marker=folium.Marker(
+                        icon=folium.Icon(
+                            color=color_icon_radius[0],
+                            icon="bolt",
+                            prefix="fa"
+                        )
+                    )
+                
+                ).add_to(EVCS)
                 
 
             else:
@@ -494,57 +503,60 @@ with right:
                     aliases=["Resident Demand Level:"],
                     sticky=False)
 ).add_to(Service_Coverage_and_Hex)
+
+
+                
                 folium.GeoJson(
-    station_data,
-
-    tooltip=folium.GeoJsonTooltip(
-        fields=["full_id"
-        # , "address"
-        ],
-        aliases=["Station Name:"
-        # , "Address:"
-        ],
-        sticky=False
-    ),
-
-    popup=folium.GeoJsonPopup(
-        fields=[
-            "candidate_type",
-            "status",
-            "rank",
-            "contribution_w",
-            "y_epsg4326",
-            "x_epsg4326"
-        ],
-
-        aliases=[
-            "Facility Type:",
-            "Status:",
-            "Priority Rank:",
-            "Demand Contribution Score:",
-            "Latitude:",
-            "Longitude:"
-        ],
-
-        localize=True,
-        labels=True,
-        style="""
-            background-color: white;
-            border: 1px solid gray;
-            border-radius: 4px;
-            padding: 5px;
-        """
-    ),
-
-    marker=folium.Marker(
-        icon=folium.Icon(
-            color=color_icon_radius[0],
-            icon="bolt",
-            prefix="fa"
-        )
-    )
-
-).add_to(EVCS)
+                    station_data,
+                
+                    tooltip=folium.GeoJsonTooltip(
+                        fields=["full_id"
+                        # , "address"
+                        ],
+                        aliases=["Station Name:"
+                        # , "Address:"
+                        ],
+                        sticky=False
+                    ),
+                
+                    popup=folium.GeoJsonPopup(
+                        fields=[
+                            "candidate_type",
+                            "status",
+                            "rank",
+                            "contribution_w",
+                            "y_epsg4326",
+                            "x_epsg4326"
+                        ],
+                
+                        aliases=[
+                            "Facility Type:",
+                            "Status:",
+                            "Priority Rank:",
+                            "Demand Contribution Score:",
+                            "Latitude:",
+                            "Longitude:"
+                        ],
+                
+                        localize=True,
+                        labels=True,
+                        # style="""
+                        #     background-color: white;
+                        #     border: 1px solid gray;
+                        #     border-radius: 4px;
+                        #     padding: 5px;
+                        # """
+                    ),
+                
+                    marker=folium.Marker(
+                        icon=folium.Icon(
+                            color=color_icon_radius[0],
+                            icon="bolt",
+                            prefix="fa"
+                        )
+                    )
+                
+                ).add_to(EVCS)
 
         elif mode == "Universal Coverage":
             folium.GeoJson(
@@ -555,59 +567,61 @@ with right:
                 #     fields=["covered"],
                 #     aliases=["Coverage Status:"],
                 #     labels=True)
-            ).add_to(Service_Coverage_and_Hex
-                    )
+            ).add_to(Service_Coverage_and_Hex)
+
+
+            
             folium.GeoJson(
-    station_data,
-
-    tooltip=folium.GeoJsonTooltip(
-        fields=["full_id"
-        # , "address"
-        ],
-        aliases=["Station Name:"
-        # , "Address:"
-        ],
-        sticky=False
-    ),
-
-    popup=folium.GeoJsonPopup(
-        fields=[
-            "candidate_type",
-            "status",
-            # "priority_rank",
-            # "demand_score",
-            "y_epsg4326",
-            "x_epsg4326"
-        ],
-
-        aliases=[
-            "Facility Type:",
-            "Status:",
-            # "Priority Rank:",
-            # "Demand Contribution Score:",
-            "Latitude:",
-            "Longitude:"
-        ],
-
-        localize=True,
-        labels=True,
-        style="""
-            background-color: white;
-            border: 1px solid gray;
-            border-radius: 4px;
-            padding: 5px;
-        """
-    ),
-
-    marker=folium.Marker(
-        icon=folium.Icon(
-            color=color_icon_radius[0],
-            icon="bolt",
-            prefix="fa"
-        )
-    )
-
-).add_to(EVCS)
+                station_data,
+            
+                tooltip=folium.GeoJsonTooltip(
+                    fields=["full_id"
+                    # , "address"
+                    ],
+                    aliases=["Station Name:"
+                    # , "Address:"
+                    ],
+                    sticky=False
+                ),
+            
+                popup=folium.GeoJsonPopup(
+                    fields=[
+                        "candidate_type",
+                        "status",
+                        # "priority_rank",
+                        # "demand_score",
+                        "y_epsg4326",
+                        "x_epsg4326"
+                    ],
+            
+                    aliases=[
+                        "Facility Type:",
+                        "Status:",
+                        # "Priority Rank:",
+                        # "Demand Contribution Score:",
+                        "Latitude:",
+                        "Longitude:"
+                    ],
+            
+                    localize=True,
+                    labels=True,
+                    # style="""
+                    #     background-color: white;
+                    #     border: 1px solid gray;
+                    #     border-radius: 4px;
+                    #     padding: 5px;
+                    # """
+                ),
+            
+                marker=folium.Marker(
+                    icon=folium.Icon(
+                        color=color_icon_radius[0],
+                        icon="bolt",
+                        prefix="fa"
+                    )
+                )
+            
+            ).add_to(EVCS)
 
         
 
@@ -828,6 +842,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
