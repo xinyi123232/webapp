@@ -399,7 +399,7 @@ with right:
                             "Status:",
                             "Priority Rank:",
                             "Demand Contribution:",
-                            "Contribution Share:"
+                            "Contribution Share:",
                             "Latitude:",
                             "Longitude:"
                         ],
@@ -848,6 +848,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
