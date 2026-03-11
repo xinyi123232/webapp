@@ -476,7 +476,7 @@ with right:
         
         # m.get_root().add_child(legend)
         
-        # st.cache_data.clear()
+        st.cache_data.clear()
         return m
 
 
