@@ -188,13 +188,8 @@ with right:
     }
 
     def style_hex(feature):
-    
         status = feature["properties"].get("color_status")
-    
         color = status_colors.get(status, "gray")
-
-
-        
         if emphasize_gaps:
     
             if status == "uncovered":
@@ -220,6 +215,28 @@ with right:
             "weight": 0.1,
             "fillOpacity": 0.1
         }
+        
+#     def hex_popup(feature):
+#         status = feature["properties"].get("color_status")
+#         demand = feature["properties"].get("demand_level")
+    
+#         if status == "uncovered":
+#             coverage = "Not Covered"
+#         else:
+#             coverage = "Covered"
+    
+#         html = f"""
+#         <b>Coverage Status:</b> {coverage}<br>
+#         <b>Demand Level:</b> {demand}
+#         """
+    
+#         return folium.Popup(html, max_width=250)
+
+#     hex_tooltip = folium.GeoJsonTooltip(
+#     fields=["demand_level"],
+#     aliases=["Demand Level:"],
+#     sticky=False
+# )
 
 
     status_colors_stations = {
@@ -257,13 +274,84 @@ with right:
             ).add_to(m)
         
         
+        if mode == "Current Network":
+        #     folium.GeoJson(hex_data,
+        #                    style_function=style_hex,
+        #                    popup=folium.GeoJsonPopup(
+        #                        fields=["color_status","demand_level_A","demand_level_B","demand_level_C"],
+        #                        aliases=["Coverage Status:", "Activity Demand Level:", "Mobility Demand Level:", "Resident Demand Level:"],
+        #                        labels=True
+        #                   )
+        # ).add_to(Service_Coverage_and_Hex)
+            folium.GeoJson(hex_data,
+                style_function=style_hex,
+                popup=folium.GeoJsonPopup(
+                    fields=["covered","demand_level_A","demand_level_B","demand_level_C"],
+                    aliases=["Coverage Status:", "Activity Demand Level:", "Mobility Demand Level:", "Resident Demand Level:"],
+                    labels=True),
+               tooltip=folium.GeoJsonTooltip(
+    fields=["demand_level_A","demand_level_B","demand_level_C"],
+    liases=["Activity Demand Level:", "Mobility Demand Level:", "Resident Demand Level:"],
+    sticky=False)
+).add_to(Service_Coverage_and_Hex)
+
+        elif mode == "Add 50 Stations":
+            
+            if demand_focus == "Activity Priority":
+                folium.GeoJson(hex_data,
+                style_function=style_hex,
+                popup=folium.GeoJsonPopup(
+                    fields=["covered","demand_level"],
+                    aliases=["Coverage Status:", "Activity Demand Level:"],
+                    labels=True),
+               tooltip=folium.GeoJsonTooltip(
+                    fields=["demand_level"],
+                    liases=["Activity Demand Level:"],
+                    sticky=False)
+).add_to(Service_Coverage_and_Hex)
+            
+                
+            elif demand_focus == "Mobility Priority":
+                folium.GeoJson(hex_data,
+                style_function=style_hex,
+                popup=folium.GeoJsonPopup(
+                    fields=["covered","demand_level"],
+                    aliases=["Coverage Status:", "Mobility Demand Level:"],
+                    labels=True),
+               tooltip=folium.GeoJsonTooltip(
+                    fields=["demand_level"],
+                    liases=["Mobility Demand Level:"],
+                    sticky=False)
+).add_to(Service_Coverage_and_Hex)
+                
+
+            else:
+                folium.GeoJson(hex_data,
+                style_function=style_hex,
+                popup=folium.GeoJsonPopup(
+                    fields=["covered","demand_level"],
+                    aliases=["Coverage Status:", "Resident Demand Level:"],
+                    labels=True),
+               tooltip=folium.GeoJsonTooltip(
+                    fields=["demand_level"],
+                    liases=["Resident Demand Level:"],
+                    sticky=False)
+).add_to(Service_Coverage_and_Hex)
+
+        elif mode == "Universal Coverage":
+            folium.GeoJson(
+                hex_data,
+                style_function=style_hex
+            ).add_to(Service_Coverage_and_Hex
+                    )
 
         
-        folium.GeoJson(
-            hex_data,
-            style_function=style_hex
-        ).add_to(Service_Coverage_and_Hex
-                )
+
+        
+
+            
+        
+
 
         
         first_feature = station_data['features'][0]
@@ -477,6 +565,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
