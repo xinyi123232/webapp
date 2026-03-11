@@ -386,7 +386,7 @@ with right:
                     popup=folium.GeoJsonPopup(
                         fields=[
                             "candidate_type",
-                            "status",
+                            "Potential",
                             "rank",
                             "contribution_w",
                             "contribution_share",
@@ -456,7 +456,7 @@ with right:
                     popup=folium.GeoJsonPopup(
                         fields=[
                             "candidate_type",
-                            "status",
+                            "Potential",
                             "rank",
                             "contribution_w",
                             "contribution_share",
@@ -526,7 +526,7 @@ with right:
                     popup=folium.GeoJsonPopup(
                         fields=[
                             "candidate_type",
-                            "status",
+                            "Potential",
                             "rank",
                             "contribution_w",
                             "contribution_share"
@@ -593,7 +593,7 @@ with right:
                 popup=folium.GeoJsonPopup(
                     fields=[
                         "candidate_type",
-                        "status",
+                        "Potential",
                         # "priority_rank",
                         # "demand_score",
                         "y_epsg4326",
@@ -848,6 +848,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
