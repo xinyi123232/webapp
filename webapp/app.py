@@ -191,7 +191,6 @@ with right:
         status = feature["properties"].get("color_status")
         color = status_colors.get(status, "gray")
         if emphasize_gaps:
-    
             if status == "uncovered":
                 return {
                     "fillColor": "red",
@@ -366,7 +365,7 @@ with right:
             station_data,
             marker=folium.Marker(
                 #popup=folium.Popup(html_popup, max_width=250),
-                #tooltip=f"Existing: {row['EVCS Name']}",
+                tooltip=f"Existing: {row['full_id']}",
                 icon=folium.Icon(color=color_icon_radius[0], icon='bolt', prefix='fa'))
         ).add_to(EVCS)
     
@@ -570,6 +569,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
