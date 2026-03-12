@@ -57,7 +57,7 @@ header {
 
     
 left, right = st.columns([2, 8], gap="small")
-
+@st.cache_data
 @st.dialog("How to Use This Dashboard")
 def help_dialog():
 
@@ -934,6 +934,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
