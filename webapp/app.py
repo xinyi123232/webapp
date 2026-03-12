@@ -285,9 +285,11 @@ with right:
 
 
     status_colors_stations = {
-        "Existing": ["blue", "#38AADD"],
-        "MCLP": ["orange","orange"],
-        "SCLP": ["green","green"]  
+        "Existing": ["blue", "#38AADD",1000],
+        "MCLP": ["orange","orange",1000],
+        "SCLP": ["green","green",1000],
+        "SCLP_500": ["green","green",500],
+        "SCLP_2000": ["green","green",2000],             
         }
     
     def style_station(feature):
@@ -697,7 +699,7 @@ with right:
         folium.GeoJson(
             station_data,
             marker=folium.Circle(
-                radius=1000,   # 1KM in meters
+                radius=color_icon_radius[2],   # 1KM in meters
                 color=color_icon_radius[1],
                 fill=True,
                 fill_opacity=0,
@@ -894,6 +896,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
