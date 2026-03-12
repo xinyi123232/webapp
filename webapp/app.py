@@ -61,9 +61,59 @@ left, right = st.columns([2, 8], gap="small")
 # ---- LEFT PANEL ----
 with left:
     with st.container(height=650, border=False):
+        if "show_help" not in st.session_state:
+            
+            st.session_state.show_help = True
 
         st.markdown('<div class="left-panel">', unsafe_allow_html=True)
         st.markdown("### EV Charging Station Optimization")
+        if st.session_state.show_help:
+            st.markdown("""
+            <div style="
+                position: fixed;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                background-color: rgba(0,0,0,0.6);
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                z-index:9999;
+            ">
+        
+            <div style="
+                background:white;
+                padding:25px;
+                border-radius:8px;
+                width:500px;
+                text-align:left;
+            ">
+        
+            <h3>How to Use This Dashboard</h3>
+        
+            <ul>
+            <li><b>Planning Mode</b> switches between baseline, expansion, and universal coverage scenarios.</li>
+            <li><b>Highlight Coverage Gaps</b> shows areas without EV charging coverage.</li>
+            <li><b>Demand Heatmaps</b> visualize activity, mobility, or resident demand.</li>
+            <li><b>Click a station</b> to see facility type, status, and optimization information.</li>
+            <li><b>Zoom and pan</b> to explore coverage patterns.</li>
+            </ul>
+        
+            <p style="font-size:13px;color:gray">
+            This dashboard supports EV charging infrastructure planning analysis.
+            </p>
+        
+            </div>
+            </div>
+            """, unsafe_allow_html=True)
+        
+            if st.button("Understood"):
+                st.session_state.show_help = False
+                st.rerun()
+        if st.button("How to use this dashboard"):
+            st.session_state.show_help = True
+            st.rerun() 
         
         mode = st.radio(
         "Planning Mode",
@@ -897,6 +947,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
