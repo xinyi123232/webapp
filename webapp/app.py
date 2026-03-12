@@ -137,6 +137,7 @@ with left:
     
         if mode == "Current Network":
             emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
+            emphasize_existing = st.checkbox("Highlight Existing Coverage")
     
             show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
             show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
@@ -206,6 +207,24 @@ with right:
                     "weight": 0.1,
                     "fillOpacity": 0.1
                 }
+                
+        if emphasize_existing:
+            if status == "existing":
+                return {
+                    "fillColor": color,
+                    "color": "black",
+                    "weight": 0.3,
+                    "fillOpacity": 0.9
+                }
+
+            else:
+                return {
+                    "fillColor": color,
+                    "color": "black",
+                    "weight": 0.1,
+                    "fillOpacity": 0.1
+                }
+                
     
         # Normal view
         return {
@@ -848,6 +867,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
