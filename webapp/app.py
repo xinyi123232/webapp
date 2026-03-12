@@ -54,60 +54,39 @@ header {
 </style>
 """, unsafe_allow_html=True)
 
-if "show_help" not in st.session_state:
-    st.session_state.show_help = True
+
     
 left, right = st.columns([2, 8], gap="small")
-if st.session_state.show_help:
+
+@st.dialog("How to Use This Dashboard")
+def help_dialog():
 
     st.markdown("""
-    <style>
-    .help-modal {
-        position: fixed;
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
-        background: rgba(0,0,0,0.65);
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        z-index:1000;
-    }
+### Dashboard Guide
 
-    .help-content {
-        background:white;
-        padding:30px;
-        border-radius:8px;
-        width:520px;
-        box-shadow:0 4px 25px rgba(0,0,0,0.3);
-    }
-    </style>
+**Planning Mode**
+- Current Network → existing charging stations
+- Add 50 Stations → optimization expansion scenario
+- Universal Coverage → maximum service coverage
 
-    <div class="help-modal">
-        <div class="help-content">
-        <h3>How to Use This Dashboard</h3>
+**Map Functions**
+- Highlight Coverage Gaps → shows uncovered areas
+- Demand Heatmaps → visualize demand intensity
+- Click stations → view facility and optimization details
 
-        <ul>
-        <li><b>Planning Mode</b> switches between network scenarios.</li>
-        <li><b>Highlight Coverage Gaps</b> shows underserved areas.</li>
-        <li><b>Demand Heatmap</b> visualizes demand patterns.</li>
-        <li><b>Click stations</b> to view facility and optimization data.</li>
-        <li><b>Zoom and pan</b> to explore spatial coverage.</li>
-        </ul>
+**Navigation**
+- Zoom and pan to explore the network
+    """)
 
-        <p style="font-size:13px;color:gray">
-        This dashboard supports EV charging infrastructure planning.
-        </p>
-
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    if st.button("Understood", use_container_width=True):
+    if st.button("Understood"):
         st.session_state.show_help = False
         st.rerun()
 
+if "show_help" not in st.session_state:
+    st.session_state.show_help = True
+if st.session_state.show_help:
+    help_dialog()
+    
 # ---- LEFT PANEL ----
 with left:
     with st.container(height=650, border=False):
@@ -119,7 +98,7 @@ with left:
 
         if st.button("How to use this dashboard"):
             st.session_state.show_help = True
-            st.rerun() 
+            help_dialog()    
         
         mode = st.radio(
         "Planning Mode",
@@ -953,6 +932,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
