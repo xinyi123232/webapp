@@ -85,6 +85,7 @@ def help_dialog():
 if "show_help" not in st.session_state:
     st.session_state.show_help = True
 if st.session_state.show_help:
+    @st.cache_data
     help_dialog()
     
 # ---- LEFT PANEL ----
@@ -98,6 +99,7 @@ with left:
 
         if st.button("How to use this dashboard"):
             st.session_state.show_help = True
+            @st.cache_data
             help_dialog()    
         
         mode = st.radio(
@@ -932,6 +934,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
