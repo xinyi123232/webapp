@@ -54,19 +54,10 @@ header {
 </style>
 """, unsafe_allow_html=True)
 
-
+if "show_help" not in st.session_state:
+    st.session_state.show_help = True
+    
 left, right = st.columns([2, 8], gap="small")
-
-
-# ---- LEFT PANEL ----
-with left:
-    with st.container(height=650, border=False):
-        if "show_help" not in st.session_state:
-            
-            st.session_state.show_help = True
-
-        st.markdown('<div class="left-panel">', unsafe_allow_html=True)
-        st.markdown("### EV Charging Station Optimization")
         if st.session_state.show_help:
         
             st.markdown("""
@@ -116,6 +107,15 @@ with left:
             if st.button("Understood", use_container_width=True):
                 st.session_state.show_help = False
                 st.rerun()
+
+# ---- LEFT PANEL ----
+with left:
+    with st.container(height=650, border=False):
+
+
+        st.markdown('<div class="left-panel">', unsafe_allow_html=True)
+        st.markdown("### EV Charging Station Optimization")
+
 
         if st.button("How to use this dashboard"):
             st.session_state.show_help = True
@@ -953,6 +953,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
