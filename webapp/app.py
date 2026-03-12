@@ -58,55 +58,55 @@ if "show_help" not in st.session_state:
     st.session_state.show_help = True
     
 left, right = st.columns([2, 8], gap="small")
-        if st.session_state.show_help:
-        
-            st.markdown("""
-            <style>
-            .help-modal {
-                position: fixed;
-                top:0;
-                left:0;
-                width:100%;
-                height:100%;
-                background: rgba(0,0,0,0.65);
-                display:flex;
-                justify-content:center;
-                align-items:center;
-                z-index:1000;
-            }
-        
-            .help-content {
-                background:white;
-                padding:30px;
-                border-radius:8px;
-                width:520px;
-                box-shadow:0 4px 25px rgba(0,0,0,0.3);
-            }
-            </style>
-        
-            <div class="help-modal">
-                <div class="help-content">
-                <h3>How to Use This Dashboard</h3>
-        
-                <ul>
-                <li><b>Planning Mode</b> switches between network scenarios.</li>
-                <li><b>Highlight Coverage Gaps</b> shows underserved areas.</li>
-                <li><b>Demand Heatmap</b> visualizes demand patterns.</li>
-                <li><b>Click stations</b> to view facility and optimization data.</li>
-                <li><b>Zoom and pan</b> to explore spatial coverage.</li>
-                </ul>
-        
-                <p style="font-size:13px;color:gray">
-                This dashboard supports EV charging infrastructure planning.
-                </p>
-        
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-        
-            if st.button("Understood", use_container_width=True):
-                st.session_state.show_help = False
-                st.rerun()
+if st.session_state.show_help:
+
+    st.markdown("""
+    <style>
+    .help-modal {
+        position: fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background: rgba(0,0,0,0.65);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        z-index:1000;
+    }
+
+    .help-content {
+        background:white;
+        padding:30px;
+        border-radius:8px;
+        width:520px;
+        box-shadow:0 4px 25px rgba(0,0,0,0.3);
+    }
+    </style>
+
+    <div class="help-modal">
+        <div class="help-content">
+        <h3>How to Use This Dashboard</h3>
+
+        <ul>
+        <li><b>Planning Mode</b> switches between network scenarios.</li>
+        <li><b>Highlight Coverage Gaps</b> shows underserved areas.</li>
+        <li><b>Demand Heatmap</b> visualizes demand patterns.</li>
+        <li><b>Click stations</b> to view facility and optimization data.</li>
+        <li><b>Zoom and pan</b> to explore spatial coverage.</li>
+        </ul>
+
+        <p style="font-size:13px;color:gray">
+        This dashboard supports EV charging infrastructure planning.
+        </p>
+
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    if st.button("Understood", use_container_width=True):
+        st.session_state.show_help = False
+        st.rerun()
 
 # ---- LEFT PANEL ----
 with left:
@@ -953,6 +953,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
