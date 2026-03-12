@@ -58,7 +58,7 @@ header {
     
 left, right = st.columns([2, 8], gap="small")
 
-@st.dialog("How to Use This Dashboard")
+@st.dialog("How to Use This Dashboard", dismissible=False)
 def help_dialog():
 
     st.markdown("""
@@ -96,8 +96,9 @@ with left:
         st.markdown("### EV Charging Station Optimization")
 
 
-        # if st.button("How to use this dashboard"):
-        #     st.session_state.show_help = True    
+        if st.button("How to use this dashboard"):
+            st.session_state.show_help = True
+            st.rerun()
         
         mode = st.radio(
         "Planning Mode",
@@ -931,6 +932,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
