@@ -68,49 +68,55 @@ with left:
         st.markdown('<div class="left-panel">', unsafe_allow_html=True)
         st.markdown("### EV Charging Station Optimization")
         if st.session_state.show_help:
+        
             st.markdown("""
-            <div style="
+            <style>
+            .help-modal {
                 position: fixed;
                 top:0;
                 left:0;
                 width:100%;
                 height:100%;
-                background-color: rgba(0,0,0,0.6);
+                background: rgba(0,0,0,0.65);
                 display:flex;
                 justify-content:center;
                 align-items:center;
-                z-index:9999;
-            ">
+                z-index:1000;
+            }
         
-            <div style="
+            .help-content {
                 background:white;
-                padding:25px;
+                padding:30px;
                 border-radius:8px;
-                width:500px;
-                text-align:left;
-            ">
+                width:520px;
+                box-shadow:0 4px 25px rgba(0,0,0,0.3);
+            }
+            </style>
         
-            <h3>How to Use This Dashboard</h3>
+            <div class="help-modal">
+                <div class="help-content">
+                <h3>How to Use This Dashboard</h3>
         
-            <ul>
-            <li><b>Planning Mode</b> switches between baseline, expansion, and universal coverage scenarios.</li>
-            <li><b>Highlight Coverage Gaps</b> shows areas without EV charging coverage.</li>
-            <li><b>Demand Heatmaps</b> visualize activity, mobility, or resident demand.</li>
-            <li><b>Click a station</b> to see facility type, status, and optimization information.</li>
-            <li><b>Zoom and pan</b> to explore coverage patterns.</li>
-            </ul>
+                <ul>
+                <li><b>Planning Mode</b> switches between network scenarios.</li>
+                <li><b>Highlight Coverage Gaps</b> shows underserved areas.</li>
+                <li><b>Demand Heatmap</b> visualizes demand patterns.</li>
+                <li><b>Click stations</b> to view facility and optimization data.</li>
+                <li><b>Zoom and pan</b> to explore spatial coverage.</li>
+                </ul>
         
-            <p style="font-size:13px;color:gray">
-            This dashboard supports EV charging infrastructure planning analysis.
-            </p>
+                <p style="font-size:13px;color:gray">
+                This dashboard supports EV charging infrastructure planning.
+                </p>
         
-            </div>
+                </div>
             </div>
             """, unsafe_allow_html=True)
         
-            if st.button("Understood"):
+            if st.button("Understood", use_container_width=True):
                 st.session_state.show_help = False
                 st.rerun()
+
         if st.button("How to use this dashboard"):
             st.session_state.show_help = True
             st.rerun() 
@@ -947,6 +953,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
