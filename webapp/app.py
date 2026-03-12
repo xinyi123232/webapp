@@ -336,7 +336,7 @@ with right:
     # color = style_station(station_data)
 
     def build_map(hex_data, station_data):
-        m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron")
+        m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron",prefer_canvas=True)
         
         EVCS = folium.FeatureGroup(name='Electric Vehicle Charging Stations with 1KM Service Coverage')
         Service_Coverage_and_Hex = folium.FeatureGroup(name="Colored Coverage Area Hex")
@@ -933,6 +933,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
