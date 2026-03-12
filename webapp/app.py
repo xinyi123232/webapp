@@ -153,12 +153,14 @@ with left:
             elif demand_focus == "Mobility Priority":
                 emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
                 emphasize_existing = st.checkbox("Highlight Existing Coverage")
+                emphasize_new = st.checkbox("Highlight New Coverage")
                 show_heatmap_demand_score_A = False
                 show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
                 show_heatmap_demand_score_C = False
             else:
                 emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
                 emphasize_existing = st.checkbox("Highlight Existing Coverage")
+                emphasize_new = st.checkbox("Highlight New Coverage")
                 show_heatmap_demand_score_A = False
                 show_heatmap_demand_score_B = False
                 show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap") 
@@ -166,6 +168,7 @@ with left:
         elif mode == "Universal Coverage":
             emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
             emphasize_existing = st.checkbox("Highlight Existing Coverage")
+            emphasize_new = st.checkbox("Highlight New Coverage")
             show_heatmap_demand_score_A = False
             show_heatmap_demand_score_B = False
             show_heatmap_demand_score_C = False
@@ -891,6 +894,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
