@@ -578,7 +578,7 @@ with right:
                             "Potential",
                             "rank",
                             "contribution_w",
-                            "contribution_share"
+                            "contribution_share",
                             "y_epsg4326",
                             "x_epsg4326"
                         ],
@@ -588,7 +588,7 @@ with right:
                             "Status:",
                             "Priority Rank:",
                             "Demand Contribution Score:",
-                            "Demand Contribution Share:"
+                            "Demand Contribution Share:",
                             "Latitude:",
                             "Longitude:"
                         ],
@@ -897,6 +897,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
