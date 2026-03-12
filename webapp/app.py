@@ -57,7 +57,7 @@ header {
 
     
 left, right = st.columns([2, 8], gap="small")
-@st.cache_data
+
 @st.dialog("How to Use This Dashboard")
 def help_dialog():
 
@@ -85,7 +85,6 @@ def help_dialog():
 if "show_help" not in st.session_state:
     st.session_state.show_help = True
 if st.session_state.show_help:
-    @st.cache_data
     help_dialog()
     
 # ---- LEFT PANEL ----
@@ -934,6 +933,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
