@@ -96,8 +96,8 @@ with left:
         st.markdown("### EV Charging Station Optimization")
 
 
-        if st.button("How to use this dashboard"):
-            st.session_state.show_help = True    
+        # if st.button("How to use this dashboard"):
+        #     st.session_state.show_help = True    
         
         mode = st.radio(
         "Planning Mode",
@@ -931,6 +931,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
