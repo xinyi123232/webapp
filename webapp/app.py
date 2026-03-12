@@ -138,6 +138,7 @@ with left:
         if mode == "Current Network":
             emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
             emphasize_existing = st.checkbox("Highlight Existing Coverage")
+            emphasize_new = False
             show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
             show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
             show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap")
@@ -896,6 +897,7 @@ with right:
     
     st_folium(m, width=None, height=650)
     # st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
