@@ -32,7 +32,6 @@ def load_existing_stations():
 # @st.cache_data  
 existing_stations = load_existing_stations()
 
-
 @st.cache_data
 def load_city_boundaries():
     with open(script_dir/"data"/"city_boundaries.geojson") as f:
@@ -453,6 +452,34 @@ with right:
                     sticky=False)
 ).add_to(Service_Coverage_and_Hex)
 
+                folium.GeoJson(
+                existing_stations,
+                tooltip=folium.GeoJsonTooltip(
+                    fields=["full_id"],
+                    aliases=["Station Name:"],
+                    sticky=False
+                ),
+                popup=folium.GeoJsonPopup(
+                    fields=[
+                        "candidate_type",
+                        "status",
+                        "y_epsg4326",
+                        "x_epsg4326"
+                    ],
+            
+                    aliases=[
+                        "Facility Type:",
+                        "Status:",
+                        "Latitude:",
+                        "Longitude:"
+                    ],
+            
+                    localize=True,
+                    labels=True,
+                ),
+            
+                marker=folium.CircleMarker(radius=4))
+
 
                 
                 folium.GeoJson(
@@ -660,7 +687,7 @@ with right:
                 #     labels=True)
             ).add_to(Service_Coverage_and_Hex)
 
-
+            
             
             folium.GeoJson(
                 station_data,
