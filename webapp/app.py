@@ -226,7 +226,7 @@ with right:
     # Hex styling
 
     status_colors = {
-        "uncovered": "red",
+        "uncovered": False,
         "existing": "#38AADD",
         "new_coverage": "orange",
         "new_coverage_SCLP": "green"
