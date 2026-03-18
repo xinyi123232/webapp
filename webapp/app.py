@@ -103,11 +103,11 @@ with left:
         
         mode = st.radio(
         "Planning Mode",
-        ["Current Network", "Add 50 Stations", "Universal Coverage"]
+        ["Current Network", "Efficiency", "Universal Coverage"]
         )
         scenario_path = "data/baseline"
     
-        if mode == "Add 50 Stations":
+        if mode == "Efficiency":
     
             demand_focus = st.selectbox(
                 "Demand Focus",
@@ -150,7 +150,7 @@ with left:
             st.metric("Demand Covered Mobility Priority", f"{metrics['demand_covered_traffic']}%")
             st.metric("Demand Covered Resident Priority", f"{metrics['demand_covered_activity']}%")
     
-        elif mode == "Add 50 Stations":
+        elif mode == "Efficiency":
             st.metric("New Stations Added", metrics["new_stations_added"])
             st.metric("Total Stations", metrics["total_stations"])
             st.metric("Area Covered", f"{metrics['area_covered']}%")
@@ -178,7 +178,7 @@ with left:
             show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
             show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
             show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap")
-        elif mode == "Add 50 Stations":
+        elif mode == "Efficiency":
             if demand_focus == "Activity Priority":
                 emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
                 emphasize_existing = st.checkbox("Highlight Existing Coverage")
@@ -438,7 +438,7 @@ with right:
             ).add_to(EVCS)
 
 
-        elif mode == "Add 50 Stations":
+        elif mode == "Efficiency":
             
             if demand_focus == "Activity Priority":
                 folium.GeoJson(hex_data,
