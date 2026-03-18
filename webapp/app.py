@@ -476,7 +476,9 @@ with right:
                 #     localize=True,
                 #     labels=True,
                 # ),
-                marker=folium.CircleMarker(radius=4)).add_to(EVCS)
+                marker=folium.CircleMarker(radius=2,color="#38AADD",fill=True,
+        fill_opacity=0.1,
+        weight=.2)).add_to(EVCS)
 
 
                 
