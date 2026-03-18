@@ -160,7 +160,6 @@ with left:
     
         elif mode == "Equity":
             st.metric("New Stations Required to Maximize Coverage", metrics["new_stations"])
-            st.metric("Total Stations (current + new)", metrics["total_stations"])
             st.metric("Area Covered", f"{metrics['area_covered']}%")
             
     
