@@ -432,7 +432,12 @@ with right:
                     icon=folium.Icon(
                         color=color_icon_radius[0],
                         icon="bolt",
-                        prefix="fa"
+                        prefix="fa",
+                        html="""
+                            <div style="font-size: 12px; color: white; opacity: 0.5;">
+                                <i class="fa fa-bolt"></i>
+                            </div>
+                            """
                     )
                 )
             
