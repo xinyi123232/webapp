@@ -152,7 +152,7 @@ with left:
     
         elif mode == "Efficiency":
             st.metric("New Stations Added", metrics["new_stations_added"])
-            st.metric("Total Stations", metrics["total_stations"])
+            # st.metric("Total Stations", metrics["total_stations"])
             st.metric("Area Covered", f"{metrics['area_covered']}%")
             st.metric("Area Improvement Over Current", f"+{metrics['area_improvement']}%")
             st.metric("Demand Covered", f"{metrics['demand_covered']}%")
