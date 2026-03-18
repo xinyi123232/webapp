@@ -161,12 +161,7 @@ with left:
         elif mode == "Equity":
             st.metric("New Stations Required to Maximize Coverage", metrics["new_stations"])
             st.metric("Area Covered", f"{metrics['area_covered']}%")
-            
-    
-            if metrics["uncovered"] == 0:
-                st.success("All serviceable areas covered.")
-            else:
-                st.metric("Uncovered Areas",f"{metrics['uncovered']}%")
+            st.metric("Uncovered Areas",f"{metrics['uncovered']}%")
                 
         st.markdown("---")
     
