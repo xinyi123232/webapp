@@ -227,9 +227,9 @@ with right:
 
     status_colors = {
         "uncovered": ["none", "0"],
-        "existing": ["#38AADD", "0.1"],
-        "new_coverage": ["#orange", "0.1"],
-        "new_coverage_SCLP": ["#green", "0.1"]
+        "existing": ["#38AADD", "0.3"],
+        "new_coverage": ["#orange", "0.3"],
+        "new_coverage_SCLP": ["#green", "0.3"]
     }
 
     def style_hex(feature):
@@ -249,7 +249,7 @@ with right:
                     "fillColor": color[0],
                     "color": "black",
                     "weight": 0.1,
-                    "fillOpacity": 0.1
+                    "fillOpacity": color[1]
                 }
                 
         if emphasize_existing:
@@ -266,7 +266,7 @@ with right:
                     "fillColor": color[0],
                     "color": "black",
                     "weight": 0.1,
-                    "fillOpacity": 0.1
+                    "fillOpacity": color[1]
                 }
                 
 
@@ -284,7 +284,7 @@ with right:
                     "fillColor": color[0],
                     "color": "black",
                     "weight": 0.1,
-                    "fillOpacity": 0.1
+                    "fillOpacity": color[1]
                 }
 
         
