@@ -228,8 +228,8 @@ with right:
     status_colors = {
         "uncovered": ["none", "0"],
         "existing": ["#38AADD", "0.3"],
-        "new_coverage": ["#orange", "0.3"],
-        "new_coverage_SCLP": ["#green", "0.3"]
+        "new_coverage": ["red", "0.3"],
+        "new_coverage_SCLP": ["green", "0.3"]
     }
 
     def style_hex(feature):
