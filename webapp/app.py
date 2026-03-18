@@ -455,37 +455,33 @@ with right:
 
                 folium.GeoJson(
                 existing_stations,
-                tooltip=folium.GeoJsonTooltip(
-                    fields=["full_id"],
-                    aliases=["Station Name:"],
-                    sticky=False
-                ),
-                popup=folium.GeoJsonPopup(
-                    fields=[
-                        "candidate_type",
-                        "status",
-                        "y_epsg4326",
-                        "x_epsg4326"
-                    ],
-            
-                    aliases=[
-                        "Facility Type:",
-                        "Status:",
-                        "Latitude:",
-                        "Longitude:"
-                    ],
-            
-                    localize=True,
-                    labels=True,
-                ),
-            
+                # tooltip=folium.GeoJsonTooltip(
+                #     fields=["full_id"],
+                #     aliases=["Station Name:"],
+                #     sticky=False
+                # ),
+                # popup=folium.GeoJsonPopup(
+                #     fields=[
+                #         "candidate_type",
+                #         "status",
+                #         "y_epsg4326",
+                #         "x_epsg4326"
+                #     ],
+                #     aliases=[
+                #         "Facility Type:",
+                #         "Status:",
+                #         "Latitude:",
+                #         "Longitude:"
+                #     ],
+                #     localize=True,
+                #     labels=True,
+                # ),
                 marker=folium.CircleMarker(radius=4)).add_to(EVCS)
 
 
                 
                 folium.GeoJson(
                     station_data,
-                
                     tooltip=folium.GeoJsonTooltip(
                         fields=["full_id"
                         # , "address"
