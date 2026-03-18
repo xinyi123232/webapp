@@ -67,8 +67,8 @@ def help_dialog():
 
 **Planning Mode**
 - Current Network → existing charging stations
-- Add 50 Stations → optimization expansion scenario
-- Universal Coverage → maximum service coverage
+- Efficiency → optimization expansion scenario
+- Equity → maximum service coverage
 
 **Map Functions**
 - Highlight Coverage Gaps → shows uncovered areas
@@ -103,7 +103,7 @@ with left:
         
         mode = st.radio(
         "Planning Mode",
-        ["Current Network", "Efficiency", "Universal Coverage"]
+        ["Current Network", "Efficiency", "Equity"]
         )
         scenario_path = "data/baseline"
     
@@ -121,7 +121,7 @@ with left:
             else:
                 scenario_path = "data/add50_activity"
     
-        elif mode == "Universal Coverage":
+        elif mode == "Equity":
     
             service_standard = st.selectbox(
                 "Service Standard",
@@ -158,7 +158,7 @@ with left:
             st.metric("Demand Covered", f"{metrics['demand_covered']}%")
             st.metric("Demand Improvement Over Current", f"+{metrics['demand_improvement']}%")
     
-        elif mode == "Universal Coverage":
+        elif mode == "Equity":
             st.metric("New Stations Required to Maximize Coverage", metrics["new_stations"])
             st.metric("Total Stations (current + new)", metrics["total_stations"])
             st.metric("Area Covered", f"{metrics['area_covered']}%")
@@ -202,7 +202,7 @@ with left:
                 show_heatmap_demand_score_B = False
                 show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap") 
     
-        elif mode == "Universal Coverage":
+        elif mode == "Equity":
             emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
             emphasize_existing = st.checkbox("Highlight Existing Coverage")
             emphasize_new = st.checkbox("Highlight New Coverage")
@@ -649,7 +649,7 @@ with right:
                 
                 ).add_to(EVCS)
 
-        elif mode == "Universal Coverage":
+        elif mode == "Equity":
             folium.GeoJson(
                 hex_data,
                 style_function=style_hex
