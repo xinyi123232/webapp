@@ -24,13 +24,7 @@ def load_scenario(scenario_path):
 
     return hex_data, station_data, metrics
 
-@st.cache_data
-def load_existing_stations():
-    with open(script_dir/"data"/"baseline"/"stations.geojson") as f:
-        return json.load(f)
-        
-# @st.cache_data  
-existing_stations = load_existing_stations()
+
 
 @st.cache_data
 def load_city_boundaries():
@@ -40,6 +34,13 @@ def load_city_boundaries():
 # @st.cache_data  
 city_boundaries = load_city_boundaries()
 
+@st.cache_data
+def load_existing_stations():
+    with open(script_dir/"data"/"baseline"/"stations.geojson") as f:
+        return json.load(f)
+        
+# @st.cache_data  
+existing_stations = load_existing_stations()
 
 st.set_page_config(layout="wide")
 st.markdown("""
@@ -478,7 +479,7 @@ with right:
                     labels=True,
                 ),
             
-                marker=folium.CircleMarker(radius=4))
+                marker=folium.CircleMarker(radius=4)).add_to(EVCS)
 
 
                 
