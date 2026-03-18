@@ -546,6 +546,7 @@ with right:
                         weight=1
                     )
                 ).add_to(Existing_EVCS)
+                Existing_EVCS.add_to(m)
                 
             elif demand_focus == "Mobility Priority":
                 folium.GeoJson(hex_data,
