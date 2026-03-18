@@ -24,7 +24,13 @@ def load_scenario(scenario_path):
 
     return hex_data, station_data, metrics
 
-
+@st.cache_data
+def load_existing_stations():
+    with open(script_dir/"data"/"baseline"/"stations.geojson") as f:
+        return json.load(f)
+        
+# @st.cache_data  
+existing_stations = load_existing_stations()
 
 
 @st.cache_data
