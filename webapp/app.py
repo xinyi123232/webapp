@@ -338,7 +338,8 @@ with right:
     def build_map(hex_data, station_data):
         m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron",prefer_canvas=True)
         
-        EVCS = folium.FeatureGroup(name='Electric Vehicle Charging Stations with 1KM Service Coverage')
+        EVCS = folium.FeatureGroup(name='EV Charging Stations with 1KM Service Coverage')
+        Existing_EVCS = folium.FeatureGroup(name='Existing EV Charging Stations with 1KM Service Coverage')
         Service_Coverage_and_Hex = folium.FeatureGroup(name="Colored Coverage Area Hex")
         Demand_Heatmap_Activity_Priority= folium.FeatureGroup(name="Activity Priority Demand Heatmap")
         Demand_Heatmap_Mobility_Priority= folium.FeatureGroup(name="Mobility Priority Demand Heatmap")
@@ -478,7 +479,7 @@ with right:
                 # ),
                 marker=folium.CircleMarker(radius=3,color="#38AADD",fill=True,
         fill_opacity=0.7,
-        weight=0.7)).add_to(EVCS)
+        weight=0.7)).add_to(Existing_EVCS)
 
 
                 
@@ -534,7 +535,17 @@ with right:
                     )
                 
                 ).add_to(EVCS)
-            
+
+                folium.GeoJson(
+                    existing_stations,
+                    marker=folium.Circle(
+                        radius=1000,   # 1KM in meters
+                        color="#38AADD",
+                        fill=True,
+                        fill_opacity=0,
+                        weight=1
+                    )
+                ).add_to(Existing_EVCS)
                 
             elif demand_focus == "Mobility Priority":
                 folium.GeoJson(hex_data,
