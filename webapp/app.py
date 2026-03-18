@@ -227,9 +227,9 @@ with right:
 
     status_colors = {
         "uncovered": ["none", "0"],
-        "existing": ["#38AADD", "0.2"],
-        "new_coverage": ["red", "0.2"],
-        "new_coverage_SCLP": ["green", "0.2"]
+        "existing": ["#38AADD", "0.1"],
+        "new_coverage": ["red", "0.1"],
+        "new_coverage_SCLP": ["green", "0.1"]
     }
 
     def style_hex(feature):
@@ -323,7 +323,7 @@ with right:
 
     status_colors_stations = {
         "Existing": ["blue", "#38AADD",1000],
-        "MCLP": ["orange","orange",1000],
+        "MCLP": ["red","red",1000],
         "SCLP": ["green","green",1000],
         "SCLP_500": ["green","green",500],
         "SCLP_2000": ["green","green",2000],             
