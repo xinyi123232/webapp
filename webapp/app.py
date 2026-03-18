@@ -172,7 +172,7 @@ with left:
         st.markdown("---")
     
         if mode == "Current Network":
-            emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
+            # emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
             emphasize_existing = st.checkbox("Highlight Existing Coverage")
             emphasize_new = False
             show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
@@ -180,7 +180,7 @@ with left:
             show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap")
         elif mode == "Efficiency":
             if demand_focus == "Activity Priority":
-                emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
+                # emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
                 emphasize_existing = st.checkbox("Highlight Existing Coverage")
                 emphasize_new = st.checkbox("Highlight New Coverage")
                 show_heatmap_demand_score_A = st.checkbox("Show Activity Priority Demand Heatmap ")
@@ -188,14 +188,14 @@ with left:
                 show_heatmap_demand_score_C = False
                 
             elif demand_focus == "Mobility Priority":
-                emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
+                # emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
                 emphasize_existing = st.checkbox("Highlight Existing Coverage")
                 emphasize_new = st.checkbox("Highlight New Coverage")
                 show_heatmap_demand_score_A = False
                 show_heatmap_demand_score_B = st.checkbox("Show Mobility Priority Demand Heatmap")
                 show_heatmap_demand_score_C = False
             else:
-                emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
+                # emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
                 emphasize_existing = st.checkbox("Highlight Existing Coverage")
                 emphasize_new = st.checkbox("Highlight New Coverage")
                 show_heatmap_demand_score_A = False
@@ -203,7 +203,7 @@ with left:
                 show_heatmap_demand_score_C = st.checkbox("Show Resident Priority Demand Heatmap") 
     
         elif mode == "Equity":
-            emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
+            # emphasize_gaps = st.checkbox("Highlight Coverage Gaps")
             emphasize_existing = st.checkbox("Highlight Existing Coverage")
             emphasize_new = st.checkbox("Highlight New Coverage")
             show_heatmap_demand_score_A = False
@@ -235,22 +235,22 @@ with right:
     def style_hex(feature):
         status = feature["properties"].get("color_status")
         color = status_colors.get(status, "gray")
-        if emphasize_gaps:
-            if status == "uncovered":
-                return {
-                    "fillColor": "red",
-                    "color": "black",
-                    "weight": 0.3,
-                    "fillOpacity": 0.9
-                }
+        # if emphasize_gaps:
+        #     if status == "uncovered":
+        #         return {
+        #             "fillColor": "red",
+        #             "color": "black",
+        #             "weight": 0.3,
+        #             "fillOpacity": 0.9
+        #         }
     
-            else:
-                return {
-                    "fillColor": color[0],
-                    "color": "black",
-                    "weight": 0.1,
-                    "fillOpacity": color[1]
-                }
+        #     else:
+        #         return {
+        #             "fillColor": color[0],
+        #             "color": "black",
+        #             "weight": 0.1,
+        #             "fillOpacity": color[1]
+        #         }
                 
         if emphasize_existing:
             if status == "existing":
