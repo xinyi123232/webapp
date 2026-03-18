@@ -226,10 +226,10 @@ with right:
     # Hex styling
 
     status_colors = {
-        "uncovered": "#000000",
-        "existing": "#38AADD",
-        "new_coverage": "orange",
-        "new_coverage_SCLP": "green"
+        "uncovered": ["none", "0"],
+        "existing": ["#38AADD", "0.1"],
+        "new_coverage": ["#orange", "0.1"],
+        "new_coverage_SCLP": ["#green", "0.1"]
     }
 
     def style_hex(feature):
@@ -246,7 +246,7 @@ with right:
     
             else:
                 return {
-                    "fillColor": color,
+                    "fillColor": color[0],
                     "color": "black",
                     "weight": 0.1,
                     "fillOpacity": 0.1
@@ -255,7 +255,7 @@ with right:
         if emphasize_existing:
             if status == "existing":
                 return {
-                    "fillColor": color,
+                    "fillColor": color[0],
                     "color": "black",
                     "weight": 0.3,
                     "fillOpacity": 0.9
@@ -263,7 +263,7 @@ with right:
 
             else:
                 return {
-                    "fillColor": color,
+                    "fillColor": color[0],
                     "color": "black",
                     "weight": 0.1,
                     "fillOpacity": 0.1
@@ -273,7 +273,7 @@ with right:
         if emphasize_new:
             if status == "new_coverage" or status == "new_coverage_SCLP":
                 return {
-                    "fillColor": color,
+                    "fillColor": color[0],
                     "color": "black",
                     "weight": 0.3,
                     "fillOpacity": 0.9
@@ -281,7 +281,7 @@ with right:
 
             else:
                 return {
-                    "fillColor": color,
+                    "fillColor": color[0],
                     "color": "black",
                     "weight": 0.1,
                     "fillOpacity": 0.1
@@ -292,10 +292,10 @@ with right:
     
         # Normal view
         return {
-            "fillColor": color,
+            "fillColor": color[0],
             "color": "black",
             "weight": 0.1,
-            "fillOpacity": 0.1
+            "fillOpacity": color[1]
         }
         
 #     def hex_popup(feature):
@@ -933,84 +933,6 @@ with right:
     
     st_folium(m, width=None, height=650, returned_objects=[])
     # st.markdown("</div>", unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
