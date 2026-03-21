@@ -72,9 +72,9 @@ def help_dialog():
 ### Dashboard Guide
 
 **Planning Mode**
-- Current Network → existing charging stations
-- Efficiency → optimization expansion scenario
-- Equity → maximum service coverage
+- The Current Network is the set of existing facilities that are already established and operating within the Metro Manila.
+- Efficiency, as represented by the Maximal Covering Location Problem (MCLP), focuses on maximizing the total number of people served given limited resources.
+- Equity, as represented by the Set Covering Location Problem (SCLP), emphasizes fairness in service distribution.
 
 **Map Functions**
 - Highlight Coverage Gaps → shows uncovered areas
