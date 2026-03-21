@@ -72,9 +72,9 @@ def help_dialog():
 ### Dashboard Guide
 
 **Planning Mode**
-- The Current Network is the set of existing facilities that are already established and operating within the Metro Manila.
-- Efficiency, as represented by the Maximal Covering Location Problem (MCLP), focuses on maximizing the total number of people served given limited resources.
-- Equity, as represented by the Set Covering Location Problem (SCLP), focuses on selects the minimum number of stations required to cover all demand areas within the service radius
+- :blue[Current Network] is the set of existing facilities that are already established and operating within the Metro Manila.
+- :red[Efficiency], as represented by the :red[Maximal Covering Location Problem (MCLP)], focuses on maximizing the total number of people served given limited resources.
+- :green[Equity], as represented by the :green[Set Covering Location Problem (SCLP)], focuses on selecting the minimum number of stations required to cover all demand areas within the service radius
 
 **Map Functions**
 - Highlight Coverage Gaps → shows uncovered areas
