@@ -77,7 +77,6 @@ def help_dialog():
 - :green[Equity], as represented by the :green[Set Covering Location Problem (SCLP)], focuses on selecting the minimum number of stations required to cover all demand areas within the service radius
 
 **Map Functions**
-- Highlight Coverage Gaps → shows uncovered areas
 - Demand Heatmaps → visualize demand intensity
 - Click stations → view facility and optimization details
 
