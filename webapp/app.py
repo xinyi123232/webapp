@@ -149,7 +149,7 @@ with left:
             st.session_state.scenario_data = load_scenario(scenario_path)
             st.session_state.current_path = scenario_path
 
-hex_data, station_data, metrics = st.session_state.scenario_data
+        hex_data, station_data, metrics = st.session_state.scenario_data
     
         st.markdown("---")
     
