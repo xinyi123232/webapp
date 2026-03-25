@@ -229,190 +229,190 @@ with right:
     # st.markdown('<div class="map-container">', unsafe_allow_html=True)
     # Hex styling
     def build_map(hex_data, station_data, existing_stations):
-    m = folium.Map(
-        location=[14.5995, 121.03],
-        zoom_start=11,
-        tiles="CartoDB Positron",
-        prefer_canvas=True
-    )
-
-    # -----------------------------
-    # 1. COLOR CONFIG (STATIC)
-    # -----------------------------
-    status_colors = {
-        "uncovered": ("none", 0),
-        "existing": ("#38AADD", 0.1),
-        "new_coverage": ("red", 0.1),
-        "new_coverage_SCLP": ("green", 0.1)
-    }
-
-    # -----------------------------
-    # 2. HEX STYLE (SIMPLIFIED)
-    # -----------------------------
-    def style_hex(feature):
-        status = feature["properties"].get("color_status")
-        fill, opacity = status_colors.get(status, ("gray", 0.1))
-
-        weight = 0.1
-        opacity_final = opacity
-
-        if emphasize_existing and status == "existing":
-            weight = 0.3
-            opacity_final = 0.9
-
-        elif emphasize_new and status in ["new_coverage", "new_coverage_SCLP"]:
-            weight = 0.3
-            opacity_final = 0.9
-
-        return {
-            "fillColor": fill,
-            "color": "black",
-            "weight": weight,
-            "fillOpacity": opacity_final
-        }
-
-    # -----------------------------
-    # 3. SELECT DEMAND FIELD (NO DUPLICATION)
-    # -----------------------------
-    demand_field_map = {
-        "Activity Priority": ("demand_level_A", "demand_score_A_Contrast"),
-        "Mobility Priority": ("demand_level_B", "demand_score_B_Contrast"),
-        "Resident Priority": ("demand_level_C", "demand_score_C_Contrast"),
-    }
-
-    demand_field, demand_score_field = demand_field_map.get(
-        demand_focus, ("demand_level_A", "demand_score_A_Contrast")
-    )
-
-    # -----------------------------
-    # 4. HEX LAYER (ONLY ONE)
-    # -----------------------------
-    hex_layer = folium.FeatureGroup(name="Coverage Hex")
-
-    folium.GeoJson(
-        hex_data,
-        style_function=style_hex,
-        tooltip=folium.GeoJsonTooltip(
-            fields=[demand_field],
-            aliases=["Demand:"],
-            sticky=False
+        m = folium.Map(
+            location=[14.5995, 121.03],
+            zoom_start=11,
+            tiles="CartoDB Positron",
+            prefer_canvas=True
         )
-        # ❌ Removed popup (huge performance gain)
-    ).add_to(hex_layer)
-
-    hex_layer.add_to(m)
-
-    # -----------------------------
-    # 5. OPTIONAL HEATMAP (ONLY ONE)
-    # -----------------------------
-    if show_heatmap:
-
-        colormap = cm.linear.YlOrRd_07.scale(0, 1)
-
-        def heat_style(feature):
-            val = feature["properties"].get(demand_score_field, 0)
+    
+        # -----------------------------
+        # 1. COLOR CONFIG (STATIC)
+        # -----------------------------
+        status_colors = {
+            "uncovered": ("none", 0),
+            "existing": ("#38AADD", 0.1),
+            "new_coverage": ("red", 0.1),
+            "new_coverage_SCLP": ("green", 0.1)
+        }
+    
+        # -----------------------------
+        # 2. HEX STYLE (SIMPLIFIED)
+        # -----------------------------
+        def style_hex(feature):
+            status = feature["properties"].get("color_status")
+            fill, opacity = status_colors.get(status, ("gray", 0.1))
+    
+            weight = 0.1
+            opacity_final = opacity
+    
+            if emphasize_existing and status == "existing":
+                weight = 0.3
+                opacity_final = 0.9
+    
+            elif emphasize_new and status in ["new_coverage", "new_coverage_SCLP"]:
+                weight = 0.3
+                opacity_final = 0.9
+    
             return {
-                "fillColor": colormap(val),
+                "fillColor": fill,
                 "color": "black",
-                "weight": 0.2,
-                "fillOpacity": 0.6,
+                "weight": weight,
+                "fillOpacity": opacity_final
             }
-
-        heat_layer = folium.FeatureGroup(name="Demand Heatmap")
-
+    
+        # -----------------------------
+        # 3. SELECT DEMAND FIELD (NO DUPLICATION)
+        # -----------------------------
+        demand_field_map = {
+            "Activity Priority": ("demand_level_A", "demand_score_A_Contrast"),
+            "Mobility Priority": ("demand_level_B", "demand_score_B_Contrast"),
+            "Resident Priority": ("demand_level_C", "demand_score_C_Contrast"),
+        }
+    
+        demand_field, demand_score_field = demand_field_map.get(
+            demand_focus, ("demand_level_A", "demand_score_A_Contrast")
+        )
+    
+        # -----------------------------
+        # 4. HEX LAYER (ONLY ONE)
+        # -----------------------------
+        hex_layer = folium.FeatureGroup(name="Coverage Hex")
+    
         folium.GeoJson(
             hex_data,
-            style_function=heat_style,
+            style_function=style_hex,
             tooltip=folium.GeoJsonTooltip(
                 fields=[demand_field],
                 aliases=["Demand:"],
+                sticky=False
             )
-        ).add_to(heat_layer)
-
-        heat_layer.add_to(m)
-
-    # -----------------------------
-    # 6. STATIONS (RENDER ONCE)
-    # -----------------------------
-    station_colors = {
-        "Existing": ("blue", "#38AADD", 1000),
-        "MCLP": ("red", "red", 1000),
-        "SCLP": ("green", "green", 1000),
-    }
-
-    def get_station_style(feature):
-        status = feature.get("properties", {}).get("status", "Existing")
-        return station_colors.get(status, ("blue", "#38AADD", 1000))
-
-    station_layer = folium.FeatureGroup(name="Stations")
-
-    for feature in station_data["features"]:
-        props = feature["properties"]
-        coords = feature["geometry"]["coordinates"]
-        lon, lat = coords
-
-        color, circle_color, radius = get_station_style(feature)
-
-        # Marker
-        folium.Marker(
-            location=[lat, lon],
-            tooltip=props.get("full_id"),
-            icon=folium.Icon(color=color, icon="bolt", prefix="fa")
-        ).add_to(station_layer)
-
-        # Coverage circle
-        folium.Circle(
-            location=[lat, lon],
-            radius=radius,
-            color=circle_color,
-            fill=True,
-            fill_opacity=0,
-            weight=0.5
-        ).add_to(station_layer)
-
-    station_layer.add_to(m)
-
-    # -----------------------------
-    # 7. EXISTING STATIONS (LIGHTWEIGHT)
-    # -----------------------------
-    existing_layer = folium.FeatureGroup(name="Existing Stations")
-
-    for feature in existing_stations["features"]:
-        coords = feature["geometry"]["coordinates"]
-        lon, lat = coords
-
-        folium.CircleMarker(
-            location=[lat, lon],
-            radius=3,
-            color="#38AADD",
-            fill=True,
-            fill_opacity=0.6,
-            weight=0.5
-        ).add_to(existing_layer)
-
-    existing_layer.add_to(m)
-
-    # -----------------------------
-    # 8. CITY BOUNDARY (UNCHANGED)
-    # -----------------------------
-    folium.GeoJson(
-        city_boundaries,
-        name="City Boundaries",
-        style_function=lambda f: {
-            "fillColor": "none",
-            "color": "black",
-            "weight": 2,
-            "fillOpacity": 0,
-        },
-        tooltip=folium.GeoJsonTooltip(fields=["ADM3_EN"])
-    ).add_to(m)
-
-    # -----------------------------
-    # 9. LAYER CONTROL
-    # -----------------------------
-    folium.LayerControl(collapsed=False).add_to(m)
-
-    return m
+            # ❌ Removed popup (huge performance gain)
+        ).add_to(hex_layer)
+    
+        hex_layer.add_to(m)
+    
+        # -----------------------------
+        # 5. OPTIONAL HEATMAP (ONLY ONE)
+        # -----------------------------
+        if show_heatmap:
+    
+            colormap = cm.linear.YlOrRd_07.scale(0, 1)
+    
+            def heat_style(feature):
+                val = feature["properties"].get(demand_score_field, 0)
+                return {
+                    "fillColor": colormap(val),
+                    "color": "black",
+                    "weight": 0.2,
+                    "fillOpacity": 0.6,
+                }
+    
+            heat_layer = folium.FeatureGroup(name="Demand Heatmap")
+    
+            folium.GeoJson(
+                hex_data,
+                style_function=heat_style,
+                tooltip=folium.GeoJsonTooltip(
+                    fields=[demand_field],
+                    aliases=["Demand:"],
+                )
+            ).add_to(heat_layer)
+    
+            heat_layer.add_to(m)
+    
+        # -----------------------------
+        # 6. STATIONS (RENDER ONCE)
+        # -----------------------------
+        station_colors = {
+            "Existing": ("blue", "#38AADD", 1000),
+            "MCLP": ("red", "red", 1000),
+            "SCLP": ("green", "green", 1000),
+        }
+    
+        def get_station_style(feature):
+            status = feature.get("properties", {}).get("status", "Existing")
+            return station_colors.get(status, ("blue", "#38AADD", 1000))
+    
+        station_layer = folium.FeatureGroup(name="Stations")
+    
+        for feature in station_data["features"]:
+            props = feature["properties"]
+            coords = feature["geometry"]["coordinates"]
+            lon, lat = coords
+    
+            color, circle_color, radius = get_station_style(feature)
+    
+            # Marker
+            folium.Marker(
+                location=[lat, lon],
+                tooltip=props.get("full_id"),
+                icon=folium.Icon(color=color, icon="bolt", prefix="fa")
+            ).add_to(station_layer)
+    
+            # Coverage circle
+            folium.Circle(
+                location=[lat, lon],
+                radius=radius,
+                color=circle_color,
+                fill=True,
+                fill_opacity=0,
+                weight=0.5
+            ).add_to(station_layer)
+    
+        station_layer.add_to(m)
+    
+        # -----------------------------
+        # 7. EXISTING STATIONS (LIGHTWEIGHT)
+        # -----------------------------
+        existing_layer = folium.FeatureGroup(name="Existing Stations")
+    
+        for feature in existing_stations["features"]:
+            coords = feature["geometry"]["coordinates"]
+            lon, lat = coords
+    
+            folium.CircleMarker(
+                location=[lat, lon],
+                radius=3,
+                color="#38AADD",
+                fill=True,
+                fill_opacity=0.6,
+                weight=0.5
+            ).add_to(existing_layer)
+    
+        existing_layer.add_to(m)
+    
+        # -----------------------------
+        # 8. CITY BOUNDARY (UNCHANGED)
+        # -----------------------------
+        folium.GeoJson(
+            city_boundaries,
+            name="City Boundaries",
+            style_function=lambda f: {
+                "fillColor": "none",
+                "color": "black",
+                "weight": 2,
+                "fillOpacity": 0,
+            },
+            tooltip=folium.GeoJsonTooltip(fields=["ADM3_EN"])
+        ).add_to(m)
+    
+        # -----------------------------
+        # 9. LAYER CONTROL
+        # -----------------------------
+        folium.LayerControl(collapsed=False).add_to(m)
+    
+        return m
         
 ########################################################################################
 #     status_colors = {
