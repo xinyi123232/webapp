@@ -11,7 +11,7 @@ import numpy as np
 
 script_dir = Path(__file__).parent
 
-@st.cache_data
+@st.cache_resource
 def load_scenario(scenario_path):
     
     base_path = script_dir / scenario_path
@@ -26,7 +26,7 @@ def load_scenario(scenario_path):
 
 
 
-@st.cache_data
+@st.cache_resource
 def load_city_boundaries():
     with open(script_dir/"data"/"city_boundaries.geojson") as f:
         return json.load(f)
@@ -34,7 +34,7 @@ def load_city_boundaries():
   
 city_boundaries = load_city_boundaries()
 
-@st.cache_data
+@st.cache_resource
 def load_existing_stations():
     with open(script_dir/"data"/"baseline"/"stations.geojson") as f:
         return json.load(f)
