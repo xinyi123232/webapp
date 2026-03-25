@@ -845,7 +845,8 @@ with right:
                         # "priority_rank",
                         # "demand_score",
                         "y_epsg4326",
-                        "x_epsg4326"
+                        "x_epsg4326",
+                        "google_maps_link"
                     ],
             
                     aliases=[
@@ -854,7 +855,8 @@ with right:
                         # "Priority Rank:",
                         # "Demand Contribution Score:",
                         "Latitude:",
-                        "Longitude:"
+                        "Longitude:",
+                        ""
                     ],
             
                     localize=True,
