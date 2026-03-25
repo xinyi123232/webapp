@@ -736,7 +736,8 @@ with right:
                             "contribution_w",
                             "contribution_share",
                             "y_epsg4326",
-                            "x_epsg4326"
+                            "x_epsg4326",
+                            "google_maps_link"
                         ],
                 
                         aliases=[
@@ -746,7 +747,8 @@ with right:
                             "Demand Contribution Score:",
                             "Demand Contribution Share:",
                             "Latitude:",
-                            "Longitude:"
+                            "Longitude:",
+                            ""
                         ],
                 
                         localize=True,
