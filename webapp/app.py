@@ -452,11 +452,12 @@ with right:
                 popup=folium.GeoJsonPopup(
                     fields=["covered","demand_level"],
                     aliases=["Coverage Status:", "Activity Demand Level:"],
-                    labels=True),
-               tooltip=folium.GeoJsonTooltip(
-                    fields=["demand_level"],
-                    aliases=["Activity Demand Level:"],
-                    sticky=False)
+                    labels=True)
+               #                 ,
+               # tooltip=folium.GeoJsonTooltip(
+               #      fields=["demand_level"],
+               #      aliases=["Activity Demand Level:"],
+               #      sticky=False)
 ).add_to(Service_Coverage_and_Hex)
 
                 folium.GeoJson(
@@ -561,11 +562,12 @@ with right:
                 popup=folium.GeoJsonPopup(
                     fields=["covered","demand_level"],
                     aliases=["Coverage Status:", "Mobility Demand Level:"],
-                    labels=True),
-               tooltip=folium.GeoJsonTooltip(
-                    fields=["demand_level"],
-                    aliases=["Mobility Demand Level:"],
-                    sticky=False)
+                    labels=True)
+               #                 ,
+               # tooltip=folium.GeoJsonTooltip(
+               #      fields=["demand_level"],
+               #      aliases=["Mobility Demand Level:"],
+               #      sticky=False)
 ).add_to(Service_Coverage_and_Hex)
                 folium.GeoJson(
                 existing_stations,
@@ -670,11 +672,12 @@ with right:
                 popup=folium.GeoJsonPopup(
                     fields=["covered","demand_level"],
                     aliases=["Coverage Status:", "Resident Demand Level:"],
-                    labels=True),
-               tooltip=folium.GeoJsonTooltip(
-                    fields=["demand_level"],
-                    aliases=["Resident Demand Level:"],
-                    sticky=False)
+                    labels=True)
+               #                 ,
+               # tooltip=folium.GeoJsonTooltip(
+               #      fields=["demand_level"],
+               #      aliases=["Resident Demand Level:"],
+               #      sticky=False)
 ).add_to(Service_Coverage_and_Hex)
 
                 folium.GeoJson(
