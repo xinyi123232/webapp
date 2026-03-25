@@ -103,7 +103,7 @@ with left:
 
         if st.button("How to use this dashboard"):
             st.session_state.show_help = True
-            # st.rerun()
+            st.rerun()
         
         mode = st.radio(
         "Planning Mode",
