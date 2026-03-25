@@ -143,7 +143,13 @@ with left:
             else:
                 scenario_path = "data/universal_2000"
     
-        hex_data, station_data, metrics = load_scenario(scenario_path)
+        # hex_data, station_data, metrics = load_scenario(scenario_path)
+
+        if "scenario_data" not in st.session_state or st.session_state.get("current_path") != scenario_path:
+            st.session_state.scenario_data = load_scenario(scenario_path)
+            st.session_state.current_path = scenario_path
+
+hex_data, station_data, metrics = st.session_state.scenario_data
     
         st.markdown("---")
     
