@@ -543,16 +543,16 @@ with right:
 
 
 
-                folium.GeoJson(
-                    existing_stations,
-                    marker=folium.Circle(
-                        radius=1000,   # 1KM in meters
-                        color="#38AADD",
-                        fill=True,
-                        fill_opacity=0,
-                        weight=0.3
-                    )
-                ).add_to(Existing_EVCS)
+                # folium.GeoJson(
+                #     existing_stations,
+                #     marker=folium.Circle(
+                #         radius=1000,   # 1KM in meters
+                #         color="#38AADD",
+                #         fill=True,
+                #         fill_opacity=0,
+                #         weight=0.3
+                #     )
+                # ).add_to(Existing_EVCS)
                 Existing_EVCS.add_to(m)
                 
             elif demand_focus == "Mobility Priority":
@@ -651,16 +651,16 @@ with right:
                 ).add_to(EVCS)
                     
 
-                folium.GeoJson(
-                    existing_stations,
-                    marker=folium.Circle(
-                        radius=1000,   # 1KM in meters
-                        color="#38AADD",
-                        fill=True,
-                        fill_opacity=0,
-                        weight=0.3
-                    )
-                ).add_to(Existing_EVCS)
+                # folium.GeoJson(
+                #     existing_stations,
+                #     marker=folium.Circle(
+                #         radius=1000,   # 1KM in meters
+                #         color="#38AADD",
+                #         fill=True,
+                #         fill_opacity=0,
+                #         weight=0.3
+                #     )
+                # ).add_to(Existing_EVCS)
                 Existing_EVCS.add_to(m)
                 
 
@@ -762,16 +762,16 @@ with right:
 
 
 
-            folium.GeoJson(
-                existing_stations,
-                marker=folium.Circle(
-                    radius=1000,   # 1KM in meters
-                    color="#38AADD",
-                    fill=True,
-                    fill_opacity=0,
-                    weight=0.3
-                )
-            ).add_to(Existing_EVCS)
+            # folium.GeoJson(
+            #     existing_stations,
+            #     marker=folium.Circle(
+            #         radius=1000,   # 1KM in meters
+            #         color="#38AADD",
+            #         fill=True,
+            #         fill_opacity=0,
+            #         weight=0.3
+            #     )
+            # ).add_to(Existing_EVCS)
             Existing_EVCS.add_to(m)
 
         elif mode == "Equity":
@@ -868,16 +868,16 @@ with right:
 
 
 
-            folium.GeoJson(
-                existing_stations,
-                marker=folium.Circle(
-                    radius=1000,   # 1KM in meters
-                    color="#38AADD",
-                    fill=True,
-                    fill_opacity=0,
-                    weight=0.3
-                )
-            ).add_to(Existing_EVCS)
+            # folium.GeoJson(
+            #     existing_stations,
+            #     marker=folium.Circle(
+            #         radius=1000,   # 1KM in meters
+            #         color="#38AADD",
+            #         fill=True,
+            #         fill_opacity=0,
+            #         weight=0.3
+            #     )
+            # ).add_to(Existing_EVCS)
             Existing_EVCS.add_to(m)
 
         
@@ -899,16 +899,16 @@ with right:
         #         icon=folium.Icon(color=color_icon_radius[0], icon='bolt', prefix='fa'))
         # ).add_to(EVCS)
     
-        folium.GeoJson(
-            station_data,
-            marker=folium.Circle(
-                radius=color_icon_radius[2],   # 1KM in meters
-                color=color_icon_radius[1],
-                fill=True,
-                fill_opacity=0,
-                weight=1
-            )
-        ).add_to(EVCS)
+        # folium.GeoJson(
+        #     station_data,
+        #     marker=folium.Circle(
+        #         radius=color_icon_radius[2],   # 1KM in meters
+        #         color=color_icon_radius[1],
+        #         fill=True,
+        #         fill_opacity=0,
+        #         weight=1
+        #     )
+        # ).add_to(EVCS)
         EVCS.add_to(m)
         Service_Coverage_and_Hex.add_to(m)
 
