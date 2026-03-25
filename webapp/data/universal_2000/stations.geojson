@@ -1,52 +1,957 @@
 {
-"type": "FeatureCollection",
-"name": "stations",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "candidate_type": "Gas Station", "site_id": "GA_0003", "status": "SCLP_2000", "fid": "208", "full_id": "r11089465", "x_epsg4326": 121.04579678409517, "y_epsg4326": 14.448081130439588, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.045796784095174, 14.448081130439588 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Gas Station", "site_id": "GA_0025", "status": "SCLP_2000", "fid": "230", "full_id": "r11089465", "x_epsg4326": 121.03824066045196, "y_epsg4326": 14.394397930064184, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.038240660451962, 14.394397930064184 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Gas Station", "site_id": "GA_0032", "status": "SCLP_2000", "fid": "237", "full_id": "r11089465", "x_epsg4326": 121.04554466511296, "y_epsg4326": 14.477419257202472, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.045544665112956, 14.477419257202472 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Gas Station", "site_id": "GA_0071", "status": "SCLP_2000", "fid": "276", "full_id": "r11089465", "x_epsg4326": 121.01499242752051, "y_epsg4326": 14.602956735533622, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.014992427520511, 14.602956735533622 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Gas Station", "site_id": "GA_0093", "status": "SCLP_2000", "fid": "298", "full_id": "r11089465", "x_epsg4326": 121.01289585411867, "y_epsg4326": 14.50241732301855, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.012895854118668, 14.50241732301855 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Gas Station", "site_id": "GA_0121", "status": "SCLP_2000", "fid": "326", "full_id": "r11089465", "x_epsg4326": 120.95954749833622, "y_epsg4326": 14.625352102659436, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 120.959547498336221, 14.625352102659436 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Gas Station", "site_id": "GA_0138", "status": "SCLP_2000", "fid": "343", "full_id": "r11089465", "x_epsg4326": 120.9920246910454, "y_epsg4326": 14.640565491910396, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 120.992024691045401, 14.640565491910396 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Gas Station", "site_id": "GA_0181", "status": "SCLP_2000", "fid": "386", "full_id": "r11089465", "x_epsg4326": 120.9643493905573, "y_epsg4326": 14.692427005211332, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 120.964349390557302, 14.692427005211332 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Gas Station", "site_id": "GA_0188", "status": "SCLP_2000", "fid": "393", "full_id": "r11089465", "x_epsg4326": 120.95823905000002, "y_epsg4326": 14.71349575, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 120.958239050000017, 14.71349575 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Gas Station", "site_id": "GA_0278", "status": "SCLP_2000", "fid": "483", "full_id": "r11089465", "x_epsg4326": 121.04520366670356, "y_epsg4326": 14.675430369017768, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.045203666703557, 14.675430369017768 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Gas Station", "site_id": "GA_0301", "status": "SCLP_2000", "fid": "506", "full_id": "r11089465", "x_epsg4326": 121.0267880998981, "y_epsg4326": 14.692521962095936, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.026788099898098, 14.692521962095936 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0364", "status": "SCLP_2000", "fid": "569", "full_id": "w28040778", "x_epsg4326": 121.11570297072979, "y_epsg4326": 14.64878530073524, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.115702970729785, 14.64878530073524 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0421", "status": "SCLP_2000", "fid": "626", "full_id": "w131228339", "x_epsg4326": 121.044949031367, "y_epsg4326": 14.377389862696717, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.044949031366997, 14.377389862696717 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0425", "status": "SCLP_2000", "fid": "630", "full_id": "w149722360", "x_epsg4326": 120.99327779870231, "y_epsg4326": 14.709293548309404, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 120.993277798702309, 14.709293548309404 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0446", "status": "SCLP_2000", "fid": "651", "full_id": "w195680969", "x_epsg4326": 121.08558176163939, "y_epsg4326": 14.568104684380707, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.085581761639389, 14.568104684380707 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0455", "status": "SCLP_2000", "fid": "660", "full_id": "w240105266", "x_epsg4326": 120.98117265367161, "y_epsg4326": 14.480236666052345, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 120.981172653671607, 14.480236666052345 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0468", "status": "SCLP_2000", "fid": "673", "full_id": "w293691048", "x_epsg4326": 120.96659485653737, "y_epsg4326": 14.669233353042795, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 120.96659485653737, 14.669233353042795 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0500", "status": "SCLP_2000", "fid": "705", "full_id": "w529685634", "x_epsg4326": 121.05864854255579, "y_epsg4326": 14.757057797417241, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.058648542555787, 14.757057797417241 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0503", "status": "SCLP_2000", "fid": "708", "full_id": "w550908360", "x_epsg4326": 121.08255116915983, "y_epsg4326": 14.70537476970196, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.082551169159828, 14.70537476970196 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0505", "status": "SCLP_2000", "fid": "710", "full_id": "w558278425", "x_epsg4326": 121.06681957072061, "y_epsg4326": 14.695702995841799, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.066819570720611, 14.695702995841799 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0506", "status": "SCLP_2000", "fid": "711", "full_id": "w576523414", "x_epsg4326": 121.0103674815671, "y_epsg4326": 14.468755974125919, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.010367481567101, 14.468755974125919 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0507", "status": "SCLP_2000", "fid": "712", "full_id": "w587707462", "x_epsg4326": 121.04443103844032, "y_epsg4326": 14.756641753932811, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.044431038440322, 14.756641753932811 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0517", "status": "SCLP_2000", "fid": "722", "full_id": "w789181320", "x_epsg4326": 120.99641947942683, "y_epsg4326": 14.746871817986916, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 120.996419479426834, 14.746871817986916 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0525", "status": "SCLP_2000", "fid": "730", "full_id": "w844119917", "x_epsg4326": 121.04565291908477, "y_epsg4326": 14.775297353478315, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.045652919084773, 14.775297353478315 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0526", "status": "SCLP_2000", "fid": "731", "full_id": "w862549351", "x_epsg4326": 121.00157043487134, "y_epsg4326": 14.425189560588962, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.00157043487134, 14.425189560588962 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0531", "status": "SCLP_2000", "fid": "736", "full_id": "w924382341", "x_epsg4326": 121.08074290994017, "y_epsg4326": 14.769565802300916, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.08074290994017, 14.769565802300916 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Mall", "site_id": "MA_0544", "status": "SCLP_2000", "fid": "749", "full_id": "w1178270231", "x_epsg4326": 121.10850966285689, "y_epsg4326": 14.669562193791473, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.108509662856889, 14.669562193791473 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0564", "status": "SCLP_2000", "fid": "769", "full_id": "r17648557", "x_epsg4326": 121.10037117027061, "y_epsg4326": 14.549803071311953, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.100371170270606, 14.549803071311953 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0649", "status": "SCLP_2000", "fid": "854", "full_id": "w117446150", "x_epsg4326": 121.07331707476233, "y_epsg4326": 14.536648772520058, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.073317074762329, 14.536648772520058 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0664", "status": "SCLP_2000", "fid": "869", "full_id": "w158193872", "x_epsg4326": 121.03784233971832, "y_epsg4326": 14.720987420869692, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.037842339718324, 14.720987420869692 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0670", "status": "SCLP_2000", "fid": "875", "full_id": "w165699906", "x_epsg4326": 121.07983825426598, "y_epsg4326": 14.665153078588324, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.079838254265979, 14.665153078588324 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0680", "status": "SCLP_2000", "fid": "885", "full_id": "w197152379", "x_epsg4326": 121.07344933546766, "y_epsg4326": 14.633303405975129, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.073449335467657, 14.633303405975129 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0697", "status": "SCLP_2000", "fid": "902", "full_id": "w291550765", "x_epsg4326": 120.97309629511969, "y_epsg4326": 14.581375825628539, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 120.973096295119689, 14.581375825628539 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0745", "status": "SCLP_2000", "fid": "950", "full_id": "w534881525", "x_epsg4326": 121.04823745133443, "y_epsg4326": 14.727090464949864, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.04823745133443, 14.727090464949864 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0770", "status": "SCLP_2000", "fid": "975", "full_id": "w653935866", "x_epsg4326": 121.12853212470171, "y_epsg4326": 14.661201329816954, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.128532124701707, 14.661201329816954 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0772", "status": "SCLP_2000", "fid": "977", "full_id": "w670286171", "x_epsg4326": 121.00742569011355, "y_epsg4326": 14.393875191670265, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.00742569011355, 14.393875191670265 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0792", "status": "SCLP_2000", "fid": "997", "full_id": "w795123928", "x_epsg4326": 121.01124910380958, "y_epsg4326": 14.37339157596247, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.011249103809575, 14.37339157596247 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0794", "status": "SCLP_2000", "fid": "999", "full_id": "w796387762", "x_epsg4326": 121.06559375495519, "y_epsg4326": 14.737980674673032, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.065593754955188, 14.737980674673032 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0804", "status": "SCLP_2000", "fid": "1009", "full_id": "w860958248", "x_epsg4326": 120.95534674018106, "y_epsg4326": 14.716027871519312, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 120.955346740181056, 14.716027871519312 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0815", "status": "SCLP_2000", "fid": "1020", "full_id": "w902970369", "x_epsg4326": 120.95471558805626, "y_epsg4326": 14.596730908081842, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 120.95471558805626, 14.596730908081842 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0827", "status": "SCLP_2000", "fid": "1032", "full_id": "w1072964969", "x_epsg4326": 121.07567766828996, "y_epsg4326": 14.531126957978049, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.075677668289956, 14.531126957978049 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0829", "status": "SCLP_2000", "fid": "1034", "full_id": "w1079957951", "x_epsg4326": 121.06586868727096, "y_epsg4326": 14.521415851338414, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.065868687270964, 14.521415851338414 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0831", "status": "SCLP_2000", "fid": "1036", "full_id": "w1203378405", "x_epsg4326": 120.94880165663804, "y_epsg4326": 14.656094854238095, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 120.94880165663804, 14.656094854238095 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0843", "status": "SCLP_2000", "fid": "1048", "full_id": "w1338976419", "x_epsg4326": 121.06486675604491, "y_epsg4326": 14.494562071483552, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.064866756044907, 14.494562071483552 ] } },
-{ "type": "Feature", "properties": { "candidate_type": "Parking", "site_id": "PA_0850", "status": "SCLP_2000", "fid": "1055", "full_id": "w1453921803", "x_epsg4326": 121.0943074637818, "y_epsg4326": 14.695345699008241, "Potential": "New" }, "geometry": { "type": "Point", "coordinates": [ 121.094307463781803, 14.695345699008241 ] } }
-]
+  "type": "FeatureCollection",
+  "name": "stations",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0003",
+        "status": "SCLP_2000",
+        "fid": "208",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.04579678409517,
+        "y_epsg4326": 14.448081130439588,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.448081130439588,121.04579678409517\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.04579678409517,
+          14.448081130439588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0025",
+        "status": "SCLP_2000",
+        "fid": "230",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.03824066045196,
+        "y_epsg4326": 14.394397930064184,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.394397930064184,121.03824066045196\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.03824066045196,
+          14.394397930064184
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0032",
+        "status": "SCLP_2000",
+        "fid": "237",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.04554466511296,
+        "y_epsg4326": 14.477419257202472,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.477419257202472,121.04554466511296\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.04554466511296,
+          14.477419257202472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0071",
+        "status": "SCLP_2000",
+        "fid": "276",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.01499242752051,
+        "y_epsg4326": 14.602956735533622,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.602956735533622,121.01499242752051\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.01499242752051,
+          14.602956735533622
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0093",
+        "status": "SCLP_2000",
+        "fid": "298",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.01289585411867,
+        "y_epsg4326": 14.50241732301855,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.50241732301855,121.01289585411867\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.01289585411867,
+          14.50241732301855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0121",
+        "status": "SCLP_2000",
+        "fid": "326",
+        "full_id": "r11089465",
+        "x_epsg4326": 120.95954749833622,
+        "y_epsg4326": 14.625352102659436,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.625352102659436,120.95954749833622\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.95954749833622,
+          14.625352102659436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0138",
+        "status": "SCLP_2000",
+        "fid": "343",
+        "full_id": "r11089465",
+        "x_epsg4326": 120.9920246910454,
+        "y_epsg4326": 14.640565491910396,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.640565491910396,120.9920246910454\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.9920246910454,
+          14.640565491910396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0181",
+        "status": "SCLP_2000",
+        "fid": "386",
+        "full_id": "r11089465",
+        "x_epsg4326": 120.9643493905573,
+        "y_epsg4326": 14.692427005211332,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.692427005211332,120.9643493905573\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.9643493905573,
+          14.692427005211332
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0188",
+        "status": "SCLP_2000",
+        "fid": "393",
+        "full_id": "r11089465",
+        "x_epsg4326": 120.95823905000002,
+        "y_epsg4326": 14.71349575,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.71349575,120.95823905000002\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.95823905000002,
+          14.71349575
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0278",
+        "status": "SCLP_2000",
+        "fid": "483",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.04520366670356,
+        "y_epsg4326": 14.675430369017768,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.675430369017768,121.04520366670356\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.04520366670356,
+          14.675430369017768
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0301",
+        "status": "SCLP_2000",
+        "fid": "506",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.0267880998981,
+        "y_epsg4326": 14.692521962095936,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.692521962095936,121.0267880998981\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.0267880998981,
+          14.692521962095936
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0364",
+        "status": "SCLP_2000",
+        "fid": "569",
+        "full_id": "w28040778",
+        "x_epsg4326": 121.11570297072979,
+        "y_epsg4326": 14.64878530073524,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.64878530073524,121.11570297072979\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.11570297072979,
+          14.64878530073524
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0421",
+        "status": "SCLP_2000",
+        "fid": "626",
+        "full_id": "w131228339",
+        "x_epsg4326": 121.044949031367,
+        "y_epsg4326": 14.377389862696717,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.377389862696717,121.044949031367\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.044949031367,
+          14.377389862696717
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0425",
+        "status": "SCLP_2000",
+        "fid": "630",
+        "full_id": "w149722360",
+        "x_epsg4326": 120.99327779870231,
+        "y_epsg4326": 14.709293548309404,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.709293548309404,120.99327779870231\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.99327779870231,
+          14.709293548309404
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0446",
+        "status": "SCLP_2000",
+        "fid": "651",
+        "full_id": "w195680969",
+        "x_epsg4326": 121.08558176163939,
+        "y_epsg4326": 14.568104684380707,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.568104684380707,121.08558176163939\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.08558176163939,
+          14.568104684380707
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0455",
+        "status": "SCLP_2000",
+        "fid": "660",
+        "full_id": "w240105266",
+        "x_epsg4326": 120.9811726536716,
+        "y_epsg4326": 14.480236666052345,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.480236666052345,120.9811726536716\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.9811726536716,
+          14.480236666052345
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0468",
+        "status": "SCLP_2000",
+        "fid": "673",
+        "full_id": "w293691048",
+        "x_epsg4326": 120.96659485653737,
+        "y_epsg4326": 14.669233353042795,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.669233353042795,120.96659485653737\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.96659485653737,
+          14.669233353042795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0500",
+        "status": "SCLP_2000",
+        "fid": "705",
+        "full_id": "w529685634",
+        "x_epsg4326": 121.05864854255579,
+        "y_epsg4326": 14.757057797417241,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.757057797417241,121.05864854255579\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.05864854255579,
+          14.757057797417241
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0503",
+        "status": "SCLP_2000",
+        "fid": "708",
+        "full_id": "w550908360",
+        "x_epsg4326": 121.08255116915983,
+        "y_epsg4326": 14.70537476970196,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.70537476970196,121.08255116915983\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.08255116915983,
+          14.70537476970196
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0505",
+        "status": "SCLP_2000",
+        "fid": "710",
+        "full_id": "w558278425",
+        "x_epsg4326": 121.06681957072061,
+        "y_epsg4326": 14.695702995841799,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.695702995841799,121.06681957072061\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.06681957072061,
+          14.695702995841799
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0506",
+        "status": "SCLP_2000",
+        "fid": "711",
+        "full_id": "w576523414",
+        "x_epsg4326": 121.0103674815671,
+        "y_epsg4326": 14.46875597412592,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.46875597412592,121.0103674815671\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.0103674815671,
+          14.46875597412592
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0507",
+        "status": "SCLP_2000",
+        "fid": "712",
+        "full_id": "w587707462",
+        "x_epsg4326": 121.04443103844032,
+        "y_epsg4326": 14.756641753932811,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.756641753932811,121.04443103844032\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.04443103844032,
+          14.756641753932811
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0517",
+        "status": "SCLP_2000",
+        "fid": "722",
+        "full_id": "w789181320",
+        "x_epsg4326": 120.99641947942683,
+        "y_epsg4326": 14.746871817986916,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.746871817986916,120.99641947942683\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.99641947942683,
+          14.746871817986916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0525",
+        "status": "SCLP_2000",
+        "fid": "730",
+        "full_id": "w844119917",
+        "x_epsg4326": 121.04565291908477,
+        "y_epsg4326": 14.775297353478315,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.775297353478315,121.04565291908477\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.04565291908477,
+          14.775297353478315
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0526",
+        "status": "SCLP_2000",
+        "fid": "731",
+        "full_id": "w862549351",
+        "x_epsg4326": 121.00157043487134,
+        "y_epsg4326": 14.425189560588962,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.425189560588962,121.00157043487134\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.00157043487134,
+          14.425189560588962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0531",
+        "status": "SCLP_2000",
+        "fid": "736",
+        "full_id": "w924382341",
+        "x_epsg4326": 121.08074290994017,
+        "y_epsg4326": 14.769565802300916,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.769565802300916,121.08074290994017\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.08074290994017,
+          14.769565802300916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0544",
+        "status": "SCLP_2000",
+        "fid": "749",
+        "full_id": "w1178270231",
+        "x_epsg4326": 121.10850966285689,
+        "y_epsg4326": 14.669562193791473,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.669562193791473,121.10850966285689\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.10850966285689,
+          14.669562193791473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0564",
+        "status": "SCLP_2000",
+        "fid": "769",
+        "full_id": "r17648557",
+        "x_epsg4326": 121.1003711702706,
+        "y_epsg4326": 14.549803071311953,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.549803071311953,121.1003711702706\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.1003711702706,
+          14.549803071311953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0649",
+        "status": "SCLP_2000",
+        "fid": "854",
+        "full_id": "w117446150",
+        "x_epsg4326": 121.07331707476233,
+        "y_epsg4326": 14.536648772520058,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.536648772520058,121.07331707476233\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.07331707476233,
+          14.536648772520058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0664",
+        "status": "SCLP_2000",
+        "fid": "869",
+        "full_id": "w158193872",
+        "x_epsg4326": 121.03784233971832,
+        "y_epsg4326": 14.720987420869692,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.720987420869692,121.03784233971832\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.03784233971832,
+          14.720987420869692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0670",
+        "status": "SCLP_2000",
+        "fid": "875",
+        "full_id": "w165699906",
+        "x_epsg4326": 121.07983825426598,
+        "y_epsg4326": 14.665153078588324,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.665153078588324,121.07983825426598\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.07983825426598,
+          14.665153078588324
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0680",
+        "status": "SCLP_2000",
+        "fid": "885",
+        "full_id": "w197152379",
+        "x_epsg4326": 121.07344933546766,
+        "y_epsg4326": 14.633303405975129,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.633303405975129,121.07344933546766\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.07344933546766,
+          14.633303405975129
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0697",
+        "status": "SCLP_2000",
+        "fid": "902",
+        "full_id": "w291550765",
+        "x_epsg4326": 120.97309629511969,
+        "y_epsg4326": 14.58137582562854,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.58137582562854,120.97309629511969\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.97309629511969,
+          14.58137582562854
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0745",
+        "status": "SCLP_2000",
+        "fid": "950",
+        "full_id": "w534881525",
+        "x_epsg4326": 121.04823745133443,
+        "y_epsg4326": 14.727090464949864,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.727090464949864,121.04823745133443\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.04823745133443,
+          14.727090464949864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0770",
+        "status": "SCLP_2000",
+        "fid": "975",
+        "full_id": "w653935866",
+        "x_epsg4326": 121.1285321247017,
+        "y_epsg4326": 14.661201329816954,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.661201329816954,121.1285321247017\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.1285321247017,
+          14.661201329816954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0772",
+        "status": "SCLP_2000",
+        "fid": "977",
+        "full_id": "w670286171",
+        "x_epsg4326": 121.00742569011355,
+        "y_epsg4326": 14.393875191670265,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.393875191670265,121.00742569011355\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.00742569011355,
+          14.393875191670265
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0792",
+        "status": "SCLP_2000",
+        "fid": "997",
+        "full_id": "w795123928",
+        "x_epsg4326": 121.01124910380958,
+        "y_epsg4326": 14.37339157596247,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.37339157596247,121.01124910380958\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.01124910380958,
+          14.37339157596247
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0794",
+        "status": "SCLP_2000",
+        "fid": "999",
+        "full_id": "w796387762",
+        "x_epsg4326": 121.06559375495519,
+        "y_epsg4326": 14.737980674673032,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.737980674673032,121.06559375495519\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.06559375495519,
+          14.737980674673032
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0804",
+        "status": "SCLP_2000",
+        "fid": "1009",
+        "full_id": "w860958248",
+        "x_epsg4326": 120.95534674018106,
+        "y_epsg4326": 14.716027871519312,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.716027871519312,120.95534674018106\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.95534674018106,
+          14.716027871519312
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0815",
+        "status": "SCLP_2000",
+        "fid": "1020",
+        "full_id": "w902970369",
+        "x_epsg4326": 120.95471558805626,
+        "y_epsg4326": 14.596730908081842,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.596730908081842,120.95471558805626\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.95471558805626,
+          14.596730908081842
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0827",
+        "status": "SCLP_2000",
+        "fid": "1032",
+        "full_id": "w1072964969",
+        "x_epsg4326": 121.07567766828996,
+        "y_epsg4326": 14.53112695797805,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.53112695797805,121.07567766828996\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.07567766828996,
+          14.53112695797805
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0829",
+        "status": "SCLP_2000",
+        "fid": "1034",
+        "full_id": "w1079957951",
+        "x_epsg4326": 121.06586868727096,
+        "y_epsg4326": 14.521415851338414,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.521415851338414,121.06586868727096\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.06586868727096,
+          14.521415851338414
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0831",
+        "status": "SCLP_2000",
+        "fid": "1036",
+        "full_id": "w1203378405",
+        "x_epsg4326": 120.94880165663804,
+        "y_epsg4326": 14.656094854238095,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.656094854238095,120.94880165663804\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.94880165663804,
+          14.656094854238095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0843",
+        "status": "SCLP_2000",
+        "fid": "1048",
+        "full_id": "w1338976419",
+        "x_epsg4326": 121.0648667560449,
+        "y_epsg4326": 14.494562071483552,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.494562071483552,121.0648667560449\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.0648667560449,
+          14.494562071483552
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0850",
+        "status": "SCLP_2000",
+        "fid": "1055",
+        "full_id": "w1453921803",
+        "x_epsg4326": 121.0943074637818,
+        "y_epsg4326": 14.695345699008241,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.695345699008241,121.0943074637818\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.0943074637818,
+          14.695345699008241
+        ]
+      }
+    }
+  ]
 }
