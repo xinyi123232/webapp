@@ -343,8 +343,8 @@ with right:
     def build_map(hex_data, station_data):
         m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron",prefer_canvas=True)
         
-        EVCS = folium.FeatureGroup(name='EV Charging Stations with 1KM Service Coverage')
-        Existing_EVCS = folium.FeatureGroup(name='Existing EV Charging Stations with 1KM Service Coverage')
+        EVCS = folium.FeatureGroup(name='EV Charging Stations')
+        Existing_EVCS = folium.FeatureGroup(name='Existing EV Charging Stations')
         Service_Coverage_and_Hex = folium.FeatureGroup(name="Colored Coverage Area Hex")
         Demand_Heatmap_Activity_Priority= folium.FeatureGroup(name="Activity Priority Demand Heatmap")
         Demand_Heatmap_Mobility_Priority= folium.FeatureGroup(name="Mobility Priority Demand Heatmap")
@@ -398,7 +398,7 @@ with right:
                     fields=["full_id"
                     # , "address"
                     ],
-                    aliases=["Station Name:"
+                    aliases=["Station:"
                     # , "Address:"
                     ],
                     sticky=False
@@ -495,7 +495,7 @@ with right:
                         fields=["full_id"
                         # , "address"
                         ],
-                        aliases=["Station Name:"
+                        aliases=["Station:"
                         # , "Address:"
                         ],
                         sticky=False
@@ -605,7 +605,7 @@ with right:
                         fields=["full_id"
                         # , "address"
                         ],
-                        aliases=["Station Name:"
+                        aliases=["Station:"
                         # , "Address:"
                         ],
                         sticky=False
@@ -716,7 +716,7 @@ with right:
                         fields=["full_id"
                         # , "address"
                         ],
-                        aliases=["Station Name:"
+                        aliases=["Station:"
                         # , "Address:"
                         ],
                         sticky=False
@@ -824,7 +824,7 @@ with right:
                     fields=["full_id"
                     # , "address"
                     ],
-                    aliases=["Station Name:"
+                    aliases=["Station:"
                     # , "Address:"
                     ],
                     sticky=False
