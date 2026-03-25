@@ -91,8 +91,8 @@ if "show_help" not in st.session_state:
     st.session_state.show_help = True
 if st.session_state.show_help:
     help_dialog()
-if st.session_state.show_help:
-    st.stop()
+# if st.session_state.show_help:
+#     st.stop()
     
 # ---- LEFT PANEL ----
 with left:
