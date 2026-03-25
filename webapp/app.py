@@ -383,10 +383,10 @@ with right:
                     fields=["covered","demand_level_A","demand_level_B","demand_level_C"],
                     aliases=["Coverage Status:", "Activity Demand Level:", "Mobility Demand Level:", "Resident Demand Level:"],
                     labels=True),
-               tooltip=folium.GeoJsonTooltip(
-    fields=["demand_level_A","demand_level_B","demand_level_C"],
-    aliases=["Activity Demand Level:", "Mobility Demand Level:", "Resident Demand Level:"],
-    sticky=False)
+    #            tooltip=folium.GeoJsonTooltip(
+    # fields=["demand_level_A","demand_level_B","demand_level_C"],
+    # aliases=["Activity Demand Level:", "Mobility Demand Level:", "Resident Demand Level:"],
+    # sticky=False)
 ).add_to(Service_Coverage_and_Hex)
 
             
