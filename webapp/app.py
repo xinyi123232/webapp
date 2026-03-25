@@ -7,7 +7,24 @@ import branca.colormap as cm
 from branca.element import Element
 import numpy as np
 
-#
+st.set_page_config(layout="wide")
+st.markdown("""
+<style>
+/* Remove default Streamlit padding to make map edge-to-edge */
+.block-container {
+    padding-top: 2rem !important;
+    padding-bottom: 0rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: 100% !important;
+}
+
+/* Hide header */
+header {
+    visibility: hidden;
+}
+</style>
+""", unsafe_allow_html=True)
 
 script_dir = Path(__file__).parent
 
@@ -41,24 +58,7 @@ def load_existing_stations():
           
 existing_stations = load_existing_stations()
 
-st.set_page_config(layout="wide")
-st.markdown("""
-<style>
-/* Remove default Streamlit padding to make map edge-to-edge */
-.block-container {
-    padding-top: 2rem !important;
-    padding-bottom: 0rem !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-    max-width: 100% !important;
-}
 
-/* Hide header */
-header {
-    visibility: hidden;
-}
-</style>
-""", unsafe_allow_html=True)
 
 
     
