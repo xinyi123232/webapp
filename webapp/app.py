@@ -333,7 +333,7 @@ with right:
         
     # color = style_station(station_data)
     
-    @st.cache_data
+    @st.cache_resource
     def build_map(hex_data, station_data):
         m = folium.Map(location=[14.5995, 121.03], zoom_start=11, tiles="CartoDB Positron",prefer_canvas=True)
         
