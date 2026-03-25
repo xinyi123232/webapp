@@ -31,15 +31,14 @@ def load_city_boundaries():
     with open(script_dir/"data"/"city_boundaries.geojson") as f:
         return json.load(f)
         
-# @st.cache_data  
+  
 city_boundaries = load_city_boundaries()
 
 @st.cache_data
 def load_existing_stations():
     with open(script_dir/"data"/"baseline"/"stations.geojson") as f:
         return json.load(f)
-        
-# @st.cache_data  
+          
 existing_stations = load_existing_stations()
 
 st.set_page_config(layout="wide")
@@ -104,7 +103,7 @@ with left:
 
         if st.button("How to use this dashboard"):
             st.session_state.show_help = True
-            st.rerun()
+            # st.rerun()
         
         mode = st.radio(
         "Planning Mode",
