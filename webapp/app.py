@@ -85,7 +85,7 @@ def help_dialog():
 
     if st.button("Understood"):
         st.session_state.show_help = False
-        # st.rerun()
+        st.rerun()
 
 if "show_help" not in st.session_state:
     st.session_state.show_help = True
