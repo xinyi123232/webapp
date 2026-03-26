@@ -101,7 +101,7 @@ with left:
         
         mode = st.radio(
         "Planning Mode",
-        ["Current Network", "Efficiency", "Equity"]
+        ["Current Network", "Efficiency", "Equity","Efficiency and Equity"]
         )
         scenario_path = "data/baseline"
     
@@ -134,6 +134,8 @@ with left:
                 scenario_path = "data/universal_1000"
             else:
                 scenario_path = "data/universal_2000"
+
+        elif mode == "Efficiency and Equity":
     
         # hex_data, station_data, metrics = load_scenario(scenario_path)
 
