@@ -58,10 +58,6 @@ def load_existing_stations():
           
 existing_stations = load_existing_stations()
 
-
-
-
-    
 left, right = st.columns([2, 8], gap="small")
 
 @st.dialog("How to Use This Dashboard", dismissible=False)
@@ -91,8 +87,6 @@ if "show_help" not in st.session_state:
     st.session_state.show_help = True
 if st.session_state.show_help:
     help_dialog()
-# if st.session_state.show_help:
-#     st.stop()
     
 # ---- LEFT PANEL ----
 with left:
@@ -226,9 +220,6 @@ with left:
 
 # ---- RIGHT PANEL ----
 with right:
-    # st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    # Hex styling
-########################################################################################
     status_colors = {
         "uncovered": ["none", "0"],
         "existing": ["#38AADD", "0.1"],
@@ -239,22 +230,6 @@ with right:
     def style_hex(feature):
         status = feature["properties"].get("color_status")
         color = status_colors.get(status, "gray")
-        # if emphasize_gaps:
-        #     if status == "uncovered":
-        #         return {
-        #             "fillColor": "red",
-        #             "color": "black",
-        #             "weight": 0.3,
-        #             "fillOpacity": 0.9
-        #         }
-    
-        #     else:
-        #         return {
-        #             "fillColor": color[0],
-        #             "color": "black",
-        #             "weight": 0.1,
-        #             "fillOpacity": color[1]
-        #         }
                 
         if emphasize_existing:
             if status == "existing":
@@ -290,11 +265,6 @@ with right:
                     "weight": 0.1,
                     "fillOpacity": color[1]
                 }
-
-        
-                
-    
-        # Normal view
         return {
             "fillColor": color[0],
             "color": "black",
@@ -302,29 +272,6 @@ with right:
             "fillOpacity": color[1]
         }
         
-#     def hex_popup(feature):
-#         status = feature["properties"].get("color_status")
-#         demand = feature["properties"].get("demand_level")
-    
-#         if status == "uncovered":
-#             coverage = "Not Covered"
-#         else:
-#             coverage = "Covered"
-    
-#         html = f"""
-#         <b>Coverage Status:</b> {coverage}<br>
-#         <b>Demand Level:</b> {demand}
-#         """
-    
-#         return folium.Popup(html, max_width=250)
-
-#     hex_tooltip = folium.GeoJsonTooltip(
-#     fields=["demand_level"],
-#     aliases=["Demand Level:"],
-#     sticky=False
-# )
-
-
     status_colors_stations = {
         "Existing": ["blue", "#38AADD",1000],
         "MCLP": ["red","red",1000],
@@ -336,8 +283,6 @@ with right:
     def style_station(feature):
         a = feature.get('properties', {}).get('status')
         return status_colors_stations.get(a)
-        
-    # color = style_station(station_data)
     
     
     def build_map(hex_data, station_data):
@@ -369,25 +314,12 @@ with right:
 
 
         if mode == "Current Network":
-        #     folium.GeoJson(hex_data,
-        #                    style_function=style_hex,
-        #                    popup=folium.GeoJsonPopup(
-        #                        fields=["color_status","demand_level_A","demand_level_B","demand_level_C"],
-        #                        aliases=["Coverage Status:", "Activity Demand Level:", "Mobility Demand Level:", "Resident Demand Level:"],
-        #                        labels=True
-        #                   )
-        # ).add_to(Service_Coverage_and_Hex)
             folium.GeoJson(hex_data,
                 style_function=style_hex,
                 popup=folium.GeoJsonPopup(
                     fields=["covered","demand_level_A","demand_level_B","demand_level_C"],
                     aliases=["Coverage Status:", "Activity Demand Level:", "Mobility Demand Level:", "Resident Demand Level:"],
-                    labels=True),
-    #            tooltip=folium.GeoJsonTooltip(
-    # fields=["demand_level_A","demand_level_B","demand_level_C"],
-    # aliases=["Activity Demand Level:", "Mobility Demand Level:", "Resident Demand Level:"],
-    # sticky=False)
-).add_to(Service_Coverage_and_Hex)
+                    labels=True)).add_to(Service_Coverage_and_Hex)
 
             
             folium.GeoJson(
@@ -426,13 +358,7 @@ with right:
                     ],
             
                     localize=True,
-                    labels=True,
-                    # style="""
-                    #     background-color: white;
-                    #     border: 1px solid gray;
-                    #     border-radius: 4px;
-                    #     padding: 5px;
-                    # """
+                    labels=True
                 ),
             
                 marker=folium.Marker(
@@ -455,36 +381,10 @@ with right:
                     fields=["covered","demand_level"],
                     aliases=["Coverage Status:", "Activity Demand Level:"],
                     labels=True)
-               #                 ,
-               # tooltip=folium.GeoJsonTooltip(
-               #      fields=["demand_level"],
-               #      aliases=["Activity Demand Level:"],
-               #      sticky=False)
 ).add_to(Service_Coverage_and_Hex)
 
                 folium.GeoJson(
                 existing_stations,
-                # tooltip=folium.GeoJsonTooltip(
-                #     fields=["full_id"],
-                #     aliases=["Station Name:"],
-                #     sticky=False
-                # ),
-                # popup=folium.GeoJsonPopup(
-                #     fields=[
-                #         "candidate_type",
-                #         "status",
-                #         "y_epsg4326",
-                #         "x_epsg4326"
-                #     ],
-                #     aliases=[
-                #         "Facility Type:",
-                #         "Status:",
-                #         "Latitude:",
-                #         "Longitude:"
-                #     ],
-                #     localize=True,
-                #     labels=True,
-                # ),
                 marker=folium.CircleMarker(radius=3,color="#38AADD",fill=True,
         fill_opacity=.6,
         weight=.6)).add_to(Existing_EVCS)
@@ -495,10 +395,8 @@ with right:
                     station_data,
                     tooltip=folium.GeoJsonTooltip(
                         fields=["full_id"
-                        # , "address"
                         ],
                         aliases=["Station:"
-                        # , "Address:"
                         ],
                         sticky=False
                     ),
@@ -527,13 +425,7 @@ with right:
                         ],
                 
                         localize=True,
-                        labels=True,
-                        # style="""
-                        #     background-color: white;
-                        #     border: 1px solid gray;
-                        #     border-radius: 4px;
-                        #     padding: 5px;
-                        # """
+                        labels=True
                     ),
                 
                     marker=folium.Marker(
@@ -545,19 +437,6 @@ with right:
                     )
                 
                 ).add_to(EVCS)
-
-
-
-                # folium.GeoJson(
-                #     existing_stations,
-                #     marker=folium.Circle(
-                #         radius=1000,   # 1KM in meters
-                #         color="#38AADD",
-                #         fill=True,
-                #         fill_opacity=0,
-                #         weight=0.3
-                #     )
-                # ).add_to(Existing_EVCS)
                 Existing_EVCS.add_to(m)
                 
             elif demand_focus == "Mobility Priority":
@@ -566,39 +445,11 @@ with right:
                 popup=folium.GeoJsonPopup(
                     fields=["covered","demand_level"],
                     aliases=["Coverage Status:", "Mobility Demand Level:"],
-                    labels=True)
-               #                 ,
-               # tooltip=folium.GeoJsonTooltip(
-               #      fields=["demand_level"],
-               #      aliases=["Mobility Demand Level:"],
-               #      sticky=False)
-).add_to(Service_Coverage_and_Hex)
+                    labels=True)).add_to(Service_Coverage_and_Hex)
                 folium.GeoJson(
                 existing_stations,
-                # tooltip=folium.GeoJsonTooltip(
-                #     fields=["full_id"],
-                #     aliases=["Station Name:"],
-                #     sticky=False
-                # ),
-                # popup=folium.GeoJsonPopup(
-                #     fields=[
-                #         "candidate_type",
-                #         "status",
-                #         "y_epsg4326",
-                #         "x_epsg4326"
-                #     ],
-                #     aliases=[
-                #         "Facility Type:",
-                #         "Status:",
-                #         "Latitude:",
-                #         "Longitude:"
-                #     ],
-                #     localize=True,
-                #     labels=True,
-                # ),
                 marker=folium.CircleMarker(radius=3,color="#38AADD",fill=True,
-        fill_opacity=.6,
-        weight=.6)).add_to(Existing_EVCS)
+                    fill_opacity=.6,weight=.6)).add_to(Existing_EVCS)
 
 
                 
@@ -640,12 +491,6 @@ with right:
                 
                         localize=True,
                         labels=True,
-                        # style="""
-                        #     background-color: white;
-                        #     border: 1px solid gray;
-                        #     border-radius: 4px;
-                        #     padding: 5px;
-                        # """
                     ),
                 
                     marker=folium.Marker(
@@ -657,18 +502,6 @@ with right:
                     )
                 
                 ).add_to(EVCS)
-                    
-
-                # folium.GeoJson(
-                #     existing_stations,
-                #     marker=folium.Circle(
-                #         radius=1000,   # 1KM in meters
-                #         color="#38AADD",
-                #         fill=True,
-                #         fill_opacity=0,
-                #         weight=0.3
-                #     )
-                # ).add_to(Existing_EVCS)
                 Existing_EVCS.add_to(m)
                 
 
@@ -678,37 +511,10 @@ with right:
                 popup=folium.GeoJsonPopup(
                     fields=["covered","demand_level"],
                     aliases=["Coverage Status:", "Resident Demand Level:"],
-                    labels=True)
-               #                 ,
-               # tooltip=folium.GeoJsonTooltip(
-               #      fields=["demand_level"],
-               #      aliases=["Resident Demand Level:"],
-               #      sticky=False)
-).add_to(Service_Coverage_and_Hex)
+                    labels=True)).add_to(Service_Coverage_and_Hex)
 
                 folium.GeoJson(
                 existing_stations,
-                # tooltip=folium.GeoJsonTooltip(
-                #     fields=["full_id"],
-                #     aliases=["Station Name:"],
-                #     sticky=False
-                # ),
-                # popup=folium.GeoJsonPopup(
-                #     fields=[
-                #         "candidate_type",
-                #         "status",
-                #         "y_epsg4326",
-                #         "x_epsg4326"
-                #     ],
-                #     aliases=[
-                #         "Facility Type:",
-                #         "Status:",
-                #         "Latitude:",
-                #         "Longitude:"
-                #     ],
-                #     localize=True,
-                #     labels=True,
-                # ),
                 marker=folium.CircleMarker(radius=3,color="#38AADD",fill=True,
         fill_opacity=.6,
         weight=.6)).add_to(Existing_EVCS)
@@ -720,10 +526,8 @@ with right:
                 
                     tooltip=folium.GeoJsonTooltip(
                         fields=["full_id"
-                        # , "address"
                         ],
                         aliases=["Station:"
-                        # , "Address:"
                         ],
                         sticky=False
                     ),
@@ -753,12 +557,6 @@ with right:
                 
                         localize=True,
                         labels=True,
-                        # style="""
-                        #     background-color: white;
-                        #     border: 1px solid gray;
-                        #     border-radius: 4px;
-                        #     padding: 5px;
-                        # """
                     ),
                 
                     marker=folium.Marker(
@@ -770,55 +568,16 @@ with right:
                     )
                 
                 ).add_to(EVCS)
-
-
-
-            # folium.GeoJson(
-            #     existing_stations,
-            #     marker=folium.Circle(
-            #         radius=1000,   # 1KM in meters
-            #         color="#38AADD",
-            #         fill=True,
-            #         fill_opacity=0,
-            #         weight=0.3
-            #     )
-            # ).add_to(Existing_EVCS)
-            Existing_EVCS.add_to(m)
+                Existing_EVCS.add_to(m)
 
         elif mode == "Equity":
             folium.GeoJson(
                 hex_data,
                 style_function=style_hex
-                # ,
-                # popup=folium.GeoJsonPopup(
-                #     fields=["covered"],
-                #     aliases=["Coverage Status:"],
-                #     labels=True)
             ).add_to(Service_Coverage_and_Hex)
 
             folium.GeoJson(
             existing_stations,
-            # tooltip=folium.GeoJsonTooltip(
-            #     fields=["full_id"],
-            #     aliases=["Station Name:"],
-            #     sticky=False
-            # ),
-            # popup=folium.GeoJsonPopup(
-            #     fields=[
-            #         "candidate_type",
-            #         "status",
-            #         "y_epsg4326",
-            #         "x_epsg4326"
-            #     ],
-            #     aliases=[
-            #         "Facility Type:",
-            #         "Status:",
-            #         "Latitude:",
-            #         "Longitude:"
-            #     ],
-            #     localize=True,
-            #     labels=True,
-            # ),
             marker=folium.CircleMarker(radius=3,color="#38AADD",fill=True,
     fill_opacity=.6,
     weight=.6)).add_to(Existing_EVCS)
@@ -842,8 +601,6 @@ with right:
                     fields=[
                         "candidate_type",
                         "Potential",
-                        # "priority_rank",
-                        # "demand_score",
                         "y_epsg4326",
                         "x_epsg4326",
                         "google_maps_link"
@@ -852,21 +609,13 @@ with right:
                     aliases=[
                         "Facility Type:",
                         "Status:",
-                        # "Priority Rank:",
-                        # "Demand Contribution Score:",
                         "Latitude:",
                         "Longitude:",
                         ""
                     ],
             
                     localize=True,
-                    labels=True,
-                    # style="""
-                    #     background-color: white;
-                    #     border: 1px solid gray;
-                    #     border-radius: 4px;
-                    #     padding: 5px;
-                    # """
+                    labels=True
                 ),
             
                 marker=folium.Marker(
@@ -880,48 +629,8 @@ with right:
             ).add_to(EVCS)
 
 
-
-            # folium.GeoJson(
-            #     existing_stations,
-            #     marker=folium.Circle(
-            #         radius=1000,   # 1KM in meters
-            #         color="#38AADD",
-            #         fill=True,
-            #         fill_opacity=0,
-            #         weight=0.3
-            #     )
-            # ).add_to(Existing_EVCS)
             Existing_EVCS.add_to(m)
 
-        
-
-        
-
-            
-        
-
-
-        
-
-        
-        # folium.GeoJson(
-        #     station_data,
-        #     marker=folium.Marker(
-        #         #popup=folium.Popup(html_popup, max_width=250),
-        #         tooltip=f"Existing: {row['full_id']}",
-        #         icon=folium.Icon(color=color_icon_radius[0], icon='bolt', prefix='fa'))
-        # ).add_to(EVCS)
-    
-        # folium.GeoJson(
-        #     station_data,
-        #     marker=folium.Circle(
-        #         radius=color_icon_radius[2],   # 1KM in meters
-        #         color=color_icon_radius[1],
-        #         fill=True,
-        #         fill_opacity=0,
-        #         weight=1
-        #     )
-        # ).add_to(EVCS)
         EVCS.add_to(m)
         Service_Coverage_and_Hex.add_to(m)
 
@@ -1029,16 +738,6 @@ with right:
                 )
             ).add_to(Demand_Heatmap_Resident_Priority)
             Demand_Heatmap_Resident_Priority.add_to(m)
-            
-        # css = """
-        # <style>
-        #     .leaflet-control-layers-list {
-        #         font-size: 14px; /* Change the font size */
-        #         /* You can add other styles here, e.g., width, height, etc. */
-        #     }
-        # </style>
-        # """
-        # m.get_root().header.add_child(Element(css))
         
         folium.LayerControl().add_to(m)
 
@@ -1056,62 +755,12 @@ with right:
         
 
         m.get_root().header.add_child(Element(custom_css))
-
-        
-        # legend_html = """
-        # <div style="
-        # position: fixed;
-        # bottom: 50px;
-        # left: 50px;
-        # width: 220px;
-        # z-index:9999;
-        # font-size:14px;
-        # background-color:white;
-        # border:2px solid grey;
-        # border-radius:6px;
-        # padding:10px;
-        # ">
-        
-        # <b>Map Legend</b><br>
-        
-        # <br><b>Stations</b><br>
-        
-        # <i style="color:blue;" class="fa fa-bolt"></i> Existing Station<br>
-        # <i style="color:orange;" class="fa fa-bolt"></i> MCLP Station<br>
-        # <i style="color:green;" class="fa fa-bolt"></i> SCLP Station<br>
-        
-        # <br><b>Coverage Status</b><br>
-        
-        # <span style="background:#38AADD;width:12px;height:12px;display:inline-block"></span>
-        # Covered (Existing)<br>
-        
-        # <span style="background:orange;width:12px;height:12px;display:inline-block"></span>
-        # New Coverage (MCLP)<br>
-        
-        # <span style="background:green;width:12px;height:12px;display:inline-block"></span>
-        # New Coverage (SCLP)<br>
-        
-        # <span style="background:red;width:12px;height:12px;display:inline-block"></span>
-        # Uncovered Area<br>
-        
-        # </div>
-        # """
-
-
-        
-        # legend = MacroElement()
-        # legend._template = Template(legend_html)
-        
-        # m.get_root().add_child(legend)
-        
-        #st.cache_data.clear()
         return m
 
 
     m = build_map(hex_data, station_data)
     
     st_folium(m, width=None, height=650, returned_objects=[])
-    # st.markdown("</div>", unsafe_allow_html=True)
 
 
 
