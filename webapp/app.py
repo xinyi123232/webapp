@@ -242,7 +242,7 @@ with right:
         "uncovered": ["none", "0"],
         "existing": ["#38AADD", "0.1"],
         "new_coverage": ["red", "0.1"],
-        "new_coverage_SCLP": ["green", "0.1"]
+        "new_coverage_SCLP": ["green", "0.1"],
         "new_coverage_SCLP_MCLP": ["orange", "0.1"]
     }
 
