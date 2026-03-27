@@ -1,0 +1,804 @@
+{
+  "type": "FeatureCollection",
+  "name": "stations",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0312",
+        "contribution_w": 0.6579990792799648,
+        "rank": 1,
+        "contribution_share": 0.0119293734491152,
+        "status": "MCLP and SCLP",
+        "fid": "517",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.08193804907728,
+        "y_epsg4326": 14.704269718373396,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.704269718373396,121.08193804907728\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.08193804907728,
+          14.704269718373396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0148",
+        "contribution_w": 0.601042889754305,
+        "rank": 2,
+        "contribution_share": 0.0108967707046954,
+        "status": "MCLP and SCLP",
+        "fid": "353",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.00600210589391,
+        "y_epsg4326": 14.601458295908216,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.601458295908216,121.00600210589391\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.00600210589391,
+          14.601458295908216
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0408",
+        "contribution_w": 0.5926032646730041,
+        "rank": 3,
+        "contribution_share": 0.0107437622240824,
+        "status": "MCLP and SCLP",
+        "fid": "613",
+        "full_id": "w105142909",
+        "x_epsg4326": 120.99578306833045,
+        "y_epsg4326": 14.587092420278465,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.587092420278465,120.99578306833045\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.99578306833045,
+          14.587092420278465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0113",
+        "contribution_w": 0.4754899445235295,
+        "rank": 4,
+        "contribution_share": 0.0086205244021425,
+        "status": "MCLP and SCLP",
+        "fid": "318",
+        "full_id": "r11089465",
+        "x_epsg4326": 120.99369118906054,
+        "y_epsg4326": 14.566263064928327,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.566263064928327,120.99369118906054\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.99369118906054,
+          14.566263064928327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0129",
+        "contribution_w": 0.4350343385671779,
+        "rank": 5,
+        "contribution_share": 0.007887073479853,
+        "status": "MCLP and SCLP",
+        "fid": "334",
+        "full_id": "r11089465",
+        "x_epsg4326": 120.98035305,
+        "y_epsg4326": 14.6307187,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.6307187,120.98035305\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.98035305,
+          14.630718699999983
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0094",
+        "contribution_w": 0.4269389801307389,
+        "rank": 6,
+        "contribution_share": 0.0077403064751052,
+        "status": "MCLP and SCLP",
+        "fid": "299",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.0164348,
+        "y_epsg4326": 14.5024926,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.5024926,121.0164348\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.01643479999996,
+          14.502492600000027
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0747",
+        "contribution_w": 0.4167557453280793,
+        "rank": 7,
+        "contribution_share": 0.0075556867473483,
+        "status": "MCLP and SCLP",
+        "fid": "952",
+        "full_id": "w551177604",
+        "x_epsg4326": 121.08855510153097,
+        "y_epsg4326": 14.688692911348726,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.688692911348726,121.08855510153097\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.08855510153097,
+          14.688692911348726
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0455",
+        "contribution_w": 0.3216265219484611,
+        "rank": 8,
+        "contribution_share": 0.0058310155930032,
+        "status": "MCLP and SCLP",
+        "fid": "660",
+        "full_id": "w240105266",
+        "x_epsg4326": 120.9811726536716,
+        "y_epsg4326": 14.480236666052345,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.480236666052345,120.9811726536716\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.9811726536716,
+          14.480236666052345
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0181",
+        "contribution_w": 0.3120076557325033,
+        "rank": 9,
+        "contribution_share": 0.0056566277391892,
+        "status": "MCLP and SCLP",
+        "fid": "386",
+        "full_id": "r11089465",
+        "x_epsg4326": 120.9643493905573,
+        "y_epsg4326": 14.692427005211332,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.692427005211332,120.9643493905573\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.9643493905573,
+          14.692427005211332
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0433",
+        "contribution_w": 0.3050069209174317,
+        "rank": 10,
+        "contribution_share": 0.005529706011398,
+        "status": "MCLP and SCLP",
+        "fid": "638",
+        "full_id": "w171004803",
+        "x_epsg4326": 121.025404702496,
+        "y_epsg4326": 14.591895271040984,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.591895271040984,121.025404702496\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.025404702496,
+          14.591895271040984
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0545",
+        "contribution_w": 0.2950834456390467,
+        "rank": 11,
+        "contribution_share": 0.0053497956646564,
+        "status": "MCLP and SCLP",
+        "fid": "750",
+        "full_id": "w1192226898",
+        "x_epsg4326": 121.01899738773817,
+        "y_epsg4326": 14.680779753471239,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.680779753471239,121.01899738773817\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.01899738773817,
+          14.680779753471239
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0261",
+        "contribution_w": 0.2927240174862136,
+        "rank": 12,
+        "contribution_share": 0.0053070197696015,
+        "status": "MCLP and SCLP",
+        "fid": "466",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.04876798394798,
+        "y_epsg4326": 14.62534980056603,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.62534980056603,121.04876798394798\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.04876798394798,
+          14.62534980056603
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0149",
+        "contribution_w": 0.2754719640645915,
+        "rank": 13,
+        "contribution_share": 0.0049942439701949,
+        "status": "MCLP and SCLP",
+        "fid": "354",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.00294126661183,
+        "y_epsg4326": 14.619283801543054,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.619283801543054,121.00294126661183\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.00294126661183,
+          14.619283801543054
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0534",
+        "contribution_w": 0.2728598323332882,
+        "rank": 14,
+        "contribution_share": 0.0049468866168151,
+        "status": "MCLP and SCLP",
+        "fid": "739",
+        "full_id": "w935822989",
+        "x_epsg4326": 120.9607026734549,
+        "y_epsg4326": 14.656710886036278,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.656710886036278,120.9607026734549\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.9607026734549,
+          14.656710886036278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0507",
+        "contribution_w": 0.2360729234060116,
+        "rank": 15,
+        "contribution_share": 0.0042799483361229,
+        "status": "MCLP and SCLP",
+        "fid": "712",
+        "full_id": "w587707462",
+        "x_epsg4326": 121.04443103844032,
+        "y_epsg4326": 14.756641753932811,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.756641753932811,121.04443103844032\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.04443103844032,
+          14.756641753932811
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0649",
+        "contribution_w": 0.2310084626732215,
+        "rank": 16,
+        "contribution_share": 0.0041881308164602,
+        "status": "MCLP and SCLP",
+        "fid": "854",
+        "full_id": "w117446150",
+        "x_epsg4326": 121.07331707476233,
+        "y_epsg4326": 14.536648772520058,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.536648772520058,121.07331707476233\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.07331707476233,
+          14.536648772520058
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0025",
+        "contribution_w": 0.2309176126978157,
+        "rank": 17,
+        "contribution_share": 0.004186483727097,
+        "status": "MCLP and SCLP",
+        "fid": "230",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.03824066045196,
+        "y_epsg4326": 14.394397930064184,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.394397930064184,121.03824066045196\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.03824066045196,
+          14.394397930064184
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0487",
+        "contribution_w": 0.2287968531351809,
+        "rank": 18,
+        "contribution_share": 0.004148034839226,
+        "status": "MCLP and SCLP",
+        "fid": "692",
+        "full_id": "w343944897",
+        "x_epsg4326": 120.9953829215602,
+        "y_epsg4326": 14.687006069171586,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.687006069171586,120.9953829215602\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.9953829215602,
+          14.687006069171586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0522",
+        "contribution_w": 0.2255305310859683,
+        "rank": 19,
+        "contribution_share": 0.0040888171643733,
+        "status": "MCLP and SCLP",
+        "fid": "727",
+        "full_id": "w833696382",
+        "x_epsg4326": 120.96377778373726,
+        "y_epsg4326": 14.624987399750092,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.624987399750092,120.96377778373726\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.96377778373726,
+          14.624987399750092
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0446",
+        "contribution_w": 0.2217853821207564,
+        "rank": 20,
+        "contribution_share": 0.0040209184665857,
+        "status": "MCLP and SCLP",
+        "fid": "651",
+        "full_id": "w195680969",
+        "x_epsg4326": 121.08558176163939,
+        "y_epsg4326": 14.568104684380707,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.568104684380707,121.08558176163939\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.08558176163939,
+          14.568104684380707
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0510",
+        "contribution_w": 0.2107132012337794,
+        "rank": 21,
+        "contribution_share": 0.0038201823487762,
+        "status": "MCLP and SCLP",
+        "fid": "715",
+        "full_id": "w599429663",
+        "x_epsg4326": 121.04581748416813,
+        "y_epsg4326": 14.456720577169135,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.456720577169135,121.04581748416813\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.04581748416813,
+          14.456720577169135
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0664",
+        "contribution_w": 0.2089550357977481,
+        "rank": 22,
+        "contribution_share": 0.0037883072098403,
+        "status": "MCLP and SCLP",
+        "fid": "869",
+        "full_id": "w158193872",
+        "x_epsg4326": 121.03784233971832,
+        "y_epsg4326": 14.720987420869692,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.720987420869692,121.03784233971832\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.03784233971832,
+          14.720987420869692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0276",
+        "contribution_w": 0.2073532900580329,
+        "rank": 23,
+        "contribution_share": 0.0037592679243742,
+        "status": "MCLP and SCLP",
+        "fid": "481",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.04689110320312,
+        "y_epsg4326": 14.674745187446522,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.674745187446522,121.04689110320312\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.04689110320312,
+          14.674745187446522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0421",
+        "contribution_w": 0.2069187194229708,
+        "rank": 24,
+        "contribution_share": 0.0037513892577333,
+        "status": "MCLP and SCLP",
+        "fid": "626",
+        "full_id": "w131228339",
+        "x_epsg4326": 121.044949031367,
+        "y_epsg4326": 14.377389862696717,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.377389862696717,121.044949031367\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.044949031367,
+          14.377389862696717
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0002",
+        "contribution_w": 0.1888443867151054,
+        "rank": 25,
+        "contribution_share": 0.0034237057221399,
+        "status": "MCLP and SCLP",
+        "fid": "207",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.0448394645452,
+        "y_epsg4326": 14.47009701774905,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.47009701774905,121.0448394645452\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.0448394645452,
+          14.47009701774905
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0831",
+        "contribution_w": 0.1870033514779887,
+        "rank": 26,
+        "contribution_share": 0.0033903281725838,
+        "status": "MCLP and SCLP",
+        "fid": "1036",
+        "full_id": "w1203378405",
+        "x_epsg4326": 120.94880165663804,
+        "y_epsg4326": 14.656094854238095,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.656094854238095,120.94880165663804\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.94880165663804,
+          14.656094854238095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0506",
+        "contribution_w": 0.1826303410701847,
+        "rank": 27,
+        "contribution_share": 0.0033110464898364,
+        "status": "MCLP and SCLP",
+        "fid": "711",
+        "full_id": "w576523414",
+        "x_epsg4326": 121.0103674815671,
+        "y_epsg4326": 14.46875597412592,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.46875597412592,121.0103674815671\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.0103674815671,
+          14.46875597412592
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0564",
+        "contribution_w": 0.1634330081437859,
+        "rank": 28,
+        "contribution_share": 0.0029630032160424,
+        "status": "MCLP and SCLP",
+        "fid": "769",
+        "full_id": "r17648557",
+        "x_epsg4326": 121.1003711702706,
+        "y_epsg4326": 14.549803071311953,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.549803071311953,121.1003711702706\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.1003711702706,
+          14.549803071311953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0198",
+        "contribution_w": 0.1570295220833517,
+        "rank": 29,
+        "contribution_share": 0.0028469094721504,
+        "status": "MCLP and SCLP",
+        "fid": "403",
+        "full_id": "r11089465",
+        "x_epsg4326": 121.09011645000001,
+        "y_epsg4326": 14.5906148,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.5906148,121.09011645000001\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.09011645000001,
+          14.590614800000028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0505",
+        "contribution_w": 0.1555283018837882,
+        "rank": 30,
+        "contribution_share": 0.0028196926918328,
+        "status": "MCLP and SCLP",
+        "fid": "710",
+        "full_id": "w558278425",
+        "x_epsg4326": 121.06681957072061,
+        "y_epsg4326": 14.695702995841799,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.695702995841799,121.06681957072061\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.06681957072061,
+          14.695702995841799
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Gas Station",
+        "site_id": "GA_0165",
+        "contribution_w": 0.1506803955843183,
+        "rank": 31,
+        "contribution_share": 0.0027318012547262,
+        "status": "MCLP and SCLP",
+        "fid": "370",
+        "full_id": "r11089465",
+        "x_epsg4326": 120.98184033453013,
+        "y_epsg4326": 14.67408798466488,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.67408798466488,120.98184033453013\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          120.98184033453013,
+          14.67408798466488
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Parking",
+        "site_id": "PA_0843",
+        "contribution_w": 0.1489994772978763,
+        "rank": 32,
+        "contribution_share": 0.0027013265890195,
+        "status": "MCLP and SCLP",
+        "fid": "1048",
+        "full_id": "w1338976419",
+        "x_epsg4326": 121.0648667560449,
+        "y_epsg4326": 14.494562071483552,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.494562071483552,121.0648667560449\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.0648667560449,
+          14.494562071483552
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "candidate_type": "Mall",
+        "site_id": "MA_0544",
+        "contribution_w": 0.1420990019498089,
+        "rank": 33,
+        "contribution_share": 0.0025762225425312,
+        "status": "MCLP and SCLP",
+        "fid": "749",
+        "full_id": "w1178270231",
+        "x_epsg4326": 121.10850966285689,
+        "y_epsg4326": 14.669562193791473,
+        "Potential": "New",
+        "google_maps_link": "<a href=\"https://www.google.com/maps/search/?api=1&query=14.669562193791473,121.10850966285689\" target=\"_blank\">View on Google Maps</a>"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.10850966285689,
+          14.669562193791473
+        ]
+      }
+    }
+  ]
+}
