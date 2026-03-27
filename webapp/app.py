@@ -169,6 +169,13 @@ with left:
             st.metric("New Stations Required to Maximize Coverage", metrics["new_stations"])
             st.metric("Area Covered", f"{metrics['area_covered']}%")
             st.metric("Uncovered Areas",f"{metrics['uncovered']}%")
+
+        elif mode == "Efficiency and Equity":
+            st.metric("New Stations Added", metrics["new_stations_added"])
+            st.metric("Area Covered", f"{metrics['area_covered']}%")
+            st.metric("Area Improvement Over Current", f"+{metrics['area_improvement']}%")
+            st.metric("Demand Covered", f"{metrics['demand_covered']}%")
+            st.metric("Demand Improvement Over Current", f"+{metrics['demand_improvement']}%")
                 
         st.markdown("---")
     
