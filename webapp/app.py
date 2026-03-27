@@ -136,7 +136,8 @@ with left:
                 scenario_path = "data/universal_2000"
 
         elif mode == "Efficiency and Equity":
-            scenario_path = "data/efficiency_and_equity"
+            # scenario_path = "data/efficiency_and_equity"
+            scenario_path = "data/add50_balanced"
     
         # hex_data, station_data, metrics = load_scenario(scenario_path)
 
