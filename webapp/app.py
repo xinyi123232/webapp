@@ -219,7 +219,7 @@ with left:
             show_heatmap_demand_score_B = False
             show_heatmap_demand_score_C = False
 
-        elif mode == "":
+        elif mode == "Efficiency and Equity":
             emphasize_existing = st.checkbox("Highlight Existing Coverage")
             emphasize_new = st.checkbox("Highlight New Coverage")
             show_heatmap_demand_score_A = False
