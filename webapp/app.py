@@ -136,8 +136,8 @@ with left:
                 scenario_path = "data/universal_2000"
 
         elif mode == "Efficiency and Equity":
-            # scenario_path = "data/efficiency_and_equity"
-            scenario_path = "data/add50_balanced"
+            scenario_path = "data/efficiency_and_equity"
+            # scenario_path = "data/add50_balanced"
     
         # hex_data, station_data, metrics = load_scenario(scenario_path)
 
@@ -243,6 +243,7 @@ with right:
         "existing": ["#38AADD", "0.1"],
         "new_coverage": ["red", "0.1"],
         "new_coverage_SCLP": ["green", "0.1"]
+        "new_coverage_SCLP_MCLP": ["orange", "0.1"]
     }
 
     def style_hex(feature):
@@ -268,7 +269,7 @@ with right:
                 
 
         if emphasize_new:
-            if status == "new_coverage" or status == "new_coverage_SCLP":
+            if status == "new_coverage" or status == "new_coverage_SCLP" or status == "new_coverage_SCLP_MCLP":
                 return {
                     "fillColor": color[0],
                     "color": "black",
@@ -295,7 +296,8 @@ with right:
         "MCLP": ["red","red",1000],
         "SCLP": ["green","green",1000],
         "SCLP_500": ["green","green",500],
-        "SCLP_2000": ["green","green",2000],             
+        "SCLP_2000": ["green","green",2000],
+        "MCLP and SCLP": ["orange","orange",1000]
         }
     
     def style_station(feature):
@@ -648,6 +650,60 @@ with right:
 
 
             Existing_EVCS.add_to(m)
+
+        elif mode == "Efficiency and Equity":
+            folium.GeoJson(
+                hex_data,
+                style_function=style_hex
+            ).add_to(Service_Coverage_and_Hex)
+            
+            folium.GeoJson(
+            existing_stations,
+            marker=folium.CircleMarker(radius=3,color="#38AADD",fill=True,
+                            fill_opacity=.6,weight=.6)).add_to(Existing_EVCS)
+
+            folium.GeoJson(
+                station_data,
+                tooltip=folium.GeoJsonTooltip(
+                    fields=["full_id"
+                    # , "address"
+                    ],
+                    aliases=["Station:"
+                    # , "Address:"
+                    ],
+                    sticky=False
+                ),
+                popup=folium.GeoJsonPopup(
+                    fields=[
+                        "candidate_type",
+                        "Potential",
+                        "y_epsg4326",
+                        "x_epsg4326",
+                        "google_maps_link"
+                    ],
+            
+                    aliases=[
+                        "Facility Type:",
+                        "Status:",
+                        "Latitude:",
+                        "Longitude:",
+                        ""
+                    ],
+            
+                    localize=True,
+                    labels=True
+                ),
+            
+                marker=folium.Marker(
+                    icon=folium.Icon(
+                        color=color_icon_radius[0],
+                        icon="bolt",
+                        prefix="fa"
+                    )
+                )
+            
+
+        
 
         EVCS.add_to(m)
         Service_Coverage_and_Hex.add_to(m)
